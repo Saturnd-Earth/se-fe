@@ -1,0 +1,31 @@
+.header-top {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    #se-logo {
+        width: 8em;
+        grid-column: 1;
+        justify-self: center;
+        align-self: center;
+    }
+    
+    .header-text {
+        font-family: 'Damion', cursive;
+        grid-column: 2;
+        justify-self: left;
+        align-self: center;
+        font-size: 2.5em;
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.header-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    .bottom-images {
+        width: 3.5em;
+        justify-self: center;
+        align-self: center;
+        cursor: pointer;
+    }
+}
