@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.scss'
 
-import home from '../images/home.png'
+import home from '../images/house-white.svg'
 import post from '../images/post.png'
 import feed from '../images/user-feed.png'
 import awards from '../images/awards.png'
