@@ -1,9 +1,11 @@
 .post {
+    margin-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
     display: grid;
     grid-template-columns: .25fr 1fr;
-    width: 18em;
-    border-radius: 10px;
+    width: 21em;
+    border-radius: .75em;
     background-color: #C4C4C4;
-    justify-self: center;
-    align-self: center;
+    height: 6em;
 }
