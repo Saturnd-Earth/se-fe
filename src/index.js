@@ -1,22 +1,15 @@
-import { ApolloClient, ApolloProvider, InMemoryCache} from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
+import App from './App';
+import client from './requests.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-
-
-// ### This following commented out code will be used when we have an endpoint from the Backend
-
-// const client = new ApolloClient({
-//   uri: 'localhost:3000/',
-//   cache: new InMemoryCache()
-// });
 
 ReactDOM.render(
   <React.StrictMode>
-    // <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
       <App />
-    // </ApolloProvider>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
