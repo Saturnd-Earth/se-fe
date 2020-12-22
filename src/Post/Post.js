@@ -25,13 +25,12 @@ export default class Post extends Component {
             }
         }
     }
-    
+
     componentDidMount = () => {
         //
     }
 
     like = () => {
-        console.log('Hello');
         this.setState({postInfo: {
             ...this.state.postInfo,
             liked: !this.state.postInfo.liked
