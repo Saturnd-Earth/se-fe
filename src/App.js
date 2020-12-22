@@ -24,12 +24,20 @@ function App() {
       }/>
       <Route exact path='/make_post' render={ () =>
        <section className="make-post">
+         <Header/>
          <p>make a post page</p>
        </section>}
       />
       <Route exact path='/my_post' render={ () =>
        <section className="view-post">
+         <Header/>
          <p>make a view page</p>
+       </section>}
+      />
+      <Route exact path='/awards' render={ () =>
+       <section className="awards">
+         <Header/>
+         <p>awards page</p>
        </section>}
       />
     </section>

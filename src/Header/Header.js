@@ -25,7 +25,9 @@ export default function Header() {
               <Link to="/my_post" label="my post">
                   <img src={feed} alt='Your feed' className='bottom-images' id='user-feed-icon'/>
               </Link>
-                <img src={awards} alt='Your awards' className='bottom-images' id='user-awards-icon'/>
+              <Link to="/awards" label="my awards">
+                  <img src={awards} alt='Your awards' className='bottom-images' id='user-awards-icon'/>
+              </Link>
             </section>
         </section>
     )
