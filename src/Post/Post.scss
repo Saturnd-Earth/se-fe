@@ -33,6 +33,15 @@
                 align-self: center;
             }
         }
+        .post-left-bottom {
+            display: flex;
+            justify-content: center;
+            #like-button {
+                width: 40px;
+                align-self: center;
+                cursor: pointer;
+            }
+        }
     }
     //
     .post-right {
