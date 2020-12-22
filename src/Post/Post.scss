@@ -19,10 +19,22 @@
         margin: 0;
         padding: 0;
     }
+    //
     .post-left {
         display: grid;
         grid-template-rows: .5fr .5fr;
+        .post-left-top {
+            display: flex;
+            justify-content: center;
+            #user-icon {
+                border: 1px solid black;
+                border-radius: 100%;
+                width: 40px;
+                align-self: center;
+            }
+        }
     }
+    //
     .post-right {
         //
         display: grid;
