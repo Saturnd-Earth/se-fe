@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.scss'
 
+import awards from '../images/award-white.png'
+import feed from '../images/user-white.png'
 import home from '../images/house-white.png'
 import post from '../images/post-white.png'
-import feed from '../images/user-white.png'
-import awards from '../images/award-white.png'
 import seLogo from '../images/se-logo.png'
 
 export default function Header() {
