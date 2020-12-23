@@ -1,0 +1,39 @@
+.header-top {
+    display: grid;
+    grid-template-columns: .5fr 1fr;
+    #se-logo {
+        width: 8em;
+        grid-column: 1;
+        justify-self: center;
+        align-self: center;
+        margin-top: -1.5em;
+    }
+    
+    .header-text {
+        font-family: 'Damion', cursive;
+        grid-column: 2;
+        justify-self: left;
+        align-self: center;
+        font-size: 2.5em;
+        padding: 0;
+        margin: 0;
+        margin-top: -.5em;
+    }
+}
+
+.header-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #C4C4C4;
+    margin-top: -2em;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    .bottom-images {
+        width: 3.5em;
+        border-radius: 10px;
+        justify-self: center;
+        align-self: center;
+        cursor: pointer;
+        box-shadow: 1px 4px 9px 0px #282D33;
+    }
+}
