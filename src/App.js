@@ -8,9 +8,9 @@ import './App.scss';
 function App() {
   return (
     <section>
+      <Header/>
       <Route exact path='/' render={ () => 
         <section className="home">
-          <Header/>
           <Post/>
           <Post/>
           <Post/>
@@ -24,19 +24,16 @@ function App() {
       }/>
       <Route exact path='/make_post' render={ () =>
        <section className="make-post">
-         <Header/>
          <p>make a post page</p>
        </section>}
       />
       <Route exact path='/my_post' render={ () =>
        <section className="view-post">
-         <Header/>
          <p>make a view page</p>
        </section>}
       />
       <Route exact path='/awards' render={ () =>
        <section className="awards">
-         <Header/>
          <p>awards page</p>
        </section>}
       />
