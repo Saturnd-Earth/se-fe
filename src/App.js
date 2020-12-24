@@ -56,7 +56,7 @@ export default class App extends Component {
               feed: feedBlue,
               awards: awardsWhite
             }}/>
-            <p>make a view page</p>
+            <Feed />
           </section>}
         />
         <Route exact path='/awards' render={ () =>

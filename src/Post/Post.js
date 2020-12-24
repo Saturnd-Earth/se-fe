@@ -65,7 +65,3 @@ export default class Post extends Component {
         )
     }
 }
-
-/*
-- Add header that changes depending on what page you're on
-*/
