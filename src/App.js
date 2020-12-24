@@ -34,7 +34,7 @@ export default class App extends Component {
               feed: feedWhite,
               awards: awardsWhite
             }}/>
-            <Feed />
+            <Feed headerTitle='Home'/>
           </section>
         }/>
         <Route exact path='/make_post' render={ () =>
@@ -56,7 +56,7 @@ export default class App extends Component {
               feed: feedBlue,
               awards: awardsWhite
             }}/>
-            <Feed />
+            <Feed headerTitle='My Posts'/>
           </section>}
         />
         <Route exact path='/awards' render={ () =>
