@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './Make_Post.scss';
+import '../Scss/base.scss';
 
 import videoIcon from '../images/add-vid-blue.png'
 import imageIcon from '../images/add-img-blue.png'

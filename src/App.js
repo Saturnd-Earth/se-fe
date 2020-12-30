@@ -4,7 +4,7 @@ import Post from './Post/Post.js'
 import MakePost from './Make_Post/Make_Post.js'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
-import './App.scss';
+import './Scss/base.scss';
 
 function App() {
   return (

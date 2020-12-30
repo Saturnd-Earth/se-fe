@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss'
+import '../Scss/base.scss'
 
 import home from '../images/house-white.png'
 import post from '../images/post-white.png'

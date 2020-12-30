@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
-import './Post.scss';
+import '../Scss/base.scss';
+
 // icons
 import dummyIcon from '../images/dummyIcon.png';
 import defaultLike from '../images/like-white.png';
