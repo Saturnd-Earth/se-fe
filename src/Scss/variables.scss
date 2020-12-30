@@ -1,7 +1,14 @@
 $application-gray: #C4C4C4;
 $drop-showdow:#282D33;
-$drop-showdow:#006c92;
+$application-bue:#006c92;
 
 %drop-shodow {
-  box-shadow: 1px 4px 9px 0px $drop-showdow
+  box-shadow: 1px 4px 9px 0px $drop-showdow;
+}
+
+%profile-picture {
+  border: 1px solid $application-bue;
+  border-radius: 100%;
+  width: 40px;
+  align-self: center;
 }
