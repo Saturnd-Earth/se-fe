@@ -18,7 +18,7 @@ export class Make_Post extends Component {
         <button className='make-post-button'>
           Post
         </button>
-        <h4>Start Your Ring By Making A Post Here</h4>
+        <h4 className='make-post-text'>Start Your Ring By Making A Post Here</h4>
         <textarea 
           rows="10" cols="50"
           className='make-post-input'
