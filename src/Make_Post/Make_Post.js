@@ -24,7 +24,12 @@ export class Make_Post extends Component {
           className='make-post-input'
           placeholder='Type your post here!'
         />
-        <img src={imageIcon} className='icons make-post-image'/>
+        <div className='make-post-image'>
+          <label for='image-upload'>
+            <img src={imageIcon} className='icons'/>
+          </label>
+          <input type="file" />
+        </div>
         <img src={videoIcon} className='icons make-post-video'/>
       </section>
     )

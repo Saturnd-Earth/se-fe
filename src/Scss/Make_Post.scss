@@ -8,6 +8,7 @@
   @extend %make-post-margin;
   margin-bottom: 2em;
 }
+
 .icons {
   width: 3.5em;
   height: auto;
@@ -15,6 +16,9 @@
 }
 .make-post-image{
   grid-column: 1;
+}
+.make-post-image>input{
+  display: none;
 }
 .make-post-video{
   grid-column: 2;

@@ -8,9 +8,9 @@ import './Scss/base.scss';
 
 function App() {
   return (
-    <section>
+    <section className="all-pages">
       <Route exact path='/' render={ () => 
-        <section className="home">
+        <section>
           <Header/>
           <Post/>
           <Post/>
@@ -27,7 +27,6 @@ function App() {
        <section className="make-post">
          <Header/>
          <MakePost/>
-         <p>make a post page</p>
        </section>}
       />
       <Route exact path='/my_post' render={ () =>
