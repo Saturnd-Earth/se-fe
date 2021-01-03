@@ -1,30 +1,84 @@
 .make-post-section {
   text-align: center;
   display: grid;
-}
-.make-post-input {
-  resize: none;
-  grid-row: 3;
-  @extend %make-post-margin;
-  margin-bottom: 2em;
+  font-family: 'Open Sans',
 }
 
+.make-post-input {
+  @extend %post-input;
+}
+
+.input-video-link{
+  @extend %post-input;
+  display: none;
+}
+
+.input-image-link{
+  @extend %post-input;
+  display: none;
+}
+
+.input-image-link-title{
+  grid-row: 3;
+  @extend %post-input;
+  display: none;
+}
+
+.tab {
+  background-color: $application-gray;
+  overflow: hidden;
+  @extend %make-post-margin;
+  display: flex;
+  justify-content: space-around;
+  grid-row: 2;
+  border-radius: 1em;
+
+}
 .icons {
-  width: 3.5em;
+  width: 3em;
   height: auto;
   justify-self: center;
 }
-.make-post-image{
-  grid-column: 1;
+.tab-links{
+  background-color: $application-gray;
+  border-radius: 1em;
+  border-color: none;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  @extend %drop-shodow;
+  // &:active{
+  //   color: red;
+  //   font-size: 1rem;
+  //   transition: .4s ease;
+  // }
 }
-.make-post-image>input{
-  display: none;
+
+.tab-content {
+  border-radius: 1em;
+  border-color: $application-gray;
+  border-width: 1em;
 }
-.make-post-video{
-  grid-column: 2;
-}
+// .icons {
+//   @extend %buttons;
+//   background-color: $application-gray;
+//   width: 3em;
+//   height: auto;
+//   justify-self: center;
+  
+// }
+
+// .make-post-video{
+//   grid-column: 3;
+// }
+
+
 .make-post-button{
-  grid-row: 1;
+  grid-row: 5;
   margin-top: 2em;
   height: 1.5em;
   border-radius: 0.5em;
@@ -34,7 +88,8 @@
   background-color:$application-bue;
   @extend %make-post-margin;
 }
+
 .make-post-text{
   @extend %make-post-margin;
-  grid-row: 2;
+  grid-row: 1;
 }
