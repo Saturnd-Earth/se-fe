@@ -37,3 +37,10 @@
         @extend %drop-shodow;
     }
 }
+
+.selected {
+    .bottom-images {
+        width: 4em;
+        background-color: $application-bue;
+    }
+}

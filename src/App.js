@@ -9,7 +9,7 @@ import './Scss/base.scss';
 function App() {
   return (
     <section className="all-pages">
-      <Route exact path='/' render={ () => 
+      <Route exact path='/home' render={ () => 
         <section>
           <Header/>
           <Post/>

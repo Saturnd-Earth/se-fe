@@ -16,16 +16,16 @@ export default function Header() {
                 <h1 className='header-text'>Saturn'd Earth</h1>
             </section>
             <section className='header-bottom'>
-              <NavLink to="/" label="home">
+              <NavLink to="/home" label="home" activeClassName="selected">
                 <img src={home} alt='Home' className='bottom-images' id='home-icon'/>
               </NavLink>
-              <NavLink to="/make_post" label="my post">
+              <NavLink to="/make_post" label="my post" activeClassName="selected">
                 <img src={post} alt='Add a post' className='bottom-images' id='make-post-icon'/>
               </NavLink>
-              <NavLink to="/my_post" label="my post">
+              <NavLink to="/my_post" label="my post" activeClassName="selected">
                   <img src={feed} alt='Your feed' className='bottom-images' id='user-feed-icon'/>
               </NavLink>
-              <NavLink to="/awards" label="my awards">
+              <NavLink to="/awards" label="my awards" activeClassName="selected">
                   <img src={awards} alt='Your awards' className='bottom-images' id='user-awards-icon'/>
               </NavLink>
             </section>
