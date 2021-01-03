@@ -29,18 +29,12 @@
     padding-top: .75em;
     padding-bottom: .75em;
     .bottom-images {
-        width: 3.5em;
-        border-radius: 10px;
-        justify-self: center;
-        align-self: center;
-        cursor: pointer;
-        @extend %drop-shodow;
+      @extend %buttons
     }
 }
 
 .selected {
     .bottom-images {
-        width: 4em;
-        background-color: $application-bue;
+      @extend %selected-button
     }
 }
