@@ -26,7 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <section>
-        <Route exact path='/' render={ () => 
+        <Route exact path='/' render={ () =>
           <section className="home">
             <Header icons={{
               home: homeBlue,
