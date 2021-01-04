@@ -1,7 +1,7 @@
 import React from 'react';
-import '../Scss/Header.scss'
-//
-import seLogo from '../Images/se-logo.png'
+import '../Scss/Header.scss';
+
+import seLogo from '../Images/se-logo.png';
 import { Link, Redirect } from 'react-router-dom';
 
 export default function Header(props) {
