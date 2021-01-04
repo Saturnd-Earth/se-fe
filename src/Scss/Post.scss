@@ -13,8 +13,8 @@
     height: 6em;
     // style
     border-radius: .75em;
-    background-color: #C4C4C4;
-    box-shadow: 1px 4px 9px 0px #282D33;
+    background-color: $application-gray;
+    @extend %drop-shodow;
     // p tags
     p {
         margin: 0;
@@ -28,10 +28,7 @@
             display: flex;
             justify-content: center;
             #user-icon {
-                border: 1px solid black;
-                border-radius: 100%;
-                width: 40px;
-                align-self: center;
+              @extend %profile-picture
             }
         }
         .post-left-bottom {

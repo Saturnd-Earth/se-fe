@@ -13,7 +13,7 @@ import awardsWhite from '../src/Images/award-white.png'
 
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
-import './App.scss';
+import './Scss/base.scss';
 
 import React, { Component } from 'react'
 export default class App extends Component {
@@ -26,7 +26,7 @@ export default class App extends Component {
   render() {
     return (
       <section>
-        <Route exact path='/' render={ () => 
+        <Route exact path='/' render={ () =>
           <section className="home">
             <Header icons={{
               home: homeBlue,
