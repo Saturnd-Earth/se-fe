@@ -1,11 +1,11 @@
 import { gql, useMutation } from '@apollo/client';
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 const USER_SIGNUP = gql`
-  mutation {
-    createUser(input:{
-      username: $username,
+  mutation userSignup($username: String!, $password: String!){
+    createUser(input: {
+      username: $username
       password: $password
     })
     {
@@ -18,6 +18,7 @@ const USER_SIGNUP = gql`
 `;
 
 function SignUp() {
+  let [error, setError] = useState(false)
   let input = {
     password: '',
     username: ''
@@ -30,17 +31,20 @@ function SignUp() {
   }
 
   let signUp = (e) => {
+    let {username, password} = input
     e.preventDefault()
-    // signUpUser({
-      // variables: {
-        // password: input.password,
-        // username: input.username
-      // }
-    // })
-    window.setTimeout( () => {
-      console.log(data)
-    }, 1)
-    history.push('/')
+    signUpUser({
+      variables: {
+        username,
+        password
+      }
+    }).then( response => {
+      history.push('/')
+      console.log(response)
+    })
+    .catch( _ => {
+      setError(true)
+    })
   }
 
   return (
@@ -49,6 +53,7 @@ function SignUp() {
         <input type="text" placeholder="username" name="username" onInput={handleInput}/>
         <input type="password" placeholder="password" name="password" onInput={handleInput}/>
         <input type="submit" placeholder="register" onClick={signUp} value="Sign up"/>
+        {error ? 'Looks like that user already exists! Select a different user name' : <></>}
       </form>
     </section>
   )
