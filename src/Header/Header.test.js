@@ -15,8 +15,11 @@ import seLogo from '../images/se-logo.png'
 describe('Header', () => {
 
   beforeEach(() => {
+    let icons = {home, post, feed, awards}
     render(
-      <Header />
+      <MemoryRouter>
+        <Header icons={icons}/>
+      </MemoryRouter>
     )
   })
 

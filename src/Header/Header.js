@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.scss'
+import '../Scss/Header.scss'
 //
 import seLogo from '../Images/se-logo.png'
 import { Link, Redirect } from 'react-router-dom';
