@@ -2,7 +2,7 @@ import { gql, useMutation } from '@apollo/client';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-const USER_SIGNUP = gql`
+export const USER_SIGNUP = gql`
   mutation userSignup($username: String!, $password: String!){
     createUser(input: {
       username: $username
@@ -17,7 +17,7 @@ const USER_SIGNUP = gql`
   }
 `;
 
-function SignUp() {
+export function SignUp() {
   let [error, setError] = useState(false)
   let input = {
     password: '',
@@ -58,5 +58,3 @@ function SignUp() {
     </section>
   )
 }
-
-export default SignUp;

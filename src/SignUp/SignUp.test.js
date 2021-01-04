@@ -1,47 +1,101 @@
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { createMemoryHistory } from 'history'
-import SignUp from './SignUp.js'
+import { MockedProvider } from '@apollo/client/testing';
 import { Router } from "react-router-dom"
 import React from 'react'
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor } from '@testing-library/react'
+import { USER_SIGNUP, SignUp } from './SignUp.js'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
 
 describe('SignUp', () => {
 
-  let button, history, passwordInput, userNameInput;
-  beforeEach(() => {
+  describe('Basic Rendering', () => {
 
-    const client = new ApolloClient({
-      uri: 'http://localhost:3000/',
-      cache: new InMemoryCache()
-    });
-    history = createMemoryHistory()
+    it('should display a login form', () => {
+      render(
+        <MockedProvider mocks={[]} addTypename={false}>
+            <SignUp />
+        </MockedProvider>
+      )
 
-    render(
-      <ApolloProvider client={client}>
-        <Router history={history}>
-          <SignUp />
-        </Router>
-      </ApolloProvider>
-    )
+      let userNameInput = screen.getByPlaceholderText('username')
+      let passwordInput = screen.getByPlaceholderText('password')
+      let button = screen.getByText('Sign up')
 
-    userNameInput = screen.getByPlaceholderText('username')
-    passwordInput = screen.getByPlaceholderText('password')
-    button = screen.getByText('Sign up')
-  })
+      expect(userNameInput).toBeInTheDocument()
+      expect(passwordInput).toBeInTheDocument()
+      expect(button).toBeInTheDocument()
+    })
+  });
 
-  it('should display a login form', () => {
-    expect(userNameInput).toBeInTheDocument()
-    expect(passwordInput).toBeInTheDocument()
-    expect(button).toBeInTheDocument()
-  })
+  describe('GraphQL Tests', () => {
 
-  it('should submit user credentials when `login` button is clicked', () => {
-    userEvent.type(userNameInput, 'admin')
-    userEvent.type(passwordInput, 'password')
-    userEvent.click(button)
+    it('should submit user credentials when `login` button is clicked', async () => {
 
-    expect(history.entries[1].pathname).toEqual('/');
+      let history = createMemoryHistory()
+      const mocks = [
+        {
+          request: {
+            query: USER_SIGNUP
+          },
+          result: {
+          },
+        },
+      ];
+
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <Router history={history}>
+            <SignUp />
+          </Router>
+        </MockedProvider>
+      )
+
+      let userNameInput = screen.getByPlaceholderText('username')
+      let passwordInput = screen.getByPlaceholderText('password')
+      let button = screen.getByText('Sign up')
+
+      userEvent.type(userNameInput, 'Debug User')
+      userEvent.type(passwordInput, '123qwe')
+      userEvent.click(button)
+
+      await setTimeout( () => {
+        expect(history.entries[1].pathname).toEqual('/')
+      }, 100);
+    })
+
+    it('should display an error message when the username already exists', async () => {
+
+      let history = createMemoryHistory()
+      const mocks = [
+        {
+          request: {
+            query: USER_SIGNUP,
+          },
+          error: {
+          },
+        },
+      ];
+
+      render(
+        <MockedProvider mocks={mocks} addTypename={false}>
+          <Router history={history}>
+            <SignUp />
+          </Router>
+        </MockedProvider>
+      )
+
+      let userNameInput = screen.getByPlaceholderText('username')
+      let passwordInput = screen.getByPlaceholderText('password')
+      let button = screen.getByText('Sign up')
+
+      userEvent.type(userNameInput, 'Debug User')
+      userEvent.type(passwordInput, '123qwe')
+      userEvent.click(button)
+
+      await setTimeout( () => {
+        expect(screen.getByText('Looks like that user already exists! Select a different user name')).toBeInTheDocument()
+      }, 100);
+    })
   })
 });
