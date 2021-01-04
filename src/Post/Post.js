@@ -1,9 +1,9 @@
 import React, { Component }  from 'react';
 import './Post.scss';
 // icons
-import dummyIcon from '../images/dummyIcon.png';
-import defaultLike from '../images/like-white.png';
-import blueLike from '../images/like-blue.png';
+import dummyIcon from '../Images/dummyIcon.png';
+import defaultLike from '../Images/like-white.png';
+import blueLike from '../Images/like-blue.png';
 
 export default class Post extends Component {
     constructor(props) {
