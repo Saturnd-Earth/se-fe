@@ -4,8 +4,15 @@
   font-family: 'Open Sans',
 }
 
+.input-section {
+  @extend %make-post-margin;
+  margin-top: 1em;
+}
+
 .make-post-input {
-  @extend %post-input;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input-video-link{
@@ -51,11 +58,6 @@
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   @extend %drop-shodow;
-  // &:active{
-  //   color: red;
-  //   font-size: 1rem;
-  //   transition: .4s ease;
-  // }
 }
 
 .tab-content {
@@ -63,18 +65,7 @@
   border-color: $application-gray;
   border-width: 1em;
 }
-// .icons {
-//   @extend %buttons;
-//   background-color: $application-gray;
-//   width: 3em;
-//   height: auto;
-//   justify-self: center;
-  
-// }
 
-// .make-post-video{
-//   grid-column: 3;
-// }
 
 
 .make-post-button{
