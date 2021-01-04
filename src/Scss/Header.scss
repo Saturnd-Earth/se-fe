@@ -18,22 +18,27 @@
         padding: 0;
         margin: 0;
         margin-top: -.5em;
+        color: #026C92;
     }
 }
 
 .header-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    background-color: #C4C4C4;
+    background-color: $application-gray;
     margin-top: -2em;
     padding-top: .75em;
     padding-bottom: .75em;
+    .icon-links {
+        justify-self: center;
+        align-self: center;
+    }
     .bottom-images {
         width: 3.5em;
         border-radius: 10px;
         justify-self: center;
         align-self: center;
         cursor: pointer;
-        box-shadow: 1px 4px 9px 0px #282D33;
+        @extend %drop-shodow;
     }
 }
