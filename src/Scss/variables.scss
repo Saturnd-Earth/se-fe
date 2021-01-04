@@ -20,18 +20,7 @@ $white:#ffff;
   margin-right: 4em;
 }
 
-%buttons{
-  width: 3.5em;
-  border-radius: 1em;
-  justify-self: center;
-  align-self: center;
-  cursor: pointer;
-  @extend %drop-shodow;
-}
-%selected-button{
-  width: 3.85em;
-  background-color: $application-bue;
-}
+
 %post-input{
   resize: none;
   grid-row: 4;

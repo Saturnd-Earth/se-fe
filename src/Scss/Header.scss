@@ -28,13 +28,26 @@
     margin-top: -2em;
     padding-top: .75em;
     padding-bottom: .75em;
-    .bottom-images {
-      @extend %buttons
-    }
 }
+
+.bottom-images {
+    width: 3.5em;
+    border-radius: 1em;
+    justify-self: center;
+    align-self: center;
+    background-color: $application-gray;
+    cursor: pointer;
+    @extend %drop-shodow;
+} 
+// I can't seem to get darken to work please see 
+// "selected" for example of it working maybe :focus
 
 .selected {
     .bottom-images {
-      @extend %selected-button
+      width: 3.85em;
+      background-color: $application-bue;
     }
+    :hover {
+        background-color: darken($application-bue, 5%);
+      }
 }
