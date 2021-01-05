@@ -1,4 +1,4 @@
-import Post from './Post.js'
+import { Post } from './Post.js'
 import { MemoryRouter } from "react-router-dom"
 import React from 'react'
 import { render, screen } from '@testing-library/react'
