@@ -7,18 +7,17 @@ const Make_Post_Input = (props) => {
     return (
       <section className='input-section'>
         <textarea 
-          rows="2" cols="10"
+          rows="6" cols="10"
           className='make-post-input tab-content'
-          placeholder='Title'
+          placeholder='Add A Title To Your Video'
           spellCheck= "true"
           wrap="soft"
         />
-        <textarea 
-          rows="7" cols="10"
-          className='make-post-input tab-content'
+        <input 
+          className='make-post-input media-content'
           placeholder='input your video link!'
-          spellCheck= "true"
-          wrap="soft"
+          minlength='5'
+          type='url'
         />
       </section>
     ) 
@@ -26,18 +25,17 @@ const Make_Post_Input = (props) => {
     return ( 
       <section className='input-section'>
         <textarea 
-          rows="2" cols="10"
+          rows="6" cols="10"
           className='make-post-input tab-content'
-          placeholder='Title'
+          placeholder='Add A Title To Your Image'
           spellCheck= "true"
           wrap="soft"
         />
-        <textarea 
-          rows="7" cols="10"
-          className='make-post-input tab-content'
+        <input 
+          className='make-post-input media-content'
           placeholder='input your image link!'
-          spellCheck= "true"
-          wrap="soft"
+          minlength='5'
+          type='url'
         />
       </section>
     )

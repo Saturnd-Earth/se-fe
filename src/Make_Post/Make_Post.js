@@ -7,7 +7,7 @@ import imageIcon from '../images/add-img-white.png'
 import commentIcon from '../images/add-comment-white.png'
 
 const Make_Post = () => {
-  const [commentInput, setCommentInput] = useState(3);
+  const [commentInput, setCommentInput] = useState(1);
 
   useEffect(() => {
       //if one is set to true then remove a hidden class to the file 
@@ -17,21 +17,40 @@ const Make_Post = () => {
 
   return (
     <section className='make-post-section'>
-      <h4 className='make-post-text'>Start Your Ring By Making A Post Here</h4>
+      <h4 className='make-post-text'>
+        Start Your Ring By Making A Post Here
+      </h4>
       <div className="tab">
-        <button className="tab-links" onClick={() => {
-          console.log("hi")
-          setCommentInput(1)}
-        }>
-          <img src={commentIcon} className='icons make-post-comment' label="Add comment"/>
+        <button 
+          className={"tab-links" + (commentInput === 1 ? "-selected" : "")} 
+          onClick={() => setCommentInput(1)}
+        >
+          <img src={commentIcon} 
+            className='icons make-post-comment' 
+            label="Add comment"
+          />
           Add Comment
         </button>
-        <button className="tab-links" onClick={() => setCommentInput(2)}>
-          <img src={imageIcon} className='icons' label="link image"/>
+        <button 
+          className={"tab-links" + (commentInput === 2 ? "-selected" : "")}
+          onClick={() => setCommentInput(2)}
+        >
+          <img 
+            src={imageIcon} 
+            className='icons' 
+            label="link image"
+          />
           Link Image
         </button>
-        <button className="tab-links" onClick={() => setCommentInput(3)}>
-          <img src={videoIcon} className='icons make-post-video' label="link video"/>
+        <button 
+          className={"tab-links" + (commentInput === 3 ? "-selected" : "")}
+          onClick={() => setCommentInput(3)}
+        >
+          <img 
+            src={videoIcon} 
+            className='icons make-post-video' 
+            label="link video"
+          />
           Link Video
         </button>
       </div>
