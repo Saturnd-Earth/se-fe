@@ -21,6 +21,7 @@ import React, { Component } from 'react';
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 const lat = -888;
 const lon = -999;
+const name = 'John Doe';
 export default class App extends Component {
   constructor() {
     super()
@@ -43,6 +44,7 @@ export default class App extends Component {
             headerTitle='Home' 
             myPostsPage={false}
             content={loremIpsum}
+            name={name}
             />
           </section>
         }/>

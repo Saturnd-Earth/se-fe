@@ -13,7 +13,7 @@ export default class Post extends Component {
         this.state = {
             userInfo: {
                 userIcon: dummyIcon,
-                name: 'John Doe'
+                name: null
             },
             postInfo: {
                 ring: 0,
@@ -94,7 +94,7 @@ export default class Post extends Component {
                     </section>
                     <section className='post-right'>
                         <div className='post-right-top'>
-                                <em><strong><h5 className='post-right-top-h' id='name-header'>{this.state.userInfo.name}</h5></strong></em><br/>
+                                <em><strong><h5 className='post-right-top-h' id='name-header'>{this.props.name}</h5></strong></em><br/>
                                 <em><h6 className='post-right-top-h' id='prt2'>Ring: {this.state.postInfo.ring}</h6></em><br/>
                                 <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
                         </div>

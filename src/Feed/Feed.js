@@ -9,60 +9,70 @@ export default function Feed(props) {
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
         lat={props.lat}
         lon={props.lon}
+        name={props.name}
         />,
     ];
     return (
