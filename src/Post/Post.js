@@ -20,7 +20,7 @@ export default class Post extends Component {
                 id: null,
                 date: null,
                 liked: false,
-                postContent: null
+                postContent: null,
             },
             page: {
                 myPosts: true
@@ -71,7 +71,7 @@ export default class Post extends Component {
                     </section>
                     <section className='post-right'>
                         <div className='post-right-top'>
-                                <em><strong><h5 className='post-right-top-h' id='name-header'>{this.state.userInfo.name}</h5></strong></em><br/>
+                                <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: </h5></strong></em><br/>
                                 <em><h6 className='post-right-top-h' id='prt2'>Ring: {this.state.postInfo.ring}</h6></em><br/>
                                 <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
                         </div>
