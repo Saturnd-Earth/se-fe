@@ -14,7 +14,7 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 1em;
-  border-color: $application-gray;
+  border-color:  #C4C4C4;
   border-width: 1em;
   padding: 1em;
   outline: none;
@@ -37,7 +37,7 @@
 }
 
 .tab {
-  background-color: $application-gray;
+  background-color:  #C4C4C4;
   overflow: hidden;
   @extend %make-post-margin;
   display: flex;
@@ -58,7 +58,7 @@
 }
 
 .tab-links{
-  background-color: $application-gray;
+  background-color:  #C4C4C4;
   @extend %tabs-input;
 }
 
@@ -70,7 +70,7 @@
   color:$white;
   font-weight: bold;
   font-size: 1.5em;
-  background-color:$application-bue;
+  background-color: #C4C4C4;
   @extend %make-post-margin;
   cursor: pointer;
   outline: none;
@@ -82,7 +82,7 @@
 }
 
 .tab-links-selected {
-  background-color: $application-bue;
+  background-color:  #C4C4C4;
   color:$white;
   @extend %tabs-input;
   font-size: 0.9em;

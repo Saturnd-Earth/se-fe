@@ -1,6 +1,6 @@
 $application-gray: #C4C4C4;
 $drop-showdow:#282D33;
-$application-bue:#006c92;
+$application-blue:#006c92;
 $white:#ffff;
 
 %drop-shodow {
@@ -8,7 +8,7 @@ $white:#ffff;
 }
 
 %profile-picture {
-  border: 1px solid $application-bue;
+  border: 1px solid $application-blue;
   border-radius: 100%;
   width: 40px;
   align-self: center;
@@ -25,7 +25,7 @@ $white:#ffff;
   resize: none;
   grid-row: 4;
   @extend %make-post-margin;
-  margin-top: 2em;    
+  margin-top: 2em;
   margin-left: 5em;
   margin-right: 5em;
 }

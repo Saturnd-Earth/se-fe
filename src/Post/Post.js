@@ -2,7 +2,6 @@ import { gql, useMutation } from '@apollo/client';
 import React, { useState }  from 'react';
 import '../Scss/base.scss';
 // icons
-import ringIcon from '../images/ring-icon.png';
 import dummyIcon from '../images/dummyIcon.png';
 import defaultLike from '../images/like-white.png';
 import blueLike from '../images/like-blue.png';
@@ -24,7 +23,7 @@ export const CREATE_LIKE = gql`
   }
 `;
 
-export async function Post(props) {
+export function Post(props) {
     let [userInfo, setUserInfo] = useState({
         userIcon: dummyIcon,
         name: 'John Doe',

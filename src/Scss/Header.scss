@@ -1,5 +1,3 @@
-@import './base.scss';
-
 .header-top {
     display: grid;
     grid-template-columns: .5fr 1fr;
@@ -10,7 +8,7 @@
         align-self: center;
         margin-top: -1.5em;
     }
-    
+
     .header-text {
         font-family: 'Damion', cursive;
         grid-column: 2;
@@ -27,7 +25,7 @@
 .header-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    background-color: $application-gray;
+    background-color: #C4C4C4;
     margin-top: -2em;
     padding-top: .75em;
     padding-bottom: .75em;
@@ -38,19 +36,19 @@
     border-radius: 1em;
     justify-self: center;
     align-self: center;
-    background-color: $application-gray;
+    background-color: #C4C4C4;
     cursor: pointer;
-    @extend %drop-shodow;
-} 
-// I can't seem to get darken to work please see 
+    @extend %drop-shodow !optional;
+}
+// I can't seem to get darken to work please see
 // "selected" for example of it working maybe :focus
 
 .selected {
     .bottom-images {
       width: 3.85em;
-      background-color: $application-bue;
+      background-color: #006c92;
     }
     :hover {
-        background-color: darken($application-bue, 5%);
+        background-color: darken(#006c92, 5%);
       }
 }

@@ -1,31 +1,18 @@
 // import logo from './logo.svg';
-import Post from './Post/Post.js'
-import MakePost from './Make_Post/Make_Post.js'
-import Header from './Header/Header';
+import { Route } from 'react-router-dom';
 import Feed from './Feed/Feed';
-// Blue icons
-import homeBlue from '../src/images/house-blue.png'
-import postBlue from '../src/images/post-blue.png'
-import feedBlue from '../src/images/user-blue.png'
-import awardsBlue from '../src/images/award-blue.png'
-// White icons
-import homeWhite from '../src/images/house-white.png'
-import postWhite from '../src/images/post-white.png'
-import feedWhite from '../src/images/user-white.png'
-import awardsWhite from '../src/images/award-white.png'
-
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-// SCSS
+import Header from './Header/Header';
+import MakePost from './Make_Post/Make_Post.js'
 import './Scss/base.scss';
 
-// React
 import React, { Component } from 'react';
-// Dummy Info
+
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 const lat = -888;
 const lon = -999;
 const name = 'John Doe';
-export default class App extends Component {
+
+class App extends Component {
   constructor() {
     super()
     this.state = {
@@ -75,3 +62,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default App
