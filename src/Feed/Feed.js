@@ -6,33 +6,43 @@ export default function Feed(props) {
     let theArray = [
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
+        content={props.content}
         />,
     ];
     return (

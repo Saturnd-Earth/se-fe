@@ -20,7 +20,7 @@ export default class Post extends Component {
                 id: null,
                 date: null,
                 liked: false,
-                postContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                postContent: null
             },
             page: {
                 myPosts: true
@@ -29,12 +29,18 @@ export default class Post extends Component {
     }
 
     componentDidMount = () => {
+        // Set icon
         if (this.props.myPostsPage) {
             this.setState({userInfo: {
                 ...this.state.userInfo,
                 userIcon: ringIcon
             }})
         }
+        // Render content
+        this.setState({postInfo:{
+            ...this.state.postInfo,
+            postContent: this.props.content
+        }})
     }
 
     like = () => {

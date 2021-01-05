@@ -16,7 +16,9 @@ import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 // SCSS
 import './Scss/base.scss';
 // React
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+// Dummy Info
+const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 export default class App extends Component {
   constructor() {
     super()
@@ -35,7 +37,11 @@ export default class App extends Component {
               feed: feedWhite,
               awards: awardsWhite
             }}/>
-            <Feed headerTitle='Home' myPostsPage={false}/>
+            <Feed 
+            headerTitle='Home' 
+            myPostsPage={false}
+            content={loremIpsum}
+            />
           </section>
         }/>
         <Route exact path='/make_post' render={ () =>
@@ -57,7 +63,11 @@ export default class App extends Component {
               feed: feedBlue,
               awards: awardsWhite
             }}/>
-            <Feed headerTitle='My Posts' myPostsPage={true}/>
+            <Feed 
+            headerTitle='My Posts' 
+            myPostsPage={true}
+            content={loremIpsum}
+            />
           </section>}
         />
         <Route exact path='/awards' render={ () =>
