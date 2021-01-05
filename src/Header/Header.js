@@ -20,7 +20,7 @@ export default function Header() {
                 <h1 className='header-text'>Saturn'd Earth</h1>
             </section>
             <section className='header-bottom'>
-              <NavLink to='/home' label="home" activeClassName="selected">
+              <NavLink to='/' label="home" exact activeClassName="selected">
                 <img src={home} alt='Home' className='bottom-images' id='home-icon'/>
               </NavLink>
               <NavLink to="/make_post" label="my post" activeClassName="selected">

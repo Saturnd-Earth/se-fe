@@ -32,14 +32,15 @@ export default class App extends Component {
       page: 'home'
     }
   }
+
   render() {
     return (
       <section className='all-pages'>
-        <Route exact path='/home' render={ () =>
+        <Route exact path='/' render={ () =>
           <section className="home">
             <Header/>
-            <Feed 
-            headerTitle='Home' 
+            <Feed
+            headerTitle='Home'
             myPostsPage={false}
             content={loremIpsum}
             name={name}
@@ -55,8 +56,8 @@ export default class App extends Component {
         <Route exact path='/my_post' render={ () =>
           <section className="view-post">
             <Header/>
-            <Feed 
-            headerTitle='My Posts' 
+            <Feed
+            headerTitle='My Posts'
             myPostsPage={true}
             content={loremIpsum}
             lat={lat}
