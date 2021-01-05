@@ -1,14 +1,15 @@
 import React from 'react';
 
-import seLogo from '../Images/se-logo.png';
+import seLogo from '../images/se-logo.png';
 
-import '../Scss/base.scss'
+import '../Scss/base.scss';
+import '../Scss/Header.scss';
 
 import home from '../images/house-white.png'
 import post from '../images/post-white.png'
 import feed from '../images/user-white.png'
 import awards from '../images/award-white.png'
-import seLogo from '../images/se-logo.png'
+// import seLogo from '../images/se-logo.png'
 import { NavLink, Redirect } from 'react-router-dom';
 
 export default function Header() {

@@ -34,8 +34,8 @@ export default class App extends Component {
   }
   render() {
     return (
-      <section>
-        <Route exact path='/' render={ () =>
+      <section className='all-pages'>
+        <Route exact path='/home' render={ () =>
           <section className="home">
             <Header/>
             <Feed 
@@ -74,4 +74,3 @@ export default class App extends Component {
     )
   }
 }
-export default App
