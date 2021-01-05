@@ -1,26 +1,69 @@
 .make-post-section {
   text-align: center;
   display: grid;
+  font-family: 'Open Sans',
 }
+
+.input-section {
+  @extend %make-post-margin;
+  margin-top: 1em;
+}
+
 .make-post-input {
   resize: none;
-  grid-row: 3;
-  @extend %make-post-margin;
-  margin-bottom: 2em;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1em;
+  border-color: $application-gray;
+  border-width: 1em;
+  padding: 1em;
+  outline: none;
 }
+
+.input-video-link{
+  @extend %post-input;
+  display: none;
+}
+
+.input-image-link{
+  @extend %post-input;
+  display: none;
+}
+
+.input-image-link-title{
+  grid-row: 3;
+  @extend %post-input;
+  display: none;
+}
+
+.tab {
+  background-color: $application-gray;
+  overflow: hidden;
+  @extend %make-post-margin;
+  display: flex;
+  justify-content: space-around;
+  grid-row: 2;
+  border-radius: 1em;
+}
+
 .icons {
-  width: 3.5em;
+  width: 3em;
   height: auto;
   justify-self: center;
 }
-.make-post-image{
-  grid-column: 1;
+
+.media-content{
+ border-style: solid;
+ outline: none;
 }
-.make-post-video{
-  grid-column: 2;
+
+.tab-links{
+  background-color: $application-gray;
+  @extend %tabs-input;
 }
+
 .make-post-button{
-  grid-row: 1;
+  grid-row: 5;
   margin-top: 2em;
   height: 1.5em;
   border-radius: 0.5em;
@@ -29,8 +72,18 @@
   font-size: 1.5em;
   background-color:$application-bue;
   @extend %make-post-margin;
+  cursor: pointer;
+  outline: none;
 }
+
 .make-post-text{
   @extend %make-post-margin;
-  grid-row: 2;
+  grid-row: 1;
+}
+
+.tab-links-selected {
+  background-color: $application-bue;
+  color:$white;
+  @extend %tabs-input;
+  font-size: 0.9em;
 }
