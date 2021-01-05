@@ -2,9 +2,10 @@ import { gql, useMutation } from '@apollo/client';
 import React, { useState }  from 'react';
 import '../Scss/base.scss';
 // icons
-import dummyIcon from '../Images/dummyIcon.png';
-import defaultLike from '../Images/like-white.png';
-import blueLike from '../Images/like-blue.png';
+import ringIcon from '../images/ring-icon.png';
+import dummyIcon from '../images/dummyIcon.png';
+import defaultLike from '../images/like-white.png';
+import blueLike from '../images/like-blue.png';
 
 
 export const CREATE_LIKE = gql`

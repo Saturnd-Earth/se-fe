@@ -1,21 +1,30 @@
+// import logo from './logo.svg';
+import Post from './Post/Post.js'
+import MakePost from './Make_Post/Make_Post.js'
 import Header from './Header/Header';
 import Feed from './Feed/Feed';
 // Blue icons
-import homeBlue from '../src/Images/house-blue.png'
-import postBlue from '../src/Images/post-blue.png'
-import feedBlue from '../src/Images/user-blue.png'
-import awardsBlue from '../src/Images/award-blue.png'
+import homeBlue from '../src/images/house-blue.png'
+import postBlue from '../src/images/post-blue.png'
+import feedBlue from '../src/images/user-blue.png'
+import awardsBlue from '../src/images/award-blue.png'
 // White icons
-import homeWhite from '../src/Images/house-white.png'
-import postWhite from '../src/Images/post-white.png'
-import feedWhite from '../src/Images/user-white.png'
-import awardsWhite from '../src/Images/award-white.png'
+import homeWhite from '../src/images/house-white.png'
+import postWhite from '../src/images/post-white.png'
+import feedWhite from '../src/images/user-white.png'
+import awardsWhite from '../src/images/award-white.png'
 
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-
+// SCSS
 import './Scss/base.scss';
 
-import React, { Component } from 'react'
+// React
+import React, { Component } from 'react';
+// Dummy Info
+const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+const lat = -888;
+const lon = -999;
+const name = 'John Doe';
 export default class App extends Component {
   constructor() {
     super()
@@ -25,48 +34,39 @@ export default class App extends Component {
   }
   render() {
     return (
-      <section>
-        <Route exact path='/' render={ () =>
+      <section className='all-pages'>
+        <Route exact path='/home' render={ () =>
           <section className="home">
-            <Header icons={{
-              home: homeBlue,
-              post: postWhite,
-              feed: feedWhite,
-              awards: awardsWhite
-            }}/>
-            <Feed headerTitle='Home'/>
+            <Header/>
+            <Feed 
+            headerTitle='Home' 
+            myPostsPage={false}
+            content={loremIpsum}
+            name={name}
+            />
           </section>
         }/>
         <Route exact path='/make_post' render={ () =>
           <section className="make-post">
-            <Header icons={{
-              home: homeWhite,
-              post: postBlue,
-              feed: feedWhite,
-              awards: awardsWhite
-            }}/>
-            <p>make a post page</p>
+            <Header/>
+            <MakePost/>
           </section>}
         />
         <Route exact path='/my_post' render={ () =>
           <section className="view-post">
-            <Header icons={{
-              home: homeWhite,
-              post: postWhite,
-              feed: feedBlue,
-              awards: awardsWhite
-            }}/>
-            <Feed headerTitle='My Posts'/>
+            <Header/>
+            <Feed 
+            headerTitle='My Posts' 
+            myPostsPage={true}
+            content={loremIpsum}
+            lat={lat}
+            lon={lon}
+            />
           </section>}
         />
         <Route exact path='/awards' render={ () =>
           <section className="awards">
-            <Header icons={{
-              home: homeWhite,
-              post: postWhite,
-              feed: feedWhite,
-              awards: awardsBlue
-            }}/>
+            <Header/>
             <p>Make an awards page</p>
           </section>}
         />
