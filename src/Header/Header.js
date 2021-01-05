@@ -8,7 +8,7 @@ import home from '../images/house-white.png'
 import post from '../images/post-white.png'
 import feed from '../images/user-white.png'
 import awards from '../images/award-white.png'
-import seLogo from '../images/se-logo.png'
+// import seLogo from '../images/se-logo.png'
 import { NavLink, Redirect } from 'react-router-dom';
 
 export default function Header() {
