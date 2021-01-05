@@ -5,6 +5,7 @@ import '../Scss/base.scss';
 import dummyIcon from '../Images/dummyIcon.png';
 import defaultLike from '../Images/like-white.png';
 import blueLike from '../Images/like-blue.png';
+import ringIcon from '../Images/ring-icon.png';
 
 export default class Post extends Component {
     constructor(props) {
@@ -28,7 +29,12 @@ export default class Post extends Component {
     }
 
     componentDidMount = () => {
-        //
+        if (this.props.myPostsPage) {
+            this.setState({userInfo: {
+                ...this.state.userInfo,
+                userIcon: ringIcon
+            }})
+        }
     }
 
     like = () => {
