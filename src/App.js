@@ -19,6 +19,8 @@ import './Scss/base.scss';
 import React, { Component } from 'react';
 // Dummy Info
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+const lat = -888;
+const lon = -999;
 export default class App extends Component {
   constructor() {
     super()
@@ -67,6 +69,8 @@ export default class App extends Component {
             headerTitle='My Posts' 
             myPostsPage={true}
             content={loremIpsum}
+            lat={lat}
+            lon={lon}
             />
           </section>}
         />

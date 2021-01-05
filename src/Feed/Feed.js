@@ -7,42 +7,62 @@ export default function Feed(props) {
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
         content={props.content}
+        lat={props.lat}
+        lon={props.lon}
         />,
     ];
     return (
