@@ -4,15 +4,15 @@ import MakePost from './Make_Post/Make_Post.js'
 import Header from './Header/Header';
 import Feed from './Feed/Feed';
 // Blue icons
-import homeBlue from '../src/Images/house-blue.png'
-import postBlue from '../src/Images/post-blue.png'
-import feedBlue from '../src/Images/user-blue.png'
-import awardsBlue from '../src/Images/award-blue.png'
+import homeBlue from '../src/images/house-blue.png'
+import postBlue from '../src/images/post-blue.png'
+import feedBlue from '../src/images/user-blue.png'
+import awardsBlue from '../src/images/award-blue.png'
 // White icons
-import homeWhite from '../src/Images/house-white.png'
-import postWhite from '../src/Images/post-white.png'
-import feedWhite from '../src/Images/user-white.png'
-import awardsWhite from '../src/Images/award-white.png'
+import homeWhite from '../src/images/house-white.png'
+import postWhite from '../src/images/post-white.png'
+import feedWhite from '../src/images/user-white.png'
+import awardsWhite from '../src/images/award-white.png'
 
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
@@ -48,3 +48,4 @@ function App() {
     </section>
   );
 }
+export default App
