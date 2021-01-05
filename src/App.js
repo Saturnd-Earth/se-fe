@@ -15,37 +15,63 @@ import feedWhite from '../src/images/user-white.png'
 import awardsWhite from '../src/images/award-white.png'
 
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
-
+// SCSS
 import './Scss/base.scss';
 
-function App() {
-  return (
-    <section className="all-pages">
-      <Route exact path='/home' render={ () => 
-        <section>
-          <Header/>
-          <Feed headerTitle='Home'/>
-        </section>
-      }/>
-      <Route exact path='/make_post' render={ () =>
-       <section className="make-post">
-         <Header/>
-         <MakePost/>
-       </section>}
-      />
-      <Route exact path='/my_post' render={ () =>
-       <section className="view-post">
-         <Header/>
-         <Feed headerTitle='My Posts'/>
-       </section>}
-      />
-      <Route exact path='/awards' render={ () =>
-       <section className="awards">
-         <Header/>
-         <p>awards page</p>
-       </section>}
-      />
-    </section>
-  );
+// React
+import React, { Component } from 'react';
+// Dummy Info
+const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+const lat = -888;
+const lon = -999;
+const name = 'John Doe';
+export default class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      page: 'home'
+    }
+  }
+  render() {
+    return (
+      <section>
+        <Route exact path='/' render={ () =>
+          <section className="home">
+            <Header/>
+            <Feed 
+            headerTitle='Home' 
+            myPostsPage={false}
+            content={loremIpsum}
+            name={name}
+            />
+          </section>
+        }/>
+        <Route exact path='/make_post' render={ () =>
+          <section className="make-post">
+            <Header/>
+            <MakePost/>
+          </section>}
+        />
+        <Route exact path='/my_post' render={ () =>
+          <section className="view-post">
+            <Header/>
+            <Feed 
+            headerTitle='My Posts' 
+            myPostsPage={true}
+            content={loremIpsum}
+            lat={lat}
+            lon={lon}
+            />
+          </section>}
+        />
+        <Route exact path='/awards' render={ () =>
+          <section className="awards">
+            <Header/>
+            <p>Make an awards page</p>
+          </section>}
+        />
+      </section>
+    )
+  }
 }
 export default App

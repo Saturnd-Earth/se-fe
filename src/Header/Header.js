@@ -1,4 +1,7 @@
 import React from 'react';
+
+import seLogo from '../Images/se-logo.png';
+
 import '../Scss/base.scss'
 
 import home from '../images/house-white.png'
