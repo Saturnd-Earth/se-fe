@@ -4,15 +4,36 @@ import Post from '../Post/Post.js';
 
 export default function Feed(props) {
     let theArray = [
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
-        <Post myPostsPage={props.myPostsPage}/>,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
+        <Post 
+        myPostsPage={props.myPostsPage}
+        />,
     ];
     return (
         <section className='feed'>
