@@ -1,6 +1,6 @@
 import React from 'react';
 import '../Scss/base.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 
 import awards from '../images/award-white.png'
 import feed from '../images/user-white.png'

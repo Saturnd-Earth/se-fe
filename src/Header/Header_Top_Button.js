@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../Scss/base.scss';
+import { NavLink } from 'react-router-dom';
 
 import login from '../images/login-white.png';
 import logout from '../images/logout-white.png';
@@ -11,7 +12,8 @@ export default function Header_Top_Button() {
 if (logOn === false) {
   return (
     <section className='header-top-buttons'> 
-      <button className='logon' onClick={() => setlogOn(true)}>
+    <NavLink to='/signup' className='header-top-buttons'>
+     <button className='logon' onClick={() => setlogOn(true)}>
         <img 
           src={signup} 
           alt='sign up button' 
@@ -20,6 +22,8 @@ if (logOn === false) {
         />
         Join
       </button>
+    </NavLink>
+    <NavLink to='/login' className='header-top-buttons'>
       <button className='logon' onClick={() => setlogOn(true)}>
         <img 
           src={login}
@@ -29,20 +33,23 @@ if (logOn === false) {
         />
         login 
       </button>
+    </NavLink>
     </section>
   )
 } else {
   return (
     <section className='header-top-buttons' onClick={() => setlogOn(false)}> 
-      <button className='logon'>
-        <img 
-          src={signup} 
-          alt='sign up button' 
-          label='sign up button'
-          className='sign-up-button logon-icons'
-        />
-        Join
-      </button>
+      <NavLink to='/signup' className='header-top-buttons'>
+        <button className='logon'>
+          <img 
+            src={signup} 
+            alt='sign up button' 
+            label='sign up button'
+            className='sign-up-button logon-icons'
+          />
+          Join
+        </button>
+      </NavLink>
       <button className='logon' onClick={() => setlogOn(false)}>
         <img 
           src={logout} 
