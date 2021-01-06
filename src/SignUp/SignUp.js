@@ -1,21 +1,7 @@
-import { gql, useMutation } from '@apollo/client';
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-
-export const USER_SIGNUP = gql`
-  mutation userSignup($username: String!, $password: String!){
-    createUser(input: {
-      username: $username
-      password: $password
-    })
-    {
-      user{
-        id
-        username
-      }
-    }
-  }
-`;
+import { useMutation } from '@apollo/client';
+import { USER_SIGNUP } from '../requests';
 
 export function SignUp() {
   let [error, setError] = useState(false)

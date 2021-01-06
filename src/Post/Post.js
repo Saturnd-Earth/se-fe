@@ -1,27 +1,10 @@
-import { gql, useMutation } from '@apollo/client';
-import React, { useState }  from 'react';
-import '../Scss/base.scss';
-// icons
-import dummyIcon from '../images/dummyIcon.png';
-import defaultLike from '../images/like-white.png';
 import blueLike from '../images/like-blue.png';
-
-
-export const CREATE_LIKE = gql`
-  mutation createLike($userId: Int!, $postId: Int!, $latitude: Float!, $longitude: Float!){
-    createLike(input: {
-      userId: $userId
-      postId: $postId
-      latitude: $latitude
-      longitude: $longitude
-    })
-    {
-      like{
-        id
-      }
-    }
-  }
-`;
+import { CREATE_LIKE } from '../requests';
+import defaultLike from '../images/like-white.png';
+import dummyIcon from '../images/dummyIcon.png';
+import React, { useState }  from 'react';
+import { useMutation } from '@apollo/client';
+import '../Scss/base.scss';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
