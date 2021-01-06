@@ -42,31 +42,34 @@ export function Post(props) {
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike, { data }] = useMutation(CREATE_LIKE);
 
-    let getPos = async () => {
-      let pos = await window.navigator.geolocation.getCurrentPosition( (position) => position )
-      return pos
-    }
-
     let like = async () => {
         setLoadingPos(true)
-        let pos = await getPos()
-        sendNewLike({
-          variables: {
-            userId: userInfo.id,
-            postId: postInfo.id,
-            latitude: pos.coords.latitude,
-            longitude: pos.coors.longitude
+        window.navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            console.log(pos)
+            setLoadingPos(false)
+            setPostInfo({
+                ...postInfo,
+                liked: !postInfo.liked
+            })
+            sendNewLike({
+              variables: {
+                userId: userInfo.id,
+                postId: postInfo.id,
+                latitude: pos.coords.latitude,
+                longitude: pos.coords.longitude
+              }
+            })
+            .then( () => {
+
+            })
+            .catch( err => console.log('No one likes.' + err))
+          },
+          (err) => {
+            console.log('BAD GEOLOCATOR ' + err)
           }
-        })
-        .then( () => {
-          setLoadingPos(false)
-          setPostInfo({
-              ...postInfo,
-              liked: !postInfo.liked
-          })
-        })
-        .catch( () => console.log('No one likes.'))
-        setTimeout( () => setLoadingPos(false), 16000)
+      )
+      setTimeout( () => setLoadingPos(false), 16000)
     }
 
     let likeButton;
@@ -79,7 +82,7 @@ export function Post(props) {
                     <img src={userInfo.userIcon} alt='User Icon' id='user-icon'/>
                 </div>
                 <div className='post-left-bottom'>
-                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => this.like()}/>
+                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
                 </div>
             </section>
             <section className='post-right'>
