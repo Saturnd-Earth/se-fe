@@ -2,7 +2,9 @@
 import { Route } from 'react-router-dom';
 import Feed from './Feed/Feed';
 import Header from './Header/Header';
+import Login from './Login/Login.js';
 import MakePost from './Make_Post/Make_Post.js'
+import { SignUp } from './SignUp/SignUp.js'
 import './Scss/base.scss';
 
 import React, { Component } from 'react';
@@ -56,6 +58,16 @@ class App extends Component {
           <section className="awards">
             <Header/>
             <p>Make an awards page</p>
+          </section>}
+        />
+        <Route exact path='/signup' render={ () =>
+          <section className="signup">
+            <SignUp/>
+          </section>}
+        />
+        <Route exact path='/login' render={ () =>
+          <section className="login">
+            <Login/>
           </section>}
         />
       </section>

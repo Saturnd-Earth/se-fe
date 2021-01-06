@@ -10,11 +10,11 @@ export function Post(props) {
     let [userInfo, setUserInfo] = useState({
         userIcon: dummyIcon,
         name: 'John Doe',
-        id: 1
+        id: 10
     })
     let [postInfo, setPostInfo] = useState({
         ring: 0,
-        id: 2,
+        id: 14,
         date: null,
         liked: false,
         postContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
@@ -29,6 +29,11 @@ export function Post(props) {
         setLoadingPos(true)
         window.navigator.geolocation.getCurrentPosition(
           (pos) => {
+            console.log(userInfo.id,
+              postInfo.id,
+              pos.coords.latitude,
+              pos.coords.longitude
+          )
             console.log(pos)
             setLoadingPos(false)
             setPostInfo({

@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 const client = new ApolloClient({
-  uri: ' https://be-saturnd-earth.herokuapp.com/graphiql',
+  uri: 'https://be-saturnd-earth.herokuapp.com/graphql',
   cache: new InMemoryCache()
 });
 
