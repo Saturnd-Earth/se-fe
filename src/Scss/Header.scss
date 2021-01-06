@@ -1,12 +1,14 @@
 .header-top {
     display: grid;
-    grid-template-columns: .5fr 1fr;
+    grid-template-columns: .5fr 1fr .5fr ;
+    grid-row-start: 1;
     #se-logo {
         width: 8em;
         grid-column: 1;
         justify-self: center;
         align-self: center;
         margin-top: -1.5em;
+        grid-row-start: 1;
     }
 
     .header-text {
@@ -18,14 +20,16 @@
         padding: 0;
         margin: 0;
         margin-top: -.5em;
-        color: #026C92;
+        color:$application-blue;
+        grid-row-start: 1;
+        justify-self: center;
     }
 }
 
 .header-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    background-color: #C4C4C4;
+    background-color: $application-gray;
     margin-top: -2em;
     padding-top: .75em;
     padding-bottom: .75em;
@@ -33,12 +37,7 @@
 
 .bottom-images {
     width: 3.5em;
-    border-radius: 1em;
-    justify-self: center;
-    align-self: center;
-    background-color: #C4C4C4;
-    cursor: pointer;
-    @extend %drop-shodow !optional;
+    @extend %button-nav;
 }
 // I can't seem to get darken to work please see
 // "selected" for example of it working maybe :focus
@@ -46,9 +45,39 @@
 .selected {
     .bottom-images {
       width: 3.85em;
-      background-color: #006c92;
+      background-color: $application-blue;
     }
-    :hover {
-        background-color: darken(#006c92, 5%);
-      }
+    // :hover {
+    //     background-color: darken($application-blue, 5%);
+    //   }
+}
+
+.header-top-buttons {
+    grid-row-start: 1;
+    display: flex;
+    margin-top: -2em;
+}
+
+.logon {
+    @extend %button-nav;
+    margin-right: 2em;
+    margin-top: 1em;
+    min-width: fit-content;
+    font-family: "Damion", cursive;
+    outline: none;
+    border: 0;
+    display: inline-flex;
+    color: $application-blue;
+    // :hover {
+    //     background-color: darken($application-blue, 5%);
+    //   }
+}
+
+.logon:active {
+    background-color: $application-blue;
+    color: $white;
+}
+
+.logon-icons{
+    width: 2em;
 }

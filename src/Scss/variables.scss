@@ -46,3 +46,13 @@ $white:#ffff;
   border: 0;
   width: 33%;
 }
+
+%button-nav{
+  width: 3.5em;
+  border-radius: 1em;
+  justify-self: center;
+  align-self: center;
+  background-color: $application-gray;
+  cursor: pointer;
+  @extend %drop-shodow;
+}
