@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import MakePostInput from './Make_Post_Input.js';
 import '../Scss/base.scss';
 
@@ -10,10 +10,10 @@ const Make_Post = () => {
   const [commentInput, setCommentInput] = useState(1);
 
   useEffect(() => {
-      //if one is set to true then remove a hidden class to the file 
-      //set the other two to false and add a hidden class to the text area 
-      //can I use part of the of the return and not all of it?  
-  }); 
+      //if one is set to true then remove a hidden class to the file
+      //set the other two to false and add a hidden class to the text area
+      //can I use part of the of the return and not all of it?
+  });
 
   return (
     <section className='make-post-section'>
@@ -21,34 +21,37 @@ const Make_Post = () => {
         Start Your Ring By Making A Post Here
       </h4>
       <div className="tab">
-        <button 
-          className={"tab-links" + (commentInput === 1 ? "-selected" : "")} 
+        <button
+          className={"tab-links" + (commentInput === 1 ? "-selected" : "")}
           onClick={() => setCommentInput(1)}
         >
-          <img src={commentIcon} 
-            className='icons make-post-comment' 
+          <img src={commentIcon}
+            alt='Leave a comment'
+            className='icons make-post-comment'
             label="Add comment"
           />
           Add Comment
         </button>
-        <button 
+        <button
           className={"tab-links" + (commentInput === 2 ? "-selected" : "")}
           onClick={() => setCommentInput(2)}
         >
-          <img 
-            src={imageIcon} 
-            className='icons' 
+          <img
+            alt='Link a Video'
+            src={imageIcon}
+            className='icons'
             label="link image"
           />
           Link Image
         </button>
-        <button 
+        <button
           className={"tab-links" + (commentInput === 3 ? "-selected" : "")}
           onClick={() => setCommentInput(3)}
         >
-          <img 
-            src={videoIcon} 
-            className='icons make-post-video' 
+          <img
+            alt='Link a Video'
+            src={videoIcon}
+            className='icons make-post-video'
             label="link video"
           />
           Link Video

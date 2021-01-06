@@ -1,16 +1,14 @@
 import React from 'react';
-
-import seLogo from '../images/se-logo.png';
-
 import '../Scss/base.scss';
 import '../Scss/Header.scss';
 
+import awards from '../images/award-white.png'
+import feed from '../images/user-white.png'
 import home from '../images/house-white.png'
 import post from '../images/post-white.png'
-import feed from '../images/user-white.png'
-import awards from '../images/award-white.png'
+import seLogo from '../images/se-logo.png';
 // import seLogo from '../images/se-logo.png'
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
     return (
@@ -20,7 +18,7 @@ export default function Header() {
                 <h1 className='header-text'>Saturn'd Earth</h1>
             </section>
             <section className='header-bottom'>
-              <NavLink to='/home' label="home" activeClassName="selected">
+              <NavLink to='/' label="home" exact activeClassName="selected">
                 <img src={home} alt='Home' className='bottom-images' id='home-icon'/>
               </NavLink>
               <NavLink to="/make_post" label="my post" activeClassName="selected">

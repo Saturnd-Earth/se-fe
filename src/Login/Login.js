@@ -1,14 +1,7 @@
-import { gql, useQuery } from '@apollo/client'
 import React, { Component } from 'react'
 import { useHistory } from 'react-router-dom'
-
-const USER_LOGIN = gql`
-  query users($name: name, $password: password) {
-    user(name: $name, password: $password) {
-      id
-    }
-  }
-`;
+import { useQuery } from '@apollo/client'
+import { USER_LOGIN } from '../requests';
 
 function Login() {
   let input = {

@@ -14,7 +14,7 @@
     // style
     border-radius: .75em;
     background-color: $application-gray;
-    @extend %drop-shodow;
+    @extend %drop-shodow !optional;
     // p tags
     p {
         margin: 0;

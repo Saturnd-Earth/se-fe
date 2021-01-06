@@ -1,109 +1,88 @@
-import React, { Component }  from 'react';
+import blueLike from '../images/like-blue.png';
+import { CREATE_LIKE } from '../requests';
+import defaultLike from '../images/like-white.png';
+import dummyIcon from '../images/dummyIcon.png';
+import React, { useState }  from 'react';
+import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
-// icons
-import ringIcon from '../images/ring-icon.png';
-import dummyIcon from '../images/dummyIcon.png';
-import defaultLike from '../images/like-white.png';
-import blueLike from '../images/like-blue.png';
+export function Post(props) {
+    let [userInfo, setUserInfo] = useState({
+        userIcon: dummyIcon,
+        name: 'John Doe',
+        id: 10
+    })
+    let [postInfo, setPostInfo] = useState({
+        ring: 0,
+        id: 14,
+        date: null,
+        liked: false,
+        postContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+    })
+    let [page, setPage] = useState({
+        myPosts: true
+    })
+    let [loadingPos, setLoadingPos] = useState(false)
+    let [sendNewLike, { data }] = useMutation(CREATE_LIKE);
 
-export default class Post extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            userInfo: {
-                userIcon: dummyIcon,
-                name: null
-            },
-            postInfo: {
-                ring: 0,
-                id: null,
-                date: null,
-                liked: false,
-                postContent: null,
-            },
-            page: {
-                myPosts: true
-            }
-        }
+    let like = async () => {
+        setLoadingPos(true)
+        window.navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            console.log(userInfo.id,
+              postInfo.id,
+              pos.coords.latitude,
+              pos.coords.longitude
+          )
+            console.log(pos)
+            setLoadingPos(false)
+            setPostInfo({
+                ...postInfo,
+                liked: !postInfo.liked
+            })
+            sendNewLike({
+              variables: {
+                userId: userInfo.id,
+                postId: postInfo.id,
+                latitude: pos.coords.latitude,
+                longitude: pos.coords.longitude
+              }
+            })
+            .then( () => {
+
+            })
+            .catch( err => console.log('No one likes.' + err))
+          },
+          (err) => {
+            console.log('BAD GEOLOCATOR ' + err)
+          }
+      )
+      setTimeout( () => setLoadingPos(false), 16000)
     }
 
-    componentDidMount = () => {
-        // Set icon
-        if (this.props.myPostsPage) {
-            this.setState({userInfo: {
-                ...this.state.userInfo,
-                userIcon: ringIcon
-            }})
-        }
-        // Render content
-        this.setState({postInfo:{
-            ...this.state.postInfo,
-            postContent: this.props.content
-        }})
-    }
-
-    like = () => {
-        this.setState({postInfo: {
-            ...this.state.postInfo,
-            liked: !this.state.postInfo.liked
-        }})
-    }
-
-    render() {
-        let likeButton;
-        !this.state.postInfo.liked ? likeButton = defaultLike : likeButton = blueLike;
-        let bottomLeft;
-        if (this.props.myPostsPage) {
-            return (
-                <section className='post'>
-                    <section className='post-left'>
-                        <div className='post-left-top'>
-                            <img src={this.state.userInfo.userIcon} alt='User Icon' id='user-icon'/>
-                        </div>
-                        <div className='post-left-bottom' style={{display: 'grid',
-                        gridTemplateRows: '1em 1em', paddingTop: '.5em'}}>
-                            <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>Lat: </h6></em>
-                            <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>{this.props.lat}</h6></em>
-                            <em style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}><h6  style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}>Lon: </h6></em>
-                            <em style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}><h6  style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}>{this.props.lon}</h6></em>
-                        </div>
-                    </section>
-                    <section className='post-right'>
-                        <div className='post-right-top'>
-                                <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: </h5></strong></em><br/>
-                                <em><h6 className='post-right-top-h' id='prt2'>Ring: {this.state.postInfo.ring}</h6></em><br/>
-                                <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
-                        </div>
-                        <div className='post-right-bottom'>
-                            <p className='post-right-bottom-p'>{this.state.postInfo.postContent}</p>
-                        </div>
-                    </section>
-                </section>
-            )
-        } else {
-            return (
-                <section className='post'>
-                    <section className='post-left'>
-                        <div className='post-left-top'>
-                            <img src={this.state.userInfo.userIcon} alt='User Icon' id='user-icon'/>
-                        </div>
-                        <div className='post-left-bottom'>
-                            <img src={likeButton} alt='Like button' id='like-button' onClick={() => this.like()}/>
-                        </div>
-                    </section>
-                    <section className='post-right'>
-                        <div className='post-right-top'>
-                                <em><strong><h5 className='post-right-top-h' id='name-header'>{this.props.name}</h5></strong></em><br/>
-                                <em><h6 className='post-right-top-h' id='prt2'>Ring: {this.state.postInfo.ring}</h6></em><br/>
-                                <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
-                        </div>
-                        <div className='post-right-bottom'>
-                            <p className='post-right-bottom-p'>{this.state.postInfo.postContent}</p>
-                        </div>
-                    </section>
-                </section>
-            )
-        }
-    }
+    let likeButton;
+    !postInfo.liked ? likeButton = defaultLike : likeButton = blueLike;
+    if (loadingPos) return (<h1>LOADING YOUR LOCATION....</h1>)
+    return (
+        <section className='post'>
+            <section className='post-left'>
+                <div className='post-left-top'>
+                    <img src={userInfo.userIcon} alt='User Icon' id='user-icon'/>
+                </div>
+                <div className='post-left-bottom'>
+                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
+                </div>
+            </section>
+            <section className='post-right'>
+                <div className='post-right-top'>
+                        <em><strong><h5 className='post-right-top-h' id='name-header'>{userInfo.name}</h5></strong></em><br/>
+                        <em><h6 className='post-right-top-h' id='prt2'>Ring: {postInfo.ring}</h6></em><br/>
+                        <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
+                </div>
+                <div className='post-right-bottom'>
+                    <p className='post-right-bottom-p'>{postInfo.postContent}</p>
+                </div>
+            </section>
+        </section>
+    )
 }

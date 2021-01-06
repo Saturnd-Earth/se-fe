@@ -3,9 +3,10 @@ import { MockedProvider } from '@apollo/client/testing';
 import { Router } from "react-router-dom"
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
-import { USER_SIGNUP, SignUp } from './SignUp.js'
+import { SignUp } from './SignUp.js'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
+import { USER_SIGNUP } from '../requests.js'
 
 describe('SignUp', () => {
 
