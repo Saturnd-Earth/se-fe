@@ -1,37 +1,20 @@
-import { gql, useMutation } from '@apollo/client';
-import React, { useState }  from 'react';
-import '../Scss/base.scss';
-// icons
-import dummyIcon from '../images/dummyIcon.png';
-import defaultLike from '../images/like-white.png';
 import blueLike from '../images/like-blue.png';
-
-
-export const CREATE_LIKE = gql`
-  mutation createLike($userId: Int!, $postId: Int!, $latitude: Float!, $longitude: Float!){
-    createLike(input: {
-      userId: $userId
-      postId: $postId
-      latitude: $latitude
-      longitude: $longitude
-    })
-    {
-      like{
-        id
-      }
-    }
-  }
-`;
+import { CREATE_LIKE } from '../requests';
+import defaultLike from '../images/like-white.png';
+import dummyIcon from '../images/dummyIcon.png';
+import React, { useState }  from 'react';
+import { useMutation } from '@apollo/client';
+import '../Scss/base.scss';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
         userIcon: dummyIcon,
         name: 'John Doe',
-        id: 1
+        id: 10
     })
     let [postInfo, setPostInfo] = useState({
         ring: 0,
-        id: 2,
+        id: 14,
         date: null,
         liked: false,
         postContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
@@ -46,6 +29,11 @@ export function Post(props) {
         setLoadingPos(true)
         window.navigator.geolocation.getCurrentPosition(
           (pos) => {
+            console.log(userInfo.id,
+              postInfo.id,
+              pos.coords.latitude,
+              pos.coords.longitude
+          )
             console.log(pos)
             setLoadingPos(false)
             setPostInfo({
