@@ -1,5 +1,5 @@
 import React from 'react';
-import './Feed.scss'
+import '../Scss/base.scss';
 import { Post } from '../Post/Post.js';
 
 export default function Feed(props) {

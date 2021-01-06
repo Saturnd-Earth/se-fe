@@ -81,6 +81,7 @@
 .make-post-text{
   @extend %make-post-margin;
   grid-row: 1;
+  @extend %title-text;
 }
 
 .tab-links-selected {
