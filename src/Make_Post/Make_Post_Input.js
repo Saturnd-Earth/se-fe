@@ -5,7 +5,7 @@ const Make_Post_Input = (props) => {
 
   if (props.commentInput === 3) {
     return (
-      <section className='input-section'>
+      <section className='input-section' data-testid='make post input'>
         <textarea
           rows="6" cols="10"
           className='make-post-input tab-content'
@@ -16,14 +16,14 @@ const Make_Post_Input = (props) => {
         <input
           className='make-post-input media-content'
           placeholder='input your video link!'
-          minlength='5'
+          minLength='5'
           type='url'
         />
       </section>
     )
   } else if (props.commentInput === 2) {
     return (
-      <section className='input-section'>
+      <section className='input-section' data-testid='make post input'>
         <textarea
           rows="6" cols="10"
           className='make-post-input tab-content'
@@ -34,14 +34,14 @@ const Make_Post_Input = (props) => {
         <input
           className='make-post-input media-content'
           placeholder='input your image link!'
-          minlength='5'
+          minLength='5'
           type='url'
         />
       </section>
     )
   } else {
     return (
-      <section className='input-section'>
+      <section className='input-section' data-testid='make post input'>
         <textarea
           rows="10" cols="10"
           className='make-post-input tab-content'
