@@ -1,7 +1,7 @@
 import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
-import React, { useState, useEffect }  from 'react';
+import React, { useState }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
