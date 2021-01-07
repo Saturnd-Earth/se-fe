@@ -10,6 +10,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -17,6 +18,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -24,6 +26,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -31,6 +34,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -38,6 +42,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -45,6 +50,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -52,6 +58,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -59,6 +66,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -66,6 +74,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -73,6 +82,7 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
         />,
     ];
     return (

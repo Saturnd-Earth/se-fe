@@ -1,7 +1,7 @@
 import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
-import dummyIcon from '../images/dummyIcon.png';
+// import dummyIcon from '../images/dummyIcon.png';
 import React, { useState, useEffect }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
@@ -9,7 +9,7 @@ import ringIcon from '../images/ring-icon.png';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
-        userIcon: dummyIcon,
+        userIcon: null,
         name: null,
         id: 10
     })
@@ -26,20 +26,22 @@ export function Post(props) {
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike, { data }] = useMutation(CREATE_LIKE);
 
-    useEffect(() => {
-        // Set icon
-        if (props.myPostsPage) {
-            setUserInfo({
-                ...userInfo,
-                userIcon: ringIcon
-            })
-        }
-        // Render content
-        setPostInfo({
-            ...postInfo,
-            postContent: props.content
-        })
-    }, [userInfo, postInfo])
+    // useEffect(() => {
+    //     // Set icon
+    //     if (props.myPostsPage) {
+    //         setUserInfo({
+    //             ...userInfo,
+    //             userIcon: ringIcon
+    //         })
+    //     }
+    //     // Render content
+    //     if (props.content) {
+    //         setPostInfo({
+    //             ...postInfo,
+    //             postContent: props.content
+    //         })
+    //     } 
+    // }, [userInfo, postInfo])
 
     let like = async () => {
         setLoadingPos(true)
@@ -84,7 +86,7 @@ export function Post(props) {
             <section className='post'>
                 <section className='post-left'>
                     <div className='post-left-top'>
-                        <img src={userInfo.userIcon} alt='User Icon' id='user-icon'/>
+                        <img src={props.icon} alt='User Icon' id='user-icon'/>
                     </div>
                     <div className='post-left-bottom' style={{display: 'grid',
                     gridTemplateRows: '1em 1em', paddingTop: '.5em'}}>
@@ -111,7 +113,7 @@ export function Post(props) {
             <section className='post'>
                 <section className='post-left'>
                     <div className='post-left-top'>
-                        <img src={userInfo.userIcon} alt='User Icon' id='user-icon'/>
+                        <img src={props.icon} alt='User Icon' id='user-icon'/>
                     </div>
                     <div className='post-left-bottom'>
                         <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>

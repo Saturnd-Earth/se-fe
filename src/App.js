@@ -6,6 +6,8 @@ import Login from './Login/Login.js';
 import MakePost from './Make_Post/Make_Post.js'
 import { SignUp } from './SignUp/SignUp.js'
 import './Scss/base.scss';
+import ringIcon from './images/ring-icon.png';
+import dummyIcon from './images/dummyIcon.png';
 
 import React, { Component } from 'react';
 
@@ -33,6 +35,7 @@ class App extends Component {
               myPostsPage={false}
               content={loremIpsum}
               name={name}
+              icon={dummyIcon}
             />
           </section>
         }/>
@@ -51,6 +54,7 @@ class App extends Component {
               content={loremIpsum}
               lat={lat}
               lon={lon}
+              icon={ringIcon}
             />
           </section>}
         />
