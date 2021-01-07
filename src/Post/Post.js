@@ -80,7 +80,7 @@ export function Post(props) {
                 <section className='post-right'>
                     <div className='post-right-top'>
                             <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: </h5></strong></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {postInfo.ring}</h6></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
                             <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
                     </div>
                     <div className='post-right-bottom'>
@@ -103,7 +103,7 @@ export function Post(props) {
                 <section className='post-right'>
                     <div className='post-right-top'>
                             <em><strong><h5 className='post-right-top-h' id='name-header'>{props.name}</h5></strong></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {postInfo.ring}</h6></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
                             <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
                     </div>
                     <div className='post-right-bottom'>

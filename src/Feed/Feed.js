@@ -11,6 +11,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -19,6 +20,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -27,6 +29,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -35,6 +38,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -43,6 +47,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -51,6 +56,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -59,6 +65,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -67,6 +74,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -75,6 +83,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -83,6 +92,7 @@ export default function Feed(props) {
         lon={props.lon}
         name={props.name}
         icon={props.icon}
+        ring={props.ring}
         />,
     ];
     return (

@@ -6,15 +6,17 @@ import Login from './Login/Login.js';
 import MakePost from './Make_Post/Make_Post.js'
 import { SignUp } from './SignUp/SignUp.js'
 import './Scss/base.scss';
-import ringIcon from './images/ring-icon.png';
-import dummyIcon from './images/dummyIcon.png';
 
 import React, { Component } from 'react';
 
+// Dummy Info
+import ringIcon from './images/ring-icon.png';
+import dummyIcon from './images/dummyIcon.png';
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 const lat = -888;
 const lon = -999;
 const name = 'John Doe';
+const dummyRing = 0
 
 class App extends Component {
   constructor() {
@@ -36,6 +38,7 @@ class App extends Component {
               content={loremIpsum}
               name={name}
               icon={dummyIcon}
+              ring={dummyRing}
             />
           </section>
         }/>
@@ -55,6 +58,7 @@ class App extends Component {
               lat={lat}
               lon={lon}
               icon={ringIcon}
+              ring={dummyRing}
             />
           </section>}
         />
