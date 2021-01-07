@@ -29,10 +29,10 @@ class App extends Component {
           <section className="home">
             <Header/>
             <Feed
-            headerTitle='Home'
-            myPostsPage={false}
-            content={loremIpsum}
-            name={name}
+              headerTitle='Home'
+              myPostsPage={false}
+              content={loremIpsum}
+              name={name}
             />
           </section>
         }/>
@@ -46,11 +46,11 @@ class App extends Component {
           <section className="view-post">
             <Header/>
             <Feed
-            headerTitle='My Posts'
-            myPostsPage={true}
-            content={loremIpsum}
-            lat={lat}
-            lon={lon}
+              headerTitle='My Posts'
+              myPostsPage={true}
+              content={loremIpsum}
+              lat={lat}
+              lon={lon}
             />
           </section>}
         />

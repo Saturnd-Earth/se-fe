@@ -14,7 +14,7 @@
   width: 100%;
   box-sizing: border-box;
   border-radius: 1em;
-  border-color:  #C4C4C4;
+  border-color: $application-gray;
   border-width: 1em;
   padding: 1em;
   outline: none;
@@ -37,7 +37,7 @@
 }
 
 .tab {
-  background-color:  #C4C4C4;
+  background-color: $application-gray;
   overflow: hidden;
   @extend %make-post-margin;
   display: flex;
@@ -45,6 +45,8 @@
   grid-row: 2;
   border-radius: 1em;
 }
+//^ hover effect is a little off when I place a hover effect the color changes for all not just the non selected
+
 
 .icons {
   width: 3em;
@@ -58,7 +60,7 @@
 }
 
 .tab-links{
-  background-color:  #C4C4C4;
+  background-color: $application-gray;
   @extend %tabs-input;
 }
 
@@ -70,7 +72,7 @@
   color:$white;
   font-weight: bold;
   font-size: 1.5em;
-  background-color: #C4C4C4;
+  background-color: $application-blue;
   @extend %make-post-margin;
   cursor: pointer;
   outline: none;
@@ -79,10 +81,11 @@
 .make-post-text{
   @extend %make-post-margin;
   grid-row: 1;
+  @extend %title-text;
 }
 
 .tab-links-selected {
-  background-color:  #C4C4C4;
+  background-color: $application-blue;
   color:$white;
   @extend %tabs-input;
   font-size: 0.9em;
