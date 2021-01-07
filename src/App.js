@@ -62,11 +62,13 @@ class App extends Component {
         />
         <Route exact path='/signup' render={ () =>
           <section className="signup">
+            <Header/>
             <SignUp/>
           </section>}
         />
         <Route exact path='/login' render={ () =>
           <section className="login">
+            <Header/>
             <Login/>
           </section>}
         />

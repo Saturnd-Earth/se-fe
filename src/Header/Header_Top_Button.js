@@ -11,42 +11,39 @@ export default function Header_Top_Button() {
 
   if (logOn === false) {
     return (
-      <section className='header-top-buttons'> 
+      <section className='header-top-buttons'>
       <NavLink to='/signup' className='header-top-buttons'>
-      <button className='logon' onClick={() => setlogOn(true)}>
-          <img 
-            src={signup} 
-            alt='sign up button' 
+      <button className='logon'>
+          <img
+            src={signup}
+            alt='Sign up'
             label='sign up button'
             className='sign-up-button logon-icons'
           />
-          Join
         </button>
       </NavLink>
       <NavLink to='/login' className='header-top-buttons'>
-        <button className='logon' onClick={() => setlogOn(true)}>
-          <img 
+        <button className='logon'>
+          <img
             src={login}
-            alt='login button' 
+            alt='Log in'
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
-          login 
         </button>
       </NavLink>
       </section>
     )
   } else {
     return (
-      <section className='header-top-buttons logout-section' onClick={() => setlogOn(false)}> 
-        <button className='logon' onClick={() => setlogOn(false)}>
-          <img 
-            src={logout} 
-            alt='login button' 
+      <section className='header-top-buttons logout-section' onClick={() => setlogOn(false)}>
+        <button className='logon'>
+          <img
+            src={logout}
+            alt='Log out'
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
-          logout 
         </button>
       </section>
     )
