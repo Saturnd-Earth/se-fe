@@ -1,11 +1,9 @@
 import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
-// import dummyIcon from '../images/dummyIcon.png';
 import React, { useState, useEffect }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
-import ringIcon from '../images/ring-icon.png';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
@@ -25,23 +23,6 @@ export function Post(props) {
     })
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike, { data }] = useMutation(CREATE_LIKE);
-
-    // useEffect(() => {
-    //     // Set icon
-    //     if (props.myPostsPage) {
-    //         setUserInfo({
-    //             ...userInfo,
-    //             userIcon: ringIcon
-    //         })
-    //     }
-    //     // Render content
-    //     if (props.content) {
-    //         setPostInfo({
-    //             ...postInfo,
-    //             postContent: props.content
-    //         })
-    //     } 
-    // }, [userInfo, postInfo])
 
     let like = async () => {
         setLoadingPos(true)
@@ -103,7 +84,7 @@ export function Post(props) {
                             <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
                     </div>
                     <div className='post-right-bottom'>
-                        <p className='post-right-bottom-p'>{postInfo.postContent}</p>
+                        <p className='post-right-bottom-p'>{props.content}</p>
                     </div>
                 </section>
             </section>
@@ -126,7 +107,7 @@ export function Post(props) {
                             <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
                     </div>
                     <div className='post-right-bottom'>
-                        <p className='post-right-bottom-p'>{postInfo.postContent}</p>
+                        <p className='post-right-bottom-p'>{props.content}</p>
                     </div>
                 </section>
             </section>
