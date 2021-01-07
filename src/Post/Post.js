@@ -79,7 +79,7 @@ export function Post(props) {
                 </section>
                 <section className='post-right'>
                     <div className='post-right-top'>
-                            <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: </h5></strong></em><br/>
+                            <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: {props.lastLike}</h5></strong></em><br/>
                             <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
                             <em><h6 className='post-right-top-h' id='prt3'>Date: {props.date}</h6></em>
                     </div>

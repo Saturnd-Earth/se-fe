@@ -13,6 +13,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -23,6 +24,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -33,6 +35,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -43,6 +46,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -53,6 +57,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -63,6 +68,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -73,6 +79,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -83,6 +90,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -93,6 +101,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -103,6 +112,7 @@ export default function Feed(props) {
         icon={props.icon}
         ring={props.ring}
         date={props.date}
+        lastLike={props.lastLike}
         />,
     ];
     return (
