@@ -9,10 +9,16 @@ import './Scss/base.scss';
 
 import React, { Component } from 'react';
 
+// Dummy Info
+import ringIcon from './images/ring-icon.png';
+import dummyIcon from './images/dummyIcon.png';
 const loremIpsum = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
 const lat = -888;
 const lon = -999;
 const name = 'John Doe';
+const dummyRing = 0
+const dummyDate = '07/04/1776'
+const dummyLastLike = 'Boston, MA'
 
 class App extends Component {
   constructor() {
@@ -33,6 +39,10 @@ class App extends Component {
               myPostsPage={false}
               content={loremIpsum}
               name={name}
+              icon={dummyIcon}
+              ring={dummyRing}
+              date={dummyDate}
+              lastLike={dummyLastLike}
             />
           </section>
         }/>
@@ -51,6 +61,10 @@ class App extends Component {
               content={loremIpsum}
               lat={lat}
               lon={lon}
+              icon={ringIcon}
+              ring={dummyRing}
+              date={dummyDate}
+              lastLike={dummyLastLike}
             />
           </section>}
         />

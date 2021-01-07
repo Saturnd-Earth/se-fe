@@ -1,15 +1,14 @@
 import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
-import dummyIcon from '../images/dummyIcon.png';
 import React, { useState }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
-        userIcon: dummyIcon,
-        name: 'John Doe',
+        userIcon: null,
+        name: null,
         id: 10
     })
     let [postInfo, setPostInfo] = useState({
@@ -17,7 +16,7 @@ export function Post(props) {
         id: 14,
         date: null,
         liked: false,
-        postContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        postContent: null,
     })
     let [page, setPage] = useState({
         myPosts: true
@@ -63,26 +62,55 @@ export function Post(props) {
     let likeButton;
     !postInfo.liked ? likeButton = defaultLike : likeButton = blueLike;
     if (loadingPos) return (<h1>LOADING YOUR LOCATION....</h1>)
-    return (
-        <section className='post'>
-            <section className='post-left'>
-                <div className='post-left-top'>
-                    <img src={userInfo.userIcon} alt='User Icon' id='user-icon'/>
-                </div>
-                <div className='post-left-bottom'>
-                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
-                </div>
+    if (props.myPostsPage) {
+        return (
+            <section className='post'>
+                <section className='post-left'>
+                    <div className='post-left-top'>
+                        <img src={props.icon} alt='User Icon' id='user-icon'/>
+                    </div>
+                    <div className='post-left-bottom' style={{display: 'grid',
+                    gridTemplateRows: '1em 1em', paddingTop: '.5em'}}>
+                        <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>Lat: </h6></em>
+                        <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>{props.lat}</h6></em>
+                        <em style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}><h6  style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}>Lon: </h6></em>
+                        <em style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}><h6  style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}>{props.lon}</h6></em>
+                    </div>
+                </section>
+                <section className='post-right'>
+                    <div className='post-right-top'>
+                            <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: {props.lastLike}</h5></strong></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt3'>Date: {props.date}</h6></em>
+                    </div>
+                    <div className='post-right-bottom'>
+                        <p className='post-right-bottom-p'>{props.content}</p>
+                    </div>
+                </section>
             </section>
-            <section className='post-right'>
-                <div className='post-right-top'>
-                        <em><strong><h5 className='post-right-top-h' id='name-header'>{userInfo.name}</h5></strong></em><br/>
-                        <em><h6 className='post-right-top-h' id='prt2'>Ring: {postInfo.ring}</h6></em><br/>
-                        <em><h6 className='post-right-top-h' id='prt3'>Date: </h6></em>
-                </div>
-                <div className='post-right-bottom'>
-                    <p className='post-right-bottom-p'>{postInfo.postContent}</p>
-                </div>
+        )
+    } else {
+        return (
+            <section className='post'>
+                <section className='post-left'>
+                    <div className='post-left-top'>
+                        <img src={props.icon} alt='User Icon' id='user-icon'/>
+                    </div>
+                    <div className='post-left-bottom'>
+                        <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
+                    </div>
+                </section>
+                <section className='post-right'>
+                    <div className='post-right-top'>
+                            <em><strong><h5 className='post-right-top-h' id='name-header'>{props.name}</h5></strong></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt3'>Date: {props.date}</h6></em>
+                    </div>
+                    <div className='post-right-bottom'>
+                        <p className='post-right-bottom-p'>{props.content}</p>
+                    </div>
+                </section>
             </section>
-        </section>
-    )
+        )
+    }
 }

@@ -10,6 +10,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -17,6 +21,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -24,6 +32,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -31,6 +43,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -38,6 +54,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -45,6 +65,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -52,6 +76,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -59,6 +87,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -66,6 +98,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
         <Post 
         myPostsPage={props.myPostsPage}
@@ -73,6 +109,10 @@ export default function Feed(props) {
         lat={props.lat}
         lon={props.lon}
         name={props.name}
+        icon={props.icon}
+        ring={props.ring}
+        date={props.date}
+        lastLike={props.lastLike}
         />,
     ];
     return (
