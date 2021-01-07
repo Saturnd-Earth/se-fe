@@ -17,6 +17,7 @@ const lat = -888;
 const lon = -999;
 const name = 'John Doe';
 const dummyRing = 0
+const dummyDate = '07/04/1776'
 
 class App extends Component {
   constructor() {
@@ -39,6 +40,7 @@ class App extends Component {
               name={name}
               icon={dummyIcon}
               ring={dummyRing}
+              date={dummyDate}
             />
           </section>
         }/>
@@ -59,6 +61,7 @@ class App extends Component {
               lon={lon}
               icon={ringIcon}
               ring={dummyRing}
+              date={dummyDate}
             />
           </section>}
         />
