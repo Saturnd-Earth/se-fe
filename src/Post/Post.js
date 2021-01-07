@@ -2,14 +2,15 @@ import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
 import dummyIcon from '../images/dummyIcon.png';
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
+import ringIcon from '../images/ring-icon.png';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
         userIcon: dummyIcon,
-        name: 'John Doe',
+        name: null,
         id: 10
     })
     let [postInfo, setPostInfo] = useState({
@@ -17,13 +18,28 @@ export function Post(props) {
         id: 14,
         date: null,
         liked: false,
-        postContent: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        postContent: null,
     })
     let [page, setPage] = useState({
         myPosts: true
     })
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike, { data }] = useMutation(CREATE_LIKE);
+
+    useEffect(() => {
+        // Set icon
+        if (props.myPostsPage) {
+            setUserInfo({
+                ...userInfo,
+                userIcon: ringIcon
+            })
+        }
+        // Render content
+        setPostInfo({
+            ...postInfo,
+            postContent: props.content
+        })
+    }, [userInfo, postInfo])
 
     let like = async () => {
         setLoadingPos(true)
