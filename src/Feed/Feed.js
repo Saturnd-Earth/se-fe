@@ -8,9 +8,8 @@ export default function Feed(props) {
     let [postIndex, setPostIndex] = useState(0)
     let {loading, error, data } = useQuery(GET_ALL_POSTS);
 
-    if (loading) {
-      return (<h1>LOADING POSTS...</h1>)
-    }
+    if (loading) return <h1>LOADING POSTS...</h1>
+    if (error) return <h1>Hmm... something went wrong.</h1>
 
     function addToIndex(num) {
       let arrLength = data.posts.length
@@ -18,8 +17,6 @@ export default function Feed(props) {
       let index = ((total % arrLength) + arrLength) % arrLength
       return index
     }
-
-    console.log(data)
 
     let { content, createdAt, id, ringMinMax } = data.posts[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
