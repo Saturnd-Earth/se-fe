@@ -44,7 +44,7 @@ $white:#ffff;
   @extend %drop-shodow;
   outline: none;
   border: 0;
-  width: 33%;
+  background-color: $application-gray;
 }
 
 %button-nav{
@@ -62,4 +62,17 @@ $white:#ffff;
   text-align: center;
   font-size: 1.5em;
   color: $application-blue;
+}
+
+%active-button{
+  background-color: $application-blue;
+  color: $white;
+}
+
+%hover-button-gray{
+  background-color: darken($application-gray, 5%);
+}
+
+%hover-button-blue{
+  background-color: darken($application-blue, 5%);
 }

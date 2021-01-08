@@ -39,8 +39,6 @@
     width: 3.5em;
     @extend %button-nav;
 }
-// I can't seem to get darken to work please see
-// "selected" for example of it working maybe :focus
 
 .selected {
     .bottom-images {
@@ -48,7 +46,7 @@
       background-color: $application-blue;
     }
     // :hover {
-    //     background-color: darken($application-blue, 5%);
+    //     background-color: en($application-blue, 5%);
     //   }
 }
 
@@ -69,14 +67,10 @@
     border: 0;
     display: inline-flex;
     color: $application-blue;
-    // :hover {
-    //     background-color: darken($application-blue, 5%);
-    //   }
 }
 
 .logon:active {
-    background-color: $application-blue;
-    color: $white;
+  @extend %active-button
 }
 
 .logon-icons{
