@@ -9,8 +9,9 @@
     display: grid;
     grid-template-columns: .25fr 1fr;
     // width and height
-    width: 21em;
-    height: 6em;
+    height: 7em;
+    margin-left: max(6em);
+    margin-right: max(6em);
     // style
     border-radius: .75em;
     background-color: $application-gray;
@@ -28,7 +29,8 @@
             display: flex;
             justify-content: center;
             #user-icon {
-              @extend %profile-picture
+              @extend %profile-picture;
+              margin-top: 0.5em;
             }
         }
         .post-left-bottom {
@@ -36,6 +38,7 @@
             justify-content: center;
             #like-button {
                 width: 40px;
+                margin-top: 0.5em;
                 align-self: center;
                 cursor: pointer;
             }
