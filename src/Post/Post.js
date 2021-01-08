@@ -1,5 +1,6 @@
 import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
+import dummyIcon from '../images/dummyIcon.png'
 import defaultLike from '../images/like-white.png';
 import React, { useState }  from 'react';
 import { useMutation } from '@apollo/client';
@@ -7,16 +8,16 @@ import '../Scss/base.scss';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
-        userIcon: null,
+        userIcon: dummyIcon,
         name: null,
         id: 10
     })
     let [postInfo, setPostInfo] = useState({
-        ring: 0,
-        id: 14,
-        date: null,
-        liked: false,
-        postContent: null,
+        ring: props.ring,
+        id: props.id,
+        createdAt: props.createdAt,
+        liked: props.liked,
+        content: props.content,
     })
     let [page, setPage] = useState({
         myPosts: true
@@ -103,8 +104,8 @@ export function Post(props) {
                 <section className='post-right'>
                     <div className='post-right-top'>
                             <em><strong><h5 className='post-right-top-h' id='name-header'>{props.name}</h5></strong></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt3'>Date: {props.date}</h6></em>
+                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring[1]}</h6></em><br/>
+                            <em><h6 className='post-right-top-h' id='prt3'>Date: {props.createdAt}</h6></em>
                     </div>
                     <div className='post-right-bottom'>
                         <p className='post-right-bottom-p'>{props.content}</p>
