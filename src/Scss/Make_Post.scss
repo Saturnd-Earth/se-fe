@@ -60,8 +60,12 @@
 }
 
 .tab-links{
-  background-color: $application-gray;
   @extend %tabs-input;
+  width: 33%;
+}
+
+.tab-links:hover{
+  @extend %hover-button-gray;
 }
 
 .make-post-button{
@@ -78,6 +82,15 @@
   outline: none;
 }
 
+.make-post-button:hover {
+  @extend %hover-button-blue;
+}
+
+.make-post-button:active {
+  background-color: $application-gray;
+  color:$drop-showdow;
+}
+
 .make-post-text{
   @extend %make-post-margin;
   grid-row: 1;
@@ -89,4 +102,9 @@
   color:$white;
   @extend %tabs-input;
   font-size: 0.9em;
+  width: 33%;
+}
+
+.tab-links-selected:hover{
+  @extend %hover-button-blue
 }
