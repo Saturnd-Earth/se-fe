@@ -87,17 +87,4 @@ describe('Make_Post', () => {
       await waitFor( () => expect(screen.getByPlaceholderText('Type your post here!')).toBeInTheDocument())
     })
   })
-
-  // it('should turn blue when clicked', () => {
-  //
-  //   render(
-  //     <MockedProvider mocks={[]} addTypename={false}>
-  //         <Make_Post />
-  //     </MockedProvider>
-  //   )
-  //
-  //   let like = screen.getByAltText('Like button')
-  //   userEvent.click(like)
-  //   expect(like).toHaveAttribute('src', blueLike)
-  // })
 });
