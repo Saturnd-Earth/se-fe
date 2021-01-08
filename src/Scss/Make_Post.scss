@@ -80,6 +80,7 @@
   @extend %make-post-margin;
   cursor: pointer;
   outline: none;
+  @extend %drop-shodow;
 }
 
 .make-post-button:hover {
