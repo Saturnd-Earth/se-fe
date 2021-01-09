@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../../Scss/base.scss';
 
 const Comment = (props) => {
+
   return (
     <section className='input-section' data-testid='make post input'>
       <textarea
@@ -10,6 +11,7 @@ const Comment = (props) => {
         placeholder='Type your post here!'
         spellCheck= "true"
         wrap="soft"
+        onChange={(e) => props.setInput({type: 'Comment', content: e.target.value})}
       />
     </section>
   )
