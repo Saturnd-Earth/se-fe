@@ -1,6 +1,5 @@
 import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE } from '../requests';
-import dummyIcon from '../images/dummyIcon.png'
 import defaultLike from '../images/like-white.png';
 import React, { useState }  from 'react';
 import { useMutation } from '@apollo/client';
@@ -8,7 +7,7 @@ import '../Scss/base.scss';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
-        userIcon: dummyIcon,
+        userIcon: null,
         name: null,
         id: 10
     })

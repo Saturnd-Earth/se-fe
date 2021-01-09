@@ -27,7 +27,13 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
+            <Post 
+            content={content} 
+            createdAt={createdAt} 
+            id={id} 
+            ring={[min, max]}
+            icon={props.icon}
+            />
             <section className="next-previous-section">
               <button 
                 className='buttons'

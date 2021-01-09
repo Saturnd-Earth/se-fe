@@ -23,6 +23,7 @@ export default function YourPosts(props) {
                         createdAt={createdAt} 
                         id={id} 
                         ring={[i.min, i.max]}
+                        icon={props.icon}
                         />
                     )
                 })
