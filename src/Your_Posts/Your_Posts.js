@@ -16,7 +16,15 @@ export default function YourPosts(props) {
             {
                 data.postsByUser.map(i => {
                     let { content, createdAt, id, ringMinMax } = i
-                    return <Post myPostsPage={true} content={content} createdAt={createdAt} id={id} ring={[i.min, i.max]}/>
+                    return (
+                        <Post 
+                        myPostsPage={true} 
+                        content={content} 
+                        createdAt={createdAt} 
+                        id={id} 
+                        ring={[i.min, i.max]}
+                        />
+                    )
                 })
             }
         </section>
