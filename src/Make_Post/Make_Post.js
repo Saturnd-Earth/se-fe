@@ -15,6 +15,32 @@ const Make_Post = () => {
   const [commentInput, setCommentInput] = useState(() => () => <Comment setInput={setInput}/>);
   const [commentInputNum, setCommentInputNum] = useState(1);
   const [sendPost, { data }] = useMutation(CREATE_POST);
+  const [loadingPos, setLoadingPos] = useState(false)
+
+  const post = async () => {
+      setLoadingPos(true)
+      window.navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          setLoadingPos(false)
+          sendPost({
+            variables: {
+              userId: 10,
+              content: `${input}`,
+              latitude: pos.coords.latitude,
+              longitude: pos.coords.longitude
+            }
+          })
+          .then( () => {
+            console.log('hey that worked?')
+          })
+          .catch( err => console.log('No one likes.' + err))
+        },
+        (err) => {
+          console.log('BAD GEOLOCATOR ' + err)
+        }
+    )
+    setTimeout( () => setLoadingPos(false), 16000)
+  }
 
   return (
     <section className='make-post-section'>
@@ -69,7 +95,7 @@ const Make_Post = () => {
       </div>
       {commentInput()} 
       <button
-        onClick={() => console.log(input)} 
+        onClick={() => post()} 
         className='make-post-button'
       >
         Post

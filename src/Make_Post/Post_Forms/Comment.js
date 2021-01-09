@@ -11,7 +11,7 @@ const Comment = (props) => {
         placeholder='Type your post here!'
         spellCheck= "true"
         wrap="soft"
-        onChange={(e) => props.setInput({type: 'Comment', content: e.target.value})}
+        onChange={(e) => props.setInput({type: 'Comment', text: e.target.value})}
       />
     </section>
   )
