@@ -30,6 +30,7 @@ export default function Header_Top_Button() {
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
+          Log in
         </button>
       </NavLink>
       </section>

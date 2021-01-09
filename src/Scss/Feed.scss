@@ -25,7 +25,7 @@
     background-color:$application-blue;
     border-radius: .75em;
     border: none;
-    box-shadow: 1px 4px 9px 0px $drop-showdow;
+    @extend %drop-shodow;
     color: white;
     cursor: pointer;
     place-self: center;
