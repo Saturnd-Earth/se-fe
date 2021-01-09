@@ -18,11 +18,8 @@
   width: 21em;
   justify-self: center;
   place-self: center;
-}
-
-.previous-button{
-  // float: left;
-  @extend %tabs-input;
+  .buttons {
+    @extend %tabs-input;
     width: 9em;
     height: 3em;
     background-color:$application-blue;
@@ -31,23 +28,18 @@
     box-shadow: 1px 4px 9px 0px $drop-showdow;
     color: white;
     cursor: pointer;
-    margin-right: auto;
-    margin-left: auto;
+    place-self: center;
+    place-content: center;
+  }
 }
 
-.next-button{
-  // float: right;
-  @extend %tabs-input;
-    width: 9em;
-    height: 3em;
-    background-color:$application-blue;
-    border-radius: .75em;
-    border: none;
-    box-shadow: 1px 4px 9px 0px $drop-showdow;
-    color: white;
-    cursor: pointer;
-    margin-right: auto;
-    // margin-left: auto;
+#previous-button{
+  // margin-left: auto;
+  margin-right: 8em;
+}
+#next-button{
+  // margin-right: auto;
+  margin-left: 1em;
 }
 
 .next-button:active{

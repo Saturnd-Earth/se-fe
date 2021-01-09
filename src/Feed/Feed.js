@@ -37,7 +37,8 @@ export default function Feed(props) {
             />
             <section className="next-previous-section">
               <button 
-                className="previous-button"
+                className='buttons'
+                id="previous-button"
                 onClick={ () => setPostIndex( addToIndex( -1 )) }
                 >
                 <img
@@ -49,7 +50,8 @@ export default function Feed(props) {
                 Previous
                 </button>
                 <button 
-                className="next-button" 
+                className='buttons'
+                id="next-button" 
                 onClick={ () => setPostIndex( addToIndex( 1 )) }
                 >
                 Next
