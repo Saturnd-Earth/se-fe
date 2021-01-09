@@ -1,25 +1,72 @@
+// .header-title {
+//     @extend %title-text;
+//     margin-top: 1em;
+//     margin-bottom: 0em;
+// }
+
+// .previous-button{
+//   @extend %tabs-input;
+// }
+
+// .next-button{
+//   @extend %tabs-input;
+// }
+
+// .next-button:active{
+//   @extend %active-button;
+// }
+
+// .previous-button:active{
+//   @extend %active-button;
+// }
+
+// .next-previous-section {
+//   display: inline-flex;
+// }
+
+.feed {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  // margin-top: 3em;
+}
 .header-title {
     @extend %title-text;
     margin-top: 1em;
     margin-bottom: 0em;
 }
-
-.previous-button{
-  @extend %tabs-input;
+.next-previous-section {
+  display: inline-flex;
+  margin-top: 3em;
+  grid-row: 4;
+  width: 21em;
+  justify-self: center;
+  place-self: center;
+  .buttons {
+    @extend %tabs-input;
+    width: 9em;
+    height: 3em;
+    background-color:$application-blue;
+    border-radius: .75em;
+    border: none;
+    @extend %drop-shodow;
+    color: white;
+    cursor: pointer;
+    place-self: center;
+    place-content: center;
+  }
 }
-
-.next-button{
-  @extend %tabs-input;
+#previous-button{
+  // margin-left: auto;
+  margin-right: 8em;
 }
-
+#next-button{
+  // margin-right: auto;
+  margin-left: 1em;
+}
 .next-button:active{
   @extend %active-button;
 }
-
 .previous-button:active{
   @extend %active-button;
-}
-
-.next-previous-section {
-  display: inline-flex;
 }
