@@ -27,10 +27,17 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
+            <Post 
+            content={content} 
+            createdAt={createdAt} 
+            id={id} 
+            ring={[min, max]}
+            icon={props.icon}
+            />
             <section className="next-previous-section">
               <button 
-                className="previous-button" 
+                className='buttons'
+                id="previous-button" 
                 onClick={ () => setPostIndex( addToIndex( -1 )) }
                 >
                 <img
@@ -42,7 +49,8 @@ export default function Feed(props) {
                 Previous
                 </button>
                 <button 
-                className="next-button" 
+                className='buttons'
+                id="next-button" 
                 onClick={ () => setPostIndex( addToIndex( 1 )) }
                 >
                 Next

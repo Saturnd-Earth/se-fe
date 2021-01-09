@@ -1,13 +1,18 @@
 // import logo from './logo.svg';
 import { Route } from 'react-router-dom';
 import Feed from './Feed/Feed';
+// import YourPosts from './Your_Posts/YourPosts'
 import Header from './Header/Header';
 import Login from './Login/Login.js';
 import MakePost from './Make_Post/Make_Post.js'
 import { SignUp } from './SignUp/SignUp.js'
 import './Scss/base.scss';
 
+import dummyIcon from './images/dummyIcon.png';
+import ringIcon from './images/ring-icon.png';
+
 import React, { Component } from 'react';
+import YourPosts from './Your_Posts/Your_Posts';
 
 class App extends Component {
   constructor() {
@@ -23,7 +28,9 @@ class App extends Component {
         <Header/>
         <Route exact path='/' render={ () =>
           <section className="home">
-            <Feed/>
+            <Feed
+            icon={dummyIcon}
+            />
           </section>
         }/>
         <Route exact path='/make_post' render={ () =>
@@ -33,7 +40,10 @@ class App extends Component {
         />
         <Route exact path='/my_post' render={ () =>
           <section className="view-post">
-            <Feed/>
+            <YourPosts 
+            myPostsPage={true}
+            icon={ringIcon}
+            />
           </section>}
         />
         <Route exact path='/awards' render={ () =>
