@@ -1,0 +1,88 @@
+.header-top {
+    display: grid;
+    grid-template-columns: .5fr 1fr .5fr ;
+    grid-row-start: 1;
+    #se-logo {
+        width: 8em;
+        grid-column: 1;
+        justify-self: center;
+        align-self: center;
+        margin-top: -1.9em;
+        grid-row-start: 1;
+        padding-top: 1em;
+    }
+    .header-text {
+        font-family: 'Damion', cursive;
+        grid-column: 2;
+        justify-self: left;
+        align-self: center;
+        font-size: 4em;
+        padding: 0;
+        margin: 0;
+        margin-top: -0.4em;
+        color:$application-blue;
+        grid-row-start: 1;
+        justify-self: center;
+    }
+}
+.header-bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: $application-gray;
+    padding-top: .75em;
+    padding-bottom: .75em;
+    margin-top: -2em;
+}
+
+.bottom-images {
+    width: 3.5em;
+    @extend %button-nav;
+}
+
+.selected {
+    .bottom-images {
+      width: 3.85em;
+      background-color: $application-blue;
+    }
+    // :hover {
+    //     background-color: darken($application-blue, 5%);
+    //   }
+}
+.header-top-buttons {
+    // grid-row-start: 1;
+    grid-template-rows: 1em 1em;
+    margin: 0;
+    // display: flex;
+    // margin-top: -1.2em;
+    // text-decoration: none;
+}
+.logon {
+    @extend %button-nav;
+    margin-right: 2em;
+    margin-top: 3.5em;
+    min-width: fit-content;
+    font-family: "Damion", cursive;
+    outline: none;
+    border: 0;
+    margin-top: 2.75em;
+    display: inline-flex;
+    color: $application-blue;
+    grid-row: 1;
+    // :hover {
+    //     background-color: darken($application-blue, 5%);
+    //   }
+}
+
+.logon:active {
+    background-color: $application-blue;
+    color: $white;
+}
+
+.logon-icons{
+    width: 1.5em;
+}
+
+.logout-section{
+    justify-self: right;
+    margin-bottom: 1em;
+}

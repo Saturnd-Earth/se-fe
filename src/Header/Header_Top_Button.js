@@ -20,6 +20,7 @@ export default function Header_Top_Button() {
             label='sign up button'
             className='sign-up-button logon-icons'
           />
+          Sign Up
         </button>
       </NavLink>
       <NavLink to='/login' className='header-top-buttons'>
@@ -30,6 +31,7 @@ export default function Header_Top_Button() {
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
+          Login
         </button>
       </NavLink>
       </section>
@@ -44,6 +46,7 @@ export default function Header_Top_Button() {
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
+          Logout
         </button>
       </section>
     )

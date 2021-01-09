@@ -1,30 +1,21 @@
 .post {
-    // margins
     font-family: 'Roboto', sans-serif;
     margin-top: 1em;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1em;
-    // grid
     display: grid;
     grid-template-columns: .25fr 1fr;
-    // width and height
     height: 7em;
-    width: 21em;
-    // margin-left: max(6em);
-    // margin-right: max(6em);
-    margin-left: auto;
-    margin-right: auto;
-    // style
-    border-radius: .75em;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 1em;
     background-color: $application-gray;
     @extend %drop-shodow;
-    // p tags
     p {
         margin: 0;
         padding: 0;
     }
-    //
     .post-left {
         display: grid;
         grid-template-rows: .5fr .5fr;
@@ -47,12 +38,10 @@
             }
         }
     }
-    //
+
     .post-right {
-        //
         display: grid;
         grid-template-rows: .1fr .7fr;
-        //
         max-height: 100%;
         overflow-y: scroll;
         .post-right-top {

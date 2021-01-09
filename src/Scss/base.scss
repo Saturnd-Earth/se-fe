@@ -1,6 +1,12 @@
 @import "./variables.scss";
-@import "./App.scss";
-@import "./Header.scss";
-@import "./Make_Post.scss";
-@import "./Post.scss";
-@import "./Feed.scss"
+@import "./App/App.scss";
+@import "./Header/Header.scss";
+@import "./Make_Post/Make_Post.scss";
+@import "./Post/Post.scss";
+@import "./Feed/Feed.scss";
+
+@import "./App/App_Media.scss";
+@import "./Feed/Feed_Media.scss";
+@import "./Header/Header_Media.scss";
+@import "./Make_Post/Make_Post_Media.scss";
+@import "./Post/Post_Media.scss";
