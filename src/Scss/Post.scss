@@ -38,11 +38,18 @@
         }
         .post-left-bottom {
             display: flex;
+        }
+        #post-left-bottom-a {
+            max-width: 41px;
+            overflow-x: scroll;
+        }
+        #post-left-bottom-b {
             justify-content: center;
             #like-button {
                 width: 40px;
                 margin-top: 0.5em;
                 align-self: center;
+                // place-self: center;
                 cursor: pointer;
             }
         }

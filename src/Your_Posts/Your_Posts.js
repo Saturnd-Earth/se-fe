@@ -15,7 +15,8 @@ export default function YourPosts(props) {
             <h1 className='header-title'>{props.headerTitle}</h1>
             {
                 data.postsByUser.map(i => {
-                    let { content, createdAt, id, ringMinMax } = i
+                    let { content, createdAt, id, ringMinMax } = i;
+                    console.log(i)
                     return (
                         <Post 
                         myPostsPage={true} 
@@ -24,6 +25,9 @@ export default function YourPosts(props) {
                         id={id} 
                         ring={[i.min, i.max]}
                         icon={props.icon}
+                        lat={i.latitude}
+                        lon={i.longitude}
+                        date={i.createdAt}
                         />
                     )
                 })

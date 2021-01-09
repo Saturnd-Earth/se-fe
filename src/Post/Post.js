@@ -69,7 +69,7 @@ export function Post(props) {
                     <div className='post-left-top'>
                         <img src={props.icon} alt='User Icon' id='user-icon'/>
                     </div>
-                    <div className='post-left-bottom' style={{display: 'grid',
+                    <div className='post-left-bottom' id='post-left-bottom-a' style={{display: 'grid',
                     gridTemplateRows: '1em 1em', paddingTop: '.5em'}}>
                         <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>Lat: </h6></em>
                         <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>{props.lat}</h6></em>
@@ -96,7 +96,7 @@ export function Post(props) {
                     <div className='post-left-top'>
                         <img src={props.icon} alt='User Icon' id='user-icon'/>
                     </div>
-                    <div className='post-left-bottom'>
+                    <div className='post-left-bottom' id='post-left-bottom-b'>
                         <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
                     </div>
                 </section>
