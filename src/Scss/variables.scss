@@ -10,7 +10,8 @@ $white:#ffff;
 %profile-picture {
   border: 1px solid $application-blue;
   border-radius: 100%;
-  width: 40px;
+  max-width: 40px;
+  max-height: auto;
   align-self: center;
 }
 
