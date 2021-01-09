@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import '../Scss/base.scss';
 import { gql, useQuery } from '@apollo/client';
 import { Post } from '../Post/Post.js';
-import prev from '../images/prev-mixed.png'
-import next from '../images/next-mixed.png'
+import prev from '../images/prev-mixed.png';
+import next from '../images/next-mixed.png';
+import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import ringIcon from '../images/ring-icon.png';
+import  Map  from '../Map/Map'
 
 
 export default function Feed(props) {
@@ -28,31 +31,38 @@ export default function Feed(props) {
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
             <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
-            <section className="next-previous-section">
-              <button 
-                className="previous-button" 
-                onClick={ () => setPostIndex( addToIndex( -1 )) }
-                >
-                <img
-                    src={prev}
-                    alt='previous arrow'
-                    label='previous arrow'
-                    className='logon-icons'
+            <section className='test'>
+                <Map 
+                className='map'
+                lat={content.lat}
+                lon={content.lon}
                 />
-                Previous
-                </button>
+                <section className="next-previous-section">
                 <button 
-                className="next-button" 
-                onClick={ () => setPostIndex( addToIndex( 1 )) }
-                >
-                Next
-                <img
-                    src={next}
-                    alt='previous arrow'
-                    label='previous arrow'
-                    className='logon-icons'
-                />
-              </button>
+                    className="previous-button"
+                    onClick={ () => setPostIndex( addToIndex( -1 )) }
+                    >
+                    <img
+                        src={prev}
+                        alt='previous arrow'
+                        label='previous arrow'
+                        className='logon-icons'
+                    />
+                    Previous
+                    </button>
+                    <button 
+                    className="next-button" 
+                    onClick={ () => setPostIndex( addToIndex( 1 )) }
+                    >
+                    Next
+                    <img
+                        src={next}
+                        alt='previous arrow'
+                        label='previous arrow'
+                        className='logon-icons'
+                    />
+                </button>
+                </section>
             </section>
         </section>
     )

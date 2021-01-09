@@ -4,12 +4,44 @@
     margin-bottom: 0em;
 }
 
+.test {
+  grid-template-rows: 1em 1em;
+  .map {
+    grid-row: 1;
+  }
+  .next-previous-section {
+    grid-row: 2;
+  }
+}
+
 .previous-button{
-  @extend %tabs-input;
+  float: left;
+  // @extend %tabs-input;
+    width: 9em;
+    height: 3em;
+    background-color:$application-blue;
+    border-radius: .75em;
+    border: none;
+    box-shadow: 1px 4px 9px 0px $drop-showdow;
+    color: white;
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .next-button{
-  @extend %tabs-input;
+  float: right;
+  // @extend %tabs-input;
+    width: 9em;
+    height: 3em;
+    background-color:$application-blue;
+    border-radius: .75em;
+    border: none;
+    box-shadow: 1px 4px 9px 0px $drop-showdow;
+    color: white;
+    cursor: pointer;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .next-button:active{
@@ -21,5 +53,7 @@
 }
 
 .next-previous-section {
-  display: inline-flex;
+  // display: inline-flex;
+  // margin-top: 3em;
+  //   grid-row: 2;
 }
