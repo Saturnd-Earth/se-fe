@@ -31,38 +31,35 @@ export default function Feed(props) {
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
             <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
-            <section className='test'>
-                <Map 
-                className='map'
-                lat={content.lat}
-                lon={content.lon}
+            <Map 
+            lat={content.lat}
+            lon={content.lon}
+            />
+            <section className="next-previous-section">
+              <button 
+                className="previous-button"
+                onClick={ () => setPostIndex( addToIndex( -1 )) }
+                >
+                <img
+                    src={prev}
+                    alt='previous arrow'
+                    label='previous arrow'
+                    className='logon-icons'
                 />
-                <section className="next-previous-section">
-                <button 
-                    className="previous-button"
-                    onClick={ () => setPostIndex( addToIndex( -1 )) }
-                    >
-                    <img
-                        src={prev}
-                        alt='previous arrow'
-                        label='previous arrow'
-                        className='logon-icons'
-                    />
-                    Previous
-                    </button>
-                    <button 
-                    className="next-button" 
-                    onClick={ () => setPostIndex( addToIndex( 1 )) }
-                    >
-                    Next
-                    <img
-                        src={next}
-                        alt='previous arrow'
-                        label='previous arrow'
-                        className='logon-icons'
-                    />
+                Previous
                 </button>
-                </section>
+                <button 
+                className="next-button" 
+                onClick={ () => setPostIndex( addToIndex( 1 )) }
+                >
+                Next
+                <img
+                    src={next}
+                    alt='previous arrow'
+                    label='previous arrow'
+                    className='logon-icons'
+                />
+              </button>
             </section>
         </section>
     )

@@ -1,8 +1,49 @@
+// .the-map {
+//     display: flex;
+//     display: grid;
+//     justify-content: center;
+//     align-content: center;
+//     margin-top: 3em;
+// }
+// .overlays {
+//     grid-row: 1;
+//     margin-right: auto;
+//     margin-left: auto;
+//     .marker-button {
+//         border-radius: 1em;
+//         border: none;
+//     }
+//     .marker-img {
+//         width: 1em
+//     }
+// }
+// .button-section {
+//     margin-top: 3em;
+//     grid-row: 2;
+//     .buttons {
+//         width: 9em;
+//         height: 3em;
+//         background-color:$application-blue;
+//         border-radius: .75em;
+//         border: none;
+//         box-shadow: 1px 4px 9px 0px $drop-showdow;
+//         color: white;
+//         cursor: pointer;
+//     }
+//     #back-button {
+//         float: left;
+//     }
+//     #next-button {
+//         float: right;
+//     }
+// }
+
 .the-map {
     display: flex;
     display: grid;
-    justify-content: center;
-    align-content: center;
+    width: 21em;
+    justify-self: center;
+    align-self: center;
     margin-top: 3em;
 }
 .overlays {

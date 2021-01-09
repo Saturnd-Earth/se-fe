@@ -36,9 +36,9 @@ export default function Map(props) {
                 {
                     dummyJson.map(post => (
                         <Marker
-                            // key={post.postId}
-                            latitude={40}
-                            longitude={-105}
+                            key={post.postId}
+                            latitude={post.coordinates[0]}
+                            longitude={post.coordinates[1]}
                         >
                         {/* <button class='marker-button'> */}
                             <img src={ringIcon} 

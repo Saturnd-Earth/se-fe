@@ -1,22 +1,28 @@
+.feed {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  // margin-top: 3em;
+}
+
 .header-title {
     @extend %title-text;
     margin-top: 1em;
     margin-bottom: 0em;
 }
 
-.test {
-  grid-template-rows: 1em 1em;
-  .map {
-    grid-row: 1;
-  }
-  .next-previous-section {
-    grid-row: 2;
-  }
+.next-previous-section {
+  display: inline-flex;
+  margin-top: 3em;
+  grid-row: 4;
+  width: 21em;
+  justify-self: center;
+  place-self: center;
 }
 
 .previous-button{
-  float: left;
-  // @extend %tabs-input;
+  // float: left;
+  @extend %tabs-input;
     width: 9em;
     height: 3em;
     background-color:$application-blue;
@@ -30,8 +36,8 @@
 }
 
 .next-button{
-  float: right;
-  // @extend %tabs-input;
+  // float: right;
+  @extend %tabs-input;
     width: 9em;
     height: 3em;
     background-color:$application-blue;
@@ -41,7 +47,7 @@
     color: white;
     cursor: pointer;
     margin-right: auto;
-    margin-left: auto;
+    // margin-left: auto;
 }
 
 .next-button:active{
@@ -50,10 +56,4 @@
 
 .previous-button:active{
   @extend %active-button;
-}
-
-.next-previous-section {
-  // display: inline-flex;
-  // margin-top: 3em;
-  //   grid-row: 2;
 }
