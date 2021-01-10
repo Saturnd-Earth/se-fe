@@ -13,25 +13,29 @@ export default function Header_Top_Button() {
     return (
       <section className='header-top-buttons'>
       <NavLink to='/signup' className='header-top-buttons'>
-      <button className='logon'>
+      <button className='logon sign-up'>
           <img
             src={signup}
             alt='Sign up'
             label='sign up button'
             className='sign-up-button logon-icons'
           />
-          Sign Up
+          <div className='logon-button-text'>
+            Sign Up
+          </div>
         </button>
       </NavLink>
       <NavLink to='/login' className='header-top-buttons'>
-        <button className='logon'>
+        <button className='logon login'>
           <img
             src={login}
             alt='Log in'
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
-          Login
+          <div className='logon-button-text'>
+            Login
+          </div>
         </button>
       </NavLink>
       </section>
@@ -39,14 +43,16 @@ export default function Header_Top_Button() {
   } else {
     return (
       <section className='header-top-buttons logout-section' onClick={() => setlogOn(false)}>
-        <button className='logon'>
+        <button className='logon logout'>
           <img
             src={logout}
             alt='Log out'
             label='log in and out button'
             className='sign-in-button logon-icons'
           />
-          Logout
+          <div className='logon-button-text'>
+            Logout
+          </div>
         </button>
       </section>
     )
