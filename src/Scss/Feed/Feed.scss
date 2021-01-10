@@ -17,27 +17,30 @@
   width: 21em;
   justify-self: center;
   place-self: center;
-  .buttons {
-    @extend %tabs-input;
-    width: 9em;
-    height: 3em;
-    background-color:$application-blue;
-    border-radius: 1em;
-    border: none;
-    @extend %drop-shodow;
-    color: white;
-    cursor: pointer;
-    place-self: center;
-    place-content: center;
-  }
 }
 
-#previous-button{
+.buttons {
+  @extend %tabs-input;
+  width: 9em;
+  height: 3em;
+  background-color:$application-blue;
+  border-radius: 1em;
+  border: none;
+  @extend %drop-shodow;
+  color: white;
+  cursor: pointer;
+  place-self: center;
+  place-content: center;
+}
+
+.previous-button{
   margin-right: 8em;
+  @extend %next-prev-button
 }
 
-#next-button{
+.next-button{
   margin-left: 1em;
+  @extend %next-prev-button
 }
 
 .next-button:active{

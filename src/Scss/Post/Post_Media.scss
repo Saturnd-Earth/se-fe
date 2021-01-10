@@ -18,7 +18,7 @@
   }
 
   .next-button{
-    margin: 0em;
+    margin-left: 0em;
   }
 
   .next-previous-section{
@@ -30,7 +30,7 @@
   }
 
   .post {
-    height: 8em;
+    height: fit-content;
     max-width: 66em;
     margin-left: 20%;
     margin-right: 20%;
@@ -38,13 +38,13 @@
 }
 
 @media screen and (max-width: 435px){
-  #previous-button{
+  .previous-button{
     margin-right: 7em;
   }
 }
 
 @media screen and (max-width: 377px){
-  #previous-button{
+  .previous-button{
     margin-right: 5em;
   }
 }

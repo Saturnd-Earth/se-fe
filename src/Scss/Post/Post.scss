@@ -6,12 +6,12 @@
     margin-bottom: 1em;
     display: grid;
     grid-template-columns: .25fr 1fr;
-    height: 7em;
     margin-left: 10%;
     margin-right: 10%;
     border-radius: 1em;
     background-color: $application-gray;
     @extend %drop-shodow;
+    height: fit-content;
     p {
         margin-top: 0;
         padding-top: 0;
@@ -44,7 +44,6 @@
         display: grid;
         grid-template-rows: .1fr .7fr;
         max-height: 100%;
-        overflow-y: scroll;
         .post-right-top {
             margin-top: 0.5em;
             max-height: 1vh;
