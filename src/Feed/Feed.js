@@ -34,6 +34,8 @@ export default function Feed(props) {
         ring.setMap( null )
       }
       setRing(newRing)
+      window.earthMap.setZoom(10)
+      window.earthMap.setCenter({lat: lat(), lng: lng()})
       setNeedNewRing(false)
 
     } else {
