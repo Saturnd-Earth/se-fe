@@ -5,6 +5,8 @@ import { gql, useQuery } from '@apollo/client';
 import { Post } from '../Post/Post.js';
 import React, { useState } from 'react';
 import '../Scss/base.scss';
+import prev from '../images/prev-mixed.png'
+import next from '../images/next-mixed.png'
 
 export default function Feed(props) {
     let {loading, error, data } = useQuery(GET_ALL_POSTS);
@@ -35,19 +37,40 @@ export default function Feed(props) {
             <h1 className='header-title'>{props.headerTitle}</h1>
             <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
 
-            <button
-              onClick={ () => {
-                setNeedNewRing(true)
-                setPostIndex( cycleIndex( postIndex, data.posts.length, -1 ))
-              }}
-            >Previous</button>
+            <section className="next-previous-section">
 
-            <button
-              onClick={ () => {
-                setNeedNewRing(true)
-                setPostIndex( cycleIndex( postIndex, data.posts.length, 1 ))
-              }}
-            >Next</button>
+              <button
+                className="previous-button"
+                onClick={ () => {
+                  setNeedNewRing(true)
+                  setPostIndex( cycleIndex( postIndex, data.posts.length, -1 ))
+                }}
+              >
+                <img
+                    src={prev}
+                    alt='previous arrow'
+                    label='previous arrow'
+                    className='logon-icons'
+                />
+                Previous
+              </button>
+
+              <button
+                className="next-button"
+                onClick={ () => {
+                  setNeedNewRing(true)
+                  setPostIndex( cycleIndex( postIndex, data.posts.length, 1 ))
+                }}
+              >
+                Next
+                <img
+                    src={next}
+                    alt='previous arrow'
+                    label='previous arrow'
+                    className='logon-icons'
+                />
+              </button>
+            </section>
         </section>
     )
 }
