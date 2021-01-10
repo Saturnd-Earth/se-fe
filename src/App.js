@@ -29,7 +29,7 @@ class App extends Component {
         <Route exact path='/' render={ () =>
           <section className="home">
             <Feed
-            icon={dummyIcon}
+              icon={dummyIcon}
             />
           </section>
         }/>
