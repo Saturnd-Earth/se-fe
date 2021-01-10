@@ -3,7 +3,6 @@ import '../Scss/base.scss';
 import HeaderBottomButton from './Header_Bottom_Button.js'
 import HeaderTopButton from './Header_Top_Button.js'
 
-
 import seLogo from '../images/se-logo.png';
 
 // import seLogo from '../images/se-logo.png'

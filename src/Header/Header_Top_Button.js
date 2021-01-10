@@ -1,3 +1,4 @@
+import { hideMap } from '../mapActions.js'
 import React, { useState, useEffect } from 'react'
 import '../Scss/base.scss';
 import { NavLink } from 'react-router-dom';
@@ -12,7 +13,7 @@ export default function Header_Top_Button() {
   if (logOn === false) {
     return (
       <section className='header-top-buttons'>
-      <NavLink to='/signup' className='header-top-buttons'>
+      <NavLink to='/signup' className='header-top-buttons' onClick={ hideMap }>
       <button className='logon'>
           <img
             src={signup}
@@ -22,7 +23,7 @@ export default function Header_Top_Button() {
           />
         </button>
       </NavLink>
-      <NavLink to='/login' className='header-top-buttons'>
+      <NavLink to='/login' className='header-top-buttons' onClick={ hideMap }>
         <button className='logon'>
           <img
             src={login}
