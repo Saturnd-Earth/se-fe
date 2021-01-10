@@ -8,6 +8,18 @@
       @import url('https://fonts.googleapis.com/css2?family=Damion&display=swap');
       @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
     </style>
+    <script>
+      function initMap() {
+        window.earthMap = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 0, lng: 0},
+          zoom: 1
+        });
+      };
+    </script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARXdRq9Ss4nGX-FymphP8Yi_seB7F-i5c&libraries=places&callback=initMap"
+      async defer>
+    </script>
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -15,9 +27,19 @@
       content="A social site for around the world!"
     />
     <title>Saturn'd Earth</title>
+
+    <style type="text/css">
+  #map {
+    position: float;
+    bottom: 700px;
+    height: 400px;
+    width: 100%;
+  }
+  </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <div id="map"></div>
   </body>
 </html>
