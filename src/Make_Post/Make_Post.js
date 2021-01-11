@@ -3,18 +3,21 @@ import Video from './Post_Forms/Video.js';
 import Comment from './Post_Forms/Comment.js';
 import Image from './Post_Forms/Image.js';
 import '../Scss/base.scss';
+import { useHistory } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { CREATE_POST } from '../requests.js';
 
-import videoIcon from '../images/add-vid-white.png'
-import imageIcon from '../images/add-img-white.png'
 import commentIcon from '../images/add-comment-white.png'
+import imageIcon from '../images/add-img-white.png'
+import loading from '../images/loading.png';
+import videoIcon from '../images/add-vid-white.png'
 
 const Make_Post = () => {
   const [input, setInput] = useState({});
   const [commentInput, setCommentInput] = useState(() => () => <Comment setInput={setInput}/>);
   const [commentInputNum, setCommentInputNum] = useState(1);
-  const [sendPost, { data }] = useMutation(CREATE_POST);
+  const history = useHistory();
+  const [sendPost] = useMutation(CREATE_POST);
   const [loadingPos, setLoadingPos] = useState(false)
 
   const post = async () => {
@@ -25,13 +28,16 @@ const Make_Post = () => {
           sendPost({
             variables: {
               userId: 10,
-              content: `${input}`,
+              content: input.text,
               latitude: pos.coords.latitude,
-              longitude: pos.coords.longitude
+              longitude: pos.coords.longitude,
+              url: input.url || null,
+              postType: input.postType
             }
           })
           .then( () => {
             console.log('hey that worked?')
+            history.push('/')
           })
           .catch( err => console.log('No one likes.' + err))
         },
@@ -93,10 +99,16 @@ const Make_Post = () => {
           Link Video
         </button>
       </div>
-      {commentInput()} 
+      <div className='make-post-input'>
+        <div className={`post-overlay ${loadingPos ? '' : 'hidden'}`}>
+          <img className='spin' alt='Submitting your post' src={loading}></img>
+        </div>
+        {commentInput()}
+      </div>
       <button
-        onClick={() => post()} 
         className='make-post-button'
+        disabled={loadingPos}
+        onClick={() => post()}
       >
         Post
       </button>
@@ -104,4 +116,4 @@ const Make_Post = () => {
   )
 }
 
-export default Make_Post
+export default Make_Post;

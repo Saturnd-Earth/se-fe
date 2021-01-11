@@ -11,7 +11,7 @@ export function SignUp() {
     username: ''
   }
   let history = useHistory();
-  let [signUpUser, { data }] = useMutation(USER_SIGNUP);
+  let [signUpUser] = useMutation(USER_SIGNUP);
 
   let handleInput = (e) => {
     input[e.target.name] = e.target.value
