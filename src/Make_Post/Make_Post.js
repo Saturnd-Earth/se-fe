@@ -28,8 +28,8 @@ const Make_Post = () => {
           setLoadingPos(false)
           sendPost({
             variables: {
-              userId: 10,
-              content: input.text,
+              userId: 19,
+              text: input.text,
               latitude: pos.coords.latitude,
               longitude: pos.coords.longitude,
               url: input.url || null,
@@ -37,16 +37,14 @@ const Make_Post = () => {
             }
           })
           .then( () => {
-            console.log('hey that worked?')
+            showMap()
             history.push('/')
           })
-          .catch( err => console.log('No one likes.' + err))
         },
         (err) => {
           console.log('BAD GEOLOCATOR ' + err)
         }
     )
-    setTimeout( () => setLoadingPos(false), 16000)
   }
 
   return (
