@@ -18,7 +18,6 @@
 .make-post-input {
   @extend %make-post-margin;
   position: relative;
-  border-width: 1em;
 
   .post-overlay {
       width: 100%;
@@ -38,6 +37,7 @@
 
 .make-post-field {
   resize: none;
+  border-width: 1em;
   width: 100%;
   box-sizing: border-box;
   border-radius: 1em;

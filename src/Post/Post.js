@@ -22,7 +22,7 @@ export function Post(props) {
             setIsLiked(!isLiked)
             sendNewLike({
               variables: {
-                userId: props.userId,
+                userId: +props.userId,
                 postId: +props.id,
                 latitude: pos.coords.latitude,
                 longitude: pos.coords.longitude
