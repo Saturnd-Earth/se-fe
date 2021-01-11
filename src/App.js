@@ -46,7 +46,7 @@ class App extends Component {
             />
           </section>}
         />
-        <Route exact path='/awards' render={ () =>
+        <Route exact path='/earth' render={ () =>
           <section className="awards">
             <p>Make an awards page</p>
           </section>}

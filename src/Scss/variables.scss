@@ -22,15 +22,6 @@ $white:#ffff;
 }
 
 
-%post-input {
-  resize: none;
-  grid-row: 4;
-  @extend %make-post-margin;
-  margin-top: 2em;
-  margin-left: 5em;
-  margin-right: 5em;
-}
-
 %tabs-input {
   border-radius: 1em;
   border-color: none;
@@ -54,6 +45,7 @@ $white:#ffff;
   justify-self: center;
   align-self: center;
   background-color: $application-gray;
+  color: $application-blue;
   cursor: pointer;
   @extend %drop-shodow;
 }
@@ -92,4 +84,33 @@ $white:#ffff;
   align-items: center;
   font-weight: bold;
   outline: none;
+}
+
+%sign-up-in-input{
+  margin-bottom: 1em;
+  height: 2em;
+  margin-right: 30%;
+  margin-left: 30%;
+  border-radius: 1em;
+  font-size: 1em;
+  outline: none;
+  padding-left: 1em;
+  border-color: $application-blue;
+  font-family: 'Open Sans';
+  font-weight: bold;
+  transition: border-width 0.3s linear;
+}
+
+%post-login-button{
+  margin-top: 2em;
+  height: 1.5em;
+  border-radius: 0.5em;
+  color:$white;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: $application-blue;
+  @extend %make-post-margin;
+  cursor: pointer;
+  outline: none;
+  @extend %drop-shodow;
 }
