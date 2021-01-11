@@ -1,11 +1,16 @@
 #map {
-  position: float;
-  bottom: 700px;
-  height: 400px;
+  // position: float;
+  // position: absolute;
+  // bottom: 0;
+  // top: 30em;
+  height: 47%;
   width: 100%;
-  z-index: -1;
 }
-
 .hidden {
   display: none;
+}
+
+.whole-document{
+  display: flex;
+  flex-direction: column;
 }
