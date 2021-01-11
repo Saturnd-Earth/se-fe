@@ -25,9 +25,11 @@ const Make_Post = () => {
           sendPost({
             variables: {
               userId: 10,
-              content: `${input}`,
+              content: input.text,
               latitude: pos.coords.latitude,
-              longitude: pos.coords.longitude
+              longitude: pos.coords.longitude,
+              url: input.url || null,
+              postType: input.postType
             }
           })
           .then( () => {
@@ -93,9 +95,9 @@ const Make_Post = () => {
           Link Video
         </button>
       </div>
-      {commentInput()} 
+      {commentInput()}
       <button
-        onClick={() => post()} 
+        onClick={() => post()}
         className='make-post-button'
       >
         Post

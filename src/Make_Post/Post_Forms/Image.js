@@ -15,7 +15,7 @@ const Image = (props) => {
         wrap="soft"
         onChange={(e) => {
           setTitle(e.target.value)
-          props.setInput({ type: 'Image', title: e.target.value, url})
+          props.setInput({ postType: 'Image', title: e.target.value, url})
         }}
       />
       <input
@@ -25,7 +25,7 @@ const Image = (props) => {
         type='url'
         onChange={(e) =>{
           setUrl(e.target.value)
-          props.setInput({ type: 'Image', title, url: e.target.value})
+          props.setInput({ postType: 'Image', title, url: e.target.value})
         }}
       />
     </section>

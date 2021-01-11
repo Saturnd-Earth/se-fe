@@ -17,12 +17,14 @@ export const CREATE_LIKE = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost($userId: Int!, $content: String!, $latitude: Float!, $longitude: Float!){
+  mutation createPost($userId: Int!, $content: String!, $latitude: Float!, $longitude: Float!, $url: String, $postType: String!){
     createPost(input: {
       userId: $userId
       content: $content
       latitude: $latitude
       longitude: $longitude
+      url: $url
+      postType: $postType
     })
     {
       post{
@@ -33,6 +35,8 @@ export const CREATE_POST = gql`
         ringMinMax
         createdAt
         userId
+        url
+        postType
       }
     }
   }

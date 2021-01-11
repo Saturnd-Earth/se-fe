@@ -15,7 +15,7 @@ const Video = (props) => {
         wrap="soft"
         onChange={(e) => {
           setTitle(e.target.value)
-          props.setInput({ type: 'Video', title: e.target.value, url})
+          props.setInput({ postType: 'Video', title: e.target.value, url})
         }}
       />
       <input
@@ -25,7 +25,7 @@ const Video = (props) => {
         type='url'
         onChange={(e) =>{
           setUrl(e.target.value)
-          props.setInput({ type: 'Video', title, url: e.target.value})
+          props.setInput({ postType: 'Video', title, url: e.target.value})
         }}
       />
     </section>
