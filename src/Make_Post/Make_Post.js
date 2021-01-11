@@ -101,7 +101,7 @@ const Make_Post = () => {
       </div>
       <div className='make-post-input'>
         <div className={`post-overlay ${loadingPos ? '' : 'hidden'}`}>
-          <img className='spin' alt='Submitting your post' src={loading}></img>
+          <img className='spin loading' alt='Submitting your post' src={loading}></img>
         </div>
         {commentInput()}
       </div>
