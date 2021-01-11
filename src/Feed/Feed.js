@@ -1,4 +1,4 @@
-import { addRing, removeAllRings } from '../mapActions.js';
+import { addLike, addRing, removeAllLikes, removeAllRings } from '../mapActions.js';
 import { cycleIndex } from '../helperFx.js'
 import { GET_ALL_POSTS } from '../requests.js';
 import { useQuery } from '@apollo/client';
@@ -17,17 +17,24 @@ export default function Feed(props) {
     if (loading) return <h1>LOADING POSTS...</h1>
     if (error) return <h1>Hmm... something went wrong.</h1>
 
-    let { content, createdAt, id, latitude, longitude, ringMinMax } = data.posts[postIndex]
+    let { content, createdAt, id, likes, latitude, longitude, ringMinMax } = data.posts[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}
 
-    console.log(data)
     if (needNewRing && earthMapIsLoaded) {
+
       removeAllRings()
-      addRing( center, min, max )
       window.earthMap.setZoom(10)
       window.earthMap.setCenter({lat: latitude, lng: longitude})
+      addRing( center, min, max )
       setNeedNewRing(false)
+
+      removeAllLikes()
+      likes.forEach( like => {
+        console.log(like)
+        let center = {lat: latitude, lng: longitude}
+        addLike( center )
+      })
 
     } else if (!earthMapIsLoaded) {
       window.setTimeout( () => setEarthMapIsLoaded(window.earthMap !== undefined), 100)
@@ -36,7 +43,7 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post center={center} content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
+            <Post center={center} content={content} createdAt={createdAt} id={id} userId={19} ring={[min, max]}/>
             <section className="next-previous-section">
               <button
                 className="previous-button"

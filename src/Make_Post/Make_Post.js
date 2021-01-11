@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import Video from './Post_Forms/Video.js';
 import Comment from './Post_Forms/Comment.js';
 import Image from './Post_Forms/Image.js';
+import Video from './Post_Forms/Video.js';
+import React, { useState } from 'react';
+import { showMap } from '../mapActions.js';
 import '../Scss/base.scss';
 import { showMap } from '../mapActions.js'
 import { useHistory } from "react-router-dom";
@@ -28,8 +29,8 @@ const Make_Post = () => {
           setLoadingPos(false)
           sendPost({
             variables: {
-              userId: 10,
-              content: input.text,
+              userId: 19,
+              text: input.text,
               latitude: pos.coords.latitude,
               longitude: pos.coords.longitude,
               url: input.url || null,
@@ -37,11 +38,9 @@ const Make_Post = () => {
             }
           })
           .then( () => {
-            console.log('hey that worked?')
             showMap()
             history.push('/')
           })
-          .catch( err => console.log('No one likes.' + err))
         },
         (err) => {
           console.log('BAD GEOLOCATOR ' + err)
@@ -102,7 +101,7 @@ const Make_Post = () => {
       </div>
       <div className='make-post-input'>
         <div className={`post-overlay ${loadingPos ? '' : 'hidden'}`}>
-          <img className='spin' alt='Submitting your post' src={loading}></img>
+          <img className='spin loading' alt='Submitting your post' src={loading}></img>
         </div>
         {commentInput()}
       </div>

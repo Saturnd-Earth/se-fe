@@ -3,7 +3,7 @@
   display: grid;
   font-family: 'Open Sans';
 
-  img {
+  .loading {
     height: 80%;
     width: auto;
     margin: auto;
@@ -18,7 +18,6 @@
 .make-post-input {
   @extend %make-post-margin;
   position: relative;
-  border-width: 1em;
 
   .post-overlay {
       width: 100%;
@@ -38,6 +37,7 @@
 
 .make-post-field {
   resize: none;
+  border-width: 1em;
   width: 100%;
   box-sizing: border-box;
   border-radius: 1em;
@@ -45,24 +45,12 @@
   outline: none;
   font-family: 'Open Sans';
   font-size: 1em;
+  transition: border-color 0.3s linear;
   padding: 1em;
-
 }
 
-.input-video-link{
-  @extend %post-input;
-  display: none;
-}
-
-.input-image-link{
-  @extend %post-input;
-  display: none;
-}
-
-.input-image-link-title{
-  grid-row: 3;
-  @extend %post-input;
-  display: none;
+.make-post-input:focus{
+  border-color: darken($color: $application-gray, $amount: 13%);
 }
 
 .tab {

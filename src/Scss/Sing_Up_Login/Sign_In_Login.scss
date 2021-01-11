@@ -1,0 +1,50 @@
+.sign-up-section{
+  margin-top: 5em;
+  text-align: -webkit-center;
+}
+
+.sign-up-login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.password{
+  @extend %sign-up-in-input;
+}
+
+.sign-up-loging-input{
+  @extend %sign-up-in-input;
+  transition: border-width 0.3s linear;
+}
+
+.sign-up-loging-input:focus{
+  border-width: 3px;
+}
+
+.password:focus{
+  border-width: 3px;
+}
+
+.sumbit-loging{
+  height: 2em;
+  margin-right: 30%;
+  margin-left: 30%;
+  border-radius: 1em;
+  background-color: $application-blue;
+  font-family: 'Open Sans';
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  @extend %drop-shodow;
+  color:$white;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+.sumbit-loging:active{
+  @extend %active-button;
+}
+
+.sumbit-loging:hover{
+  background-color: darken($color: $application-blue, $amount: 5%);
+}

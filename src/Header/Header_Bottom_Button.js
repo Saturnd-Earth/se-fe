@@ -3,10 +3,11 @@ import React from 'react';
 import '../Scss/base.scss';
 import { NavLink } from 'react-router-dom'
 
-import awards from '../images/award-white.png'
+import earth from '../images/earth-white.png'
 import feed from '../images/user-white.png'
 import home from '../images/house-white.png'
 import post from '../images/post-white.png'
+
 
 export default function Header_Bottom_Button() {
   return(
@@ -37,9 +38,9 @@ export default function Header_Bottom_Button() {
             onClick={ showMap }
           />
       </NavLink>
-      <NavLink to="/awards" label="my awards" activeClassName="selected" onClick={ hideMap }>
+      <NavLink to="/earth" label="show all rings" activeClassName="selected" onClick={ hideMap }>
           <img
-            src={awards}
+            src={earth}
             alt='Your awards'
             className='bottom-images'
             id='user-awards-icon'

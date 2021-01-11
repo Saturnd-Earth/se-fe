@@ -17,25 +17,25 @@ export const CREATE_LIKE = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost($userId: Int!, $content: String!, $latitude: Float!, $longitude: Float!, $url: String, $postType: String!){
+  mutation createPost($latitude: Float!, $longitude: Float!, $postType: String!, $text: String!, $url: String, $userId: Int!){
     createPost(input: {
-      userId: $userId
-      content: $content
       latitude: $latitude
       longitude: $longitude
-      url: $url
       postType: $postType
+      text: $text
+      url: $url
+      userId: $userId
     })
     {
       post{
-        id,
-        content
+        createdAt
+        id
         latitude
         longitude
-        ringMinMax
-        createdAt
-        userId
         postType
+        text
+        url
+        userId
       }
     }
   }
