@@ -2,7 +2,6 @@ import Comment from './Post_Forms/Comment.js';
 import Image from './Post_Forms/Image.js';
 import Video from './Post_Forms/Video.js';
 import React, { useState } from 'react';
-import { showMap } from '../mapActions.js';
 import '../Scss/base.scss';
 import { showMap } from '../mapActions.js'
 import { useHistory } from "react-router-dom";
