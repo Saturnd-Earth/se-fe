@@ -49,8 +49,8 @@
   padding: 1em;
 }
 
-.make-post-input:focus{
-  border-color: darken($color: $application-gray, $amount: 13%);
+.make-post-field:focus{
+  border-color: darken($color: $application-gray, $amount: 11%);
 }
 
 .tab {

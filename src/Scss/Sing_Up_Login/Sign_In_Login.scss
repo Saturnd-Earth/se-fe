@@ -41,10 +41,11 @@
   margin-bottom: 1em;
 }
 
-.sumbit-loging:active{
-  @extend %active-button;
-}
-
 .sumbit-loging:hover{
   background-color: darken($color: $application-blue, $amount: 5%);
+}
+
+.sumbit-loging:active{
+  background-color: $application-gray;
+  color:$drop-showdow;
 }
