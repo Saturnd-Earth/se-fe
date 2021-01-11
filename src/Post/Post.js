@@ -9,7 +9,7 @@ import '../Scss/base.scss';
 
 export function Post(props) {
     let [userInfo, setUserInfo] = useState({
-        userIcon: dummyIcon,
+        userIcon: null,
         name: null,
         id: 10
     })

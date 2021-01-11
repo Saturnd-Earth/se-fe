@@ -36,9 +36,7 @@ export default function Feed(props) {
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
             <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
-
             <section className="next-previous-section">
-
               <button
                 className="previous-button"
                 onClick={ () => {

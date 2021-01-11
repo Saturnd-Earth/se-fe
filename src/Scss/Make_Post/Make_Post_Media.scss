@@ -1,0 +1,106 @@
+@media screen and (min-width: 999px) {
+  .icons{
+    width: 3.5em;
+  }
+  .tab {
+    font-size: 1.1em;
+  }
+  .tab-links{
+    font-size: 0.8em;
+  }
+  .tab-links-selected{
+    font-size: 0.9em;
+  }
+  .make-post-input {
+    font-size: 1.2em;
+  }
+  .make-post-button{
+    font-size: 1.8em;
+  }
+}
+
+@media screen and (min-width: 561px) and (max-width: 680px){
+  .icons{
+    width: 2.9em;
+  }
+  .tab{
+    margin-right: 1.8em;
+    margin-left: 1.8em;
+  }
+
+  .input-section{
+    margin-right: 1.8em;
+    margin-left: 1.8em;
+  }
+
+  .make-post-button{
+    margin-right: 1.8em;
+    margin-left: 1.8em;
+  }
+
+  .make-post-text{
+    margin-right: 1.8em;
+    margin-left: 1.8em;
+  }
+}
+
+@media screen and (max-width: 561px){
+  .icons{
+    width: 2.7em;
+  }
+  .tab{
+    margin-right: 1em;
+    margin-left: 1em;
+    font-family: monospace;
+  }
+  .input-section{
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+
+  .make-post-button{
+    margin-right: 1em;
+    margin-left: 1em;
+    margin-bottom: 1em;
+  }
+
+  .tab-links{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+  .tab-links-selected{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+
+  .make-post-text{
+    margin-right: 1em;
+    margin-left: 1em;
+  }
+}
+
+@media screen and (max-width: 377px){
+  .icons{
+    width: 2.5em;
+  }
+  .tab{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+  .input-section{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+
+  .make-post-button{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+  }
+
+  .tab-links{
+    font-size: 0.8em;
+  }
+  .tab-links-selected{
+    font-size: 0.8em;
+  }
+}

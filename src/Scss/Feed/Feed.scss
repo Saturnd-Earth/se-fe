@@ -1,0 +1,52 @@
+.feed {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.header-title {
+    @extend %title-text;
+    margin-top: 1em;
+    margin-bottom: 0em;
+}
+
+.next-previous-section {
+  display: inline-flex;
+  margin-top: 3em;
+  grid-row: 4;
+  width: 21em;
+  justify-self: center;
+  place-self: center;
+}
+
+.buttons {
+  @extend %tabs-input;
+  width: 9em;
+  height: 3em;
+  background-color:$application-blue;
+  border-radius: 1em;
+  border: none;
+  @extend %drop-shodow;
+  color: white;
+  cursor: pointer;
+  place-self: center;
+  place-content: center;
+}
+
+.previous-button{
+  margin-right: 8em;
+  @extend %next-prev-button
+}
+
+.next-button{
+  margin-left: 1em;
+  @extend %next-prev-button
+}
+
+.next-button:active{
+  @extend %active-button;
+}
+
+.previous-button:active{
+  @extend %active-button;
+}
