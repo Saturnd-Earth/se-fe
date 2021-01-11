@@ -16,6 +16,20 @@ export function addRing (center = window.earthMap.center, innerRadius = 100, out
   window.earthRings.push(ring)
 }
 
+export function addLike ( center = window.earthMap.center, radius = 1000, fillColor = "#bf0066" ) {
+  const like = new window.google.maps.Circle({
+    center,
+    fillColor,
+    fillOpacity: 0.35,
+    radius,
+    strokeColor: fillColor,
+    strokeOpacity: 0.8,
+    strokeWeight: 1,
+  });
+  like.setMap(window.earthMap);
+  window.earthLikes.push(like)
+}
+
 export function hideMap() {
   document.getElementById('map').classList.add('hidden')
 }
