@@ -12,7 +12,6 @@ export function addRing (center = window.earthMap.center, innerRadius = 100, out
     strokeOpacity: 0.8,
     strokeWeight: 1,
   });
-
   ring.setMap(window.earthMap);
   window.earthRings.push(ring)
 }

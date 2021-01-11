@@ -19,10 +19,10 @@ export default function Feed(props) {
 
     let { content, createdAt, id, latitude, longitude, ringMinMax } = data.posts[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
+    let center = {lat: () => latitude, lng: () => longitude}
 
     if (needNewRing && earthMapIsLoaded) {
-      if (window.earthRings.length > 0) removeAllRings()
-      let center = {lat: () => latitude, lng: () => longitude}
+      removeAllRings()
       let newRing = addRing( center, min, max )
       window.earthMap.setZoom(10)
       window.earthMap.setCenter({lat: latitude, lng: longitude})
@@ -35,7 +35,7 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
+            <Post center={center} content={content} createdAt={createdAt} id={id} ring={[min, max]}/>
             <section className="next-previous-section">
               <button
                 className="previous-button"
