@@ -1,7 +1,8 @@
 import blueLike from '../images/like-blue.png';
-import { CREATE_LIKE } from '../requests';
+import { CREATE_LIKE, DESTROY_LIKE } from '../requests';
 import dummyIcon from '../images/dummyIcon.png'
 import defaultLike from '../images/like-white.png';
+import loading from '../images/loading.png';
 import React, { useState }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
@@ -24,17 +25,12 @@ export function Post(props) {
     })
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike, { data }] = useMutation(CREATE_LIKE);
+    let [destroyLike] = useMutation(DESTROY_LIKE);
 
-    let like = async () => {
+    function like() {
         setLoadingPos(true)
         window.navigator.geolocation.getCurrentPosition(
           (pos) => {
-            console.log(userInfo.id,
-              postInfo.id,
-              pos.coords.latitude,
-              pos.coords.longitude
-          )
-            console.log(pos)
             setLoadingPos(false)
             setPostInfo({
                 ...postInfo,
@@ -57,61 +53,61 @@ export function Post(props) {
             console.log('BAD GEOLOCATOR ' + err)
           }
       )
-      setTimeout( () => setLoadingPos(false), 16000)
     }
 
-    let likeButton;
-    !postInfo.liked ? likeButton = defaultLike : likeButton = blueLike;
-    if (loadingPos) return (<h1>LOADING YOUR LOCATION....</h1>)
-    if (props.myPostsPage) {
-        return (
-            <section className='post'>
-                <section className='post-left'>
-                    <div className='post-left-top'>
-                        <img src={props.icon} alt='User Icon' id='user-icon'/>
-                    </div>
-                    <div className='post-left-bottom' style={{display: 'grid',
-                    gridTemplateRows: '1em 1em', paddingTop: '.5em'}}>
-                        <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>Lat: </h6></em>
-                        <em style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}><h6  style={{margin: 0, gridRowStart: 1, gridRowEnd: 1}}>{props.lat}</h6></em>
-                        <em style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}><h6  style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}>Lon: </h6></em>
-                        <em style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}><h6  style={{margin: 0, gridRowStart: 2, gridRowEnd: 2}}>{props.lon}</h6></em>
-                    </div>
-                </section>
-                <section className='post-right'>
-                    <div className='post-right-top'>
-                            <em><strong><h5 className='post-right-top-h' id='name-header'>Last liked in: {props.lastLike}</h5></strong></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring}</h6></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt3'>Date: {props.date}</h6></em>
-                    </div>
-                    <div className='post-right-bottom'>
-                        <p className='post-right-bottom-p'>{props.content}</p>
-                    </div>
-                </section>
-            </section>
-        )
-    } else {
-        return (
-            <section className='post'>
-                <section className='post-left'>
-                    <div className='post-left-top'>
-                        <img src={props.icon} alt='User Icon' id='user-icon'/>
-                    </div>
-                    <div className='post-left-bottom'>
-                        <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
-                    </div>
-                </section>
-                <section className='post-right'>
-                    <div className='post-right-top'>
-                            <em><strong><h5 className='post-right-top-h' id='name-header'>{props.name}</h5></strong></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring[1]}</h6></em><br/>
-                            <em><h6 className='post-right-top-h' id='prt3'>Date: {props.createdAt}</h6></em>
-                    </div>
-                    <div className='post-right-bottom'>
-                        <p className='post-right-bottom-p'>{props.content}</p>
-                    </div>
-                </section>
-            </section>
-        )
+    function unlike() {
+        setLoadingPos(true)
+        window.navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            setLoadingPos(false)
+            setPostInfo({
+                ...postInfo,
+                liked: !postInfo.liked
+            })
+            destroyLike({
+              variables: {
+                userId: userInfo.id,
+                postId: postInfo.id,
+                latitude: pos.coords.latitude,
+                longitude: pos.coords.longitude
+              }
+            })
+            .then( () => {
+
+            })
+            .catch( err => console.log('No one likes.' + err))
+          },
+          (err) => {
+            console.log('BAD GEOLOCATOR ' + err)
+          }
+      )
     }
+
+    let likeButton = postInfo.liked ? blueLike : defaultLike;
+
+    return (
+        <section className='post'>
+          <div className={`post-overlay ${loadingPos ? '' : 'hidden'}`}>
+            <img className='spin' src={loading}></img>
+          </div>
+            <section className='post-left'>
+                <div className='post-left-top'>
+                    <img src={props.icon} alt='User Icon' id='user-icon'/>
+                </div>
+                <div className='post-left-bottom'>
+                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
+                </div>
+            </section>
+            <section className='post-right'>
+                <div className='post-right-top'>
+                        <em><strong><h5 className='post-right-top-h' id='name-header'>{props.name}</h5></strong></em><br/>
+                        <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring[1]}</h6></em><br/>
+                        <em><h6 className='post-right-top-h' id='prt3'>Date: {props.createdAt}</h6></em>
+                </div>
+                <div className='post-right-bottom'>
+                    <p className='post-right-bottom-p'>{props.content}</p>
+                </div>
+            </section>
+        </section>
+    )
 }

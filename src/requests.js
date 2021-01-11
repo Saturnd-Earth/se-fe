@@ -53,6 +53,19 @@ export const CREATE_USER = gql`
   }
 `;
 
+export const DESTROY_LIKE = gql`
+  mutation destroyLike($id: Int!){
+    destroyLike(input:{
+      id: $id,
+    })
+    {
+      like{
+        id
+      }
+    }
+  }
+`;
+
 export const DESTROY_POST = gql`
   mutation destroyPost($id: Int!){
     destroyPost(input: {
