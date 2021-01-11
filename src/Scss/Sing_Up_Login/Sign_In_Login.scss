@@ -44,3 +44,7 @@
 .sumbit-loging:active{
   @extend %active-button;
 }
+
+.sumbit-loging:hover{
+  background-color: darken($color: $application-blue, $amount: 5%);
+}
