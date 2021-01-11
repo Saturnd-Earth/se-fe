@@ -114,3 +114,17 @@ $white:#ffff;
   outline: none;
   @extend %drop-shodow;
 }
+
+%make-post-button{
+  grid-row: 5;
+  margin-top: 2em;
+  height: 1.5em;
+  border-radius: 0.5em;
+  color:$white;
+  font-weight: bold;
+  font-size: 1.5em;
+  background-color: $application-blue;
+  @extend %make-post-margin;
+  outline: none;
+  @extend %drop-shodow;
+}

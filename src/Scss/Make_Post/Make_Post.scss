@@ -86,18 +86,13 @@
 }
 
 .make-post-button{
-  grid-row: 5;
-  margin-top: 2em;
-  height: 1.5em;
-  border-radius: 0.5em;
-  color:$white;
-  font-weight: bold;
-  font-size: 1.5em;
-  background-color: $application-blue;
-  @extend %make-post-margin;
+  @extend %make-post-button;
   cursor: pointer;
-  outline: none;
-  @extend %drop-shodow;
+}
+
+.make-post-button2{
+  @extend %make-post-button;
+  cursor: not-allowed;
 }
 
 .make-post-button:hover {
