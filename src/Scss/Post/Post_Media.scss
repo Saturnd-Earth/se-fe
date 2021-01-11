@@ -1,0 +1,50 @@
+@media screen and (min-width: 999px) {
+  .post-right-bottom-p{
+    font-size: 1.3em;
+  }
+
+  .post-right-top-h{
+    font-size: 1em;
+  }
+  
+  .buttons{
+    font-size: 1em;
+    padding: 1em;
+    margin-left: 0;
+  }
+
+  .previous-button{
+    margin-left: 0;
+  }
+
+  .next-button{
+    margin-left: 0em;
+  }
+
+  .next-previous-section{
+    inline-size: min-content;
+  }
+
+  .make-post-text{
+    font-size: 2em;
+  }
+
+  .post {
+    height: fit-content;
+    max-width: 66em;
+    margin-left: 20%;
+    margin-right: 20%;
+  }
+}
+
+@media screen and (max-width: 435px){
+  .previous-button{
+    margin-right: 7em;
+  }
+}
+
+@media screen and (max-width: 377px){
+  .previous-button{
+    margin-right: 5em;
+  }
+}

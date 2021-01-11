@@ -1,8 +1,9 @@
 #map {
-  position: float;
-  bottom: 700px;
-  height: 400px;
+  position: absolute;
+  bottom: 3%;
+  height: 47%;
   width: 100%;
+  z-index: -1;
 }
 
 .hidden {

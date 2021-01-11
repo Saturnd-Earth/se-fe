@@ -17,12 +17,14 @@ export const CREATE_LIKE = gql`
 `;
 
 export const CREATE_POST = gql`
-  mutation createPost($userId: Int!, $content: String!, $latitude: Float!, $longitude: Float!){
+  mutation createPost($userId: Int!, $content: String!, $latitude: Float!, $longitude: Float!, $url: String, $postType: String!){
     createPost(input: {
       userId: $userId
       content: $content
       latitude: $latitude
       longitude: $longitude
+      url: $url
+      postType: $postType
     })
     {
       post{
@@ -33,6 +35,7 @@ export const CREATE_POST = gql`
         ringMinMax
         createdAt
         userId
+        postType
       }
     }
   }
@@ -48,6 +51,19 @@ export const CREATE_USER = gql`
       user{
         id
         username
+      }
+    }
+  }
+`;
+
+export const DESTROY_LIKE = gql`
+  mutation destroyLike($id: Int!){
+    destroyLike(input:{
+      id: $id,
+    })
+    {
+      like{
+        id
       }
     }
   }
@@ -105,12 +121,20 @@ export const GET_ALL_POSTS = gql`
   query getAllPosts {
     posts {
       id
-      content
       latitude
       longitude
       ringMinMax
       createdAt
+      text
+      url
       userId
+      likes {
+        id
+        latitude
+        longitude
+        createdAt
+        userId
+      }
     }
   }
 `;

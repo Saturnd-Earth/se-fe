@@ -1,6 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { useQuery } from '@apollo/client'
 import { USER_LOGIN } from '../requests';
 
 function Login() {

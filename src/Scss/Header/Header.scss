@@ -2,37 +2,39 @@
     display: grid;
     grid-template-columns: .5fr 1fr .5fr ;
     grid-row-start: 1;
-    #se-logo {
-        width: 8em;
-        grid-column: 1;
-        justify-self: center;
-        align-self: center;
-        margin-top: -1.5em;
-        grid-row-start: 1;
-    }
+}
 
-    .header-text {
-        font-family: 'Damion', cursive;
-        grid-column: 2;
-        justify-self: left;
-        align-self: center;
-        font-size: 2.5em;
-        padding: 0;
-        margin: 0;
-        margin-top: -.5em;
-        color:$application-blue;
-        grid-row-start: 1;
-        justify-self: center;
-    }
+#se-logo {
+    width: 8em;
+    grid-column: 1;
+    justify-self: center;
+    align-self: center;
+    margin-top: -1.9em;
+    grid-row-start: 1;
+    padding-top: 1em;
+}
+
+.header-text {
+    font-family: 'Damion', cursive;
+    grid-column: 2;
+    justify-self: left;
+    align-self: center;
+    font-size: 4em;
+    padding: 0;
+    margin: 0;
+    margin-top: -0.4em;
+    color:$application-blue;
+    grid-row-start: 1;
+    justify-self: center;
 }
 
 .header-bottom {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: $application-gray;
-    margin-top: -2em;
     padding-top: .75em;
     padding-bottom: .75em;
+    margin-top: -2em;
 }
 
 .bottom-images {
@@ -46,35 +48,36 @@
       background-color: $application-blue;
     }
     // :hover {
-    //     background-color: en($application-blue, 5%);
+    //     background-color: darken($application-blue, 5%);
     //   }
 }
 
 .header-top-buttons {
-    grid-row-start: 1;
-    display: flex;
-    margin-top: -1.2em;
+    grid-template-rows: 1em 1em;
     text-decoration: none;
 }
 
 .logon {
     @extend %button-nav;
     margin-right: 2em;
-    margin-top: 1em;
+    margin-top: 3.5em;
     min-width: fit-content;
     font-family: "Damion", cursive;
     outline: none;
     border: 0;
+    margin-top: 2.75em;
     display: inline-flex;
     color: $application-blue;
+    grid-row: 1;
 }
 
 .logon:active {
-  @extend %active-button
+    background-color: $application-blue;
+    color: $white;
 }
 
 .logon-icons{
-    width: 2em;
+    width: 1.5em;
 }
 
 .logout-section{

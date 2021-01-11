@@ -1,0 +1,182 @@
+@media screen and (min-width: 999px) {
+  .header-text {
+    font-size: 4.5em;
+    color:rgb(255, 185, 185);
+  }
+  
+  #se-logo {
+    width: 10em;
+  }
+
+  .logon {
+    margin-top: 4em;
+  }
+
+  .logon {
+    margin-right: 1.5em;
+    margin-top: 1em;
+    box-shadow: 0px 2px 4px 0px $drop-showdow;
+  }
+
+  .logon-icons {
+    width: 2em;
+  }
+
+  .header-top-buttons{
+    margin-top: 2em;
+  }
+
+  .logon-button-text {
+    font-size: 1.2em;
+  }
+
+  .bottom-images {
+    width: 4.5em;
+  }
+
+  .selected {
+    .bottom-images {
+      width: 4.8em;
+    }
+  }
+
+}
+
+
+@media screen and (min-width: 780px) and (max-width: 815px) {
+
+  .header-text {
+      font-size: 3.8em;
+      color:black;
+  }
+
+}
+
+@media screen  and (max-width: 780px) {
+
+  .header-text {
+      font-size: 3.5em;
+      color:red;
+  }
+
+  .logon {
+    margin-right: 1.5em;
+    margin-top: 1em;
+    box-shadow: 0px 2px 4px 0px $drop-showdow;
+  }
+
+  .header-top-buttons {
+    display: grid;
+  }
+
+  .sign-up{
+    margin-top: 2em;
+  }
+
+  .login {
+    margin-top: 4em;
+  }
+
+  .logout {
+    margin-top: 3em;
+  }
+}
+
+@media screen and (min-width: 575px) and (max-width: 680px){
+  .header-text {
+    font-size: 3em;
+    color:blue;
+  }
+}
+
+@media screen and (min-width: 505px) and (max-width: 575px){
+  .header-text {
+    font-size: 2.6em;
+    color:green;
+  }
+
+  #se-logo {
+    width: 7em;
+  }
+
+  .header-bottom{
+    margin-top: -1em;
+  }
+}
+
+@media screen and (min-width: 455px) and (max-width: 505px){
+  .header-text {
+    font-size: 2.3em;
+    color:rgb(255, 51, 194);
+  }
+
+  #se-logo {
+    width: 7em;
+  }
+
+  .header-bottom{
+    margin-top: -1em;
+  }
+
+  .logon{
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 455px){
+  .header-text {
+    font-size: 2em;
+    color:rgb(255, 230, 0);
+  }
+
+  .logon{
+    margin-right: 0;
+    justify-content: center;
+    border-radius: 0.4em;
+    font-family: 'Open Sans';
+    font-size: 0.8em;
+  }
+
+  #se-logo {
+    width: 6em;
+  }
+
+  .header-bottom{
+    margin-top: -0.5em;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .header-text {
+    font-size: 1.8em;
+    color:rgb(162, 0, 255);
+  }
+
+  .logon{
+    margin-right: 0;
+    justify-content: center;
+    border-radius: 0.4em;
+    font-family: 'Open Sans';
+    font-size: 0.75em;
+  }
+
+  #se-logo {
+    width: 5.5em;
+    margin-top: -1.5em;
+  }
+
+  .header-bottom{
+    margin-top: -0.2em;
+  }
+  .sign-up{
+    margin-top: 3em;
+  }
+
+  .login {
+    margin-top: 5em;
+  }
+
+  .logout {
+    margin-top: 3.5em;
+  }
+}

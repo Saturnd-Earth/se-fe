@@ -1,27 +1,43 @@
 .post {
-    // margins
     font-family: 'Roboto', sans-serif;
     margin-top: 1em;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 1em;
-    // grid
     display: grid;
     grid-template-columns: .25fr 1fr;
-    // width and height
-    height: 7em;
-    margin-left: max(6em);
-    margin-right: max(6em);
-    // style
-    border-radius: .75em;
+
+    position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 1em;
     background-color: $application-gray;
     @extend %drop-shodow;
-    // p tags
+    height: fit-content;
     p {
-        margin: 0;
-        padding: 0;
+        margin-top: 0;
+        padding-top: 0;
+        margin-right: 0.5em;
     }
-    //
+
+    .post-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        background-color: rgba(255,255,255,.6);
+
+        img {
+          height: 80%;
+          width: auto;
+          margin: auto;
+          // opacity: 1;
+        }
+    }
+
     .post-left {
         display: grid;
         grid-template-rows: .5fr .5fr;
@@ -37,23 +53,20 @@
             display: flex;
             justify-content: center;
             #like-button {
-                width: 40px;
+                width: 2.7em;
                 margin-top: 0.5em;
                 align-self: center;
                 cursor: pointer;
             }
         }
     }
-    //
+
     .post-right {
-        //
         display: grid;
         grid-template-rows: .1fr .7fr;
-        //
         max-height: 100%;
-        overflow-y: scroll;
         .post-right-top {
-            margin-top: .5em;
+            margin-top: 0.5em;
             max-height: 1vh;
             max-height: 100%;
             .post-right-top-h {
@@ -72,4 +85,23 @@
             }
         }
     }
+
+    .hidden {
+      display: none;
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .spin {
+    animation: spin-spin infinite 2.0s linear;
+  }
+}
+
+@keyframes spin-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
