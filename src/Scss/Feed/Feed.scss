@@ -33,28 +33,28 @@
   place-content: center;
 }
 
-.previous-button{
+#previous-button{
   margin-right: 8em;
   @extend %next-prev-button
 }
 
-.next-button{
+#next-button{
   margin-left: 1em;
   @extend %next-prev-button
 }
 
-.next-button:hover{
+#next-button:hover{
   background-color: darken($color: $application-blue, $amount: 5%);
 }
 
-.next-button:active{
+#next-button:active{
   @extend %active-button;
 }
 
-.previous-button:active{
+#previous-button:active{
   @extend %active-button;
 }
 
-.previous-button:hover{
+#previous-button:hover{
   background-color: darken($color: $application-blue, $amount: 5%);
 }
