@@ -3,6 +3,7 @@ import Video from './Post_Forms/Video.js';
 import Comment from './Post_Forms/Comment.js';
 import Image from './Post_Forms/Image.js';
 import '../Scss/base.scss';
+import { showMap } from '../mapActions.js'
 import { useHistory } from "react-router-dom";
 import { useMutation } from '@apollo/client';
 import { CREATE_POST } from '../requests.js';
@@ -37,6 +38,7 @@ const Make_Post = () => {
           })
           .then( () => {
             console.log('hey that worked?')
+            showMap()
             history.push('/')
           })
           .catch( err => console.log('No one likes.' + err))
@@ -45,7 +47,6 @@ const Make_Post = () => {
           console.log('BAD GEOLOCATOR ' + err)
         }
     )
-    setTimeout( () => setLoadingPos(false), 16000)
   }
 
   return (
