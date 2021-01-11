@@ -35,7 +35,6 @@ export const CREATE_POST = gql`
         ringMinMax
         createdAt
         userId
-        url
         postType
       }
     }
@@ -122,12 +121,20 @@ export const GET_ALL_POSTS = gql`
   query getAllPosts {
     posts {
       id
-      content
       latitude
       longitude
       ringMinMax
       createdAt
+      text
+      url
       userId
+      likes {
+        id
+        latitude
+        longitude
+        createdAt
+        userId
+      }
     }
   }
 `;

@@ -1,7 +1,7 @@
 import { addRing, removeAllRings } from '../mapActions.js';
 import { cycleIndex } from '../helperFx.js'
 import { GET_ALL_POSTS } from '../requests.js';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Post } from '../Post/Post.js';
 import React, { useState } from 'react';
 import '../Scss/base.scss';
@@ -21,9 +21,10 @@ export default function Feed(props) {
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}
 
+    console.log(data)
     if (needNewRing && earthMapIsLoaded) {
       removeAllRings()
-      let newRing = addRing( center, min, max )
+      addRing( center, min, max )
       window.earthMap.setZoom(10)
       window.earthMap.setCenter({lat: latitude, lng: longitude})
       setNeedNewRing(false)

@@ -50,5 +50,4 @@ function smallToHex(num) {
     15: 'F'
   }
   return nonDigits[num] || num
-  let second = num % 16
 }

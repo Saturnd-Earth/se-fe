@@ -5,9 +5,6 @@ import HeaderTopButton from './Header_Top_Button.js'
 
 import seLogo from '../images/se-logo.png';
 
-// import seLogo from '../images/se-logo.png'
-import { NavLink } from 'react-router-dom';
-
 export default function Header() {
     return (
         <section>

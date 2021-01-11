@@ -1,7 +1,7 @@
 import { GET_USER_POSTS } from '../requests.js'
 import React, { useState } from 'react';
 import '../Scss/base.scss';
-import { gql, useQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { Post } from '../Post/Post.js';
 
 export default function YourPosts(props) {
@@ -17,11 +17,11 @@ export default function YourPosts(props) {
                 data.postsByUser.map(i => {
                     let { content, createdAt, id, ringMinMax } = i
                     return (
-                        <Post 
-                        myPostsPage={true} 
-                        content={content} 
-                        createdAt={createdAt} 
-                        id={id} 
+                        <Post
+                        myPostsPage={true}
+                        content={content}
+                        createdAt={createdAt}
+                        id={id}
                         ring={[i.min, i.max]}
                         icon={props.icon}
                         />
