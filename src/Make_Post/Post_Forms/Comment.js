@@ -7,7 +7,7 @@ const Comment = (props) => {
     <section className='input-section' data-testid='make post input'>
       <textarea
         rows="10" cols="10"
-        className='make-post-input tab-content'
+        className='make-post-field tab-content'
         placeholder='Type your post here!'
         spellCheck= "true"
         wrap="soft"

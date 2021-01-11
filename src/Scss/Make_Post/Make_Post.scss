@@ -1,7 +1,13 @@
 .make-post-section {
   text-align: center;
   display: grid;
-  font-family: 'Open Sans',
+  font-family: 'Open Sans';
+
+  img {
+    height: 80%;
+    width: auto;
+    margin: auto;
+  }
 }
 
 .input-section {
@@ -10,16 +16,37 @@
 }
 
 .make-post-input {
+  @extend %make-post-margin;
+  position: relative;
+  border-width: 1em;
+
+  .post-overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      background-color: rgba(255,255,255,.6);
+  }
+
+  .hidden {
+    display: none;
+  }
+}
+
+.make-post-field {
   resize: none;
   width: 100%;
   box-sizing: border-box;
   border-radius: 1em;
   border-color: $application-gray;
-  border-width: 1em;
-  padding: 1em;
   outline: none;
   font-family: 'Open Sans';
   font-size: 1em;
+  padding: 1em;
+
 }
 
 .input-video-link{
