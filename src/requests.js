@@ -18,7 +18,7 @@ export const CREATE_LIKE = gql`
 
 export const CREATE_POST = gql`
   mutation createPost($userId: Int!, $content: String!, $latitude: Float!, $longitude: Float!){
-    createLike(input: {
+    createPost(input: {
       userId: $userId
       content: $content
       latitude: $latitude

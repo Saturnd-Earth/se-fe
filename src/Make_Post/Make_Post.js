@@ -1,19 +1,46 @@
-import React, { useState, useEffect } from 'react'
-import MakePostInput from './Make_Post_Input.js';
+import React, { useState } from 'react'
+import Video from './Post_Forms/Video.js';
+import Comment from './Post_Forms/Comment.js';
+import Image from './Post_Forms/Image.js';
 import '../Scss/base.scss';
+import { useMutation } from '@apollo/client';
+import { CREATE_POST } from '../requests.js';
 
 import videoIcon from '../images/add-vid-white.png'
 import imageIcon from '../images/add-img-white.png'
 import commentIcon from '../images/add-comment-white.png'
 
 const Make_Post = () => {
-  const [commentInput, setCommentInput] = useState(1);
+  const [input, setInput] = useState({});
+  const [commentInput, setCommentInput] = useState(() => () => <Comment setInput={setInput}/>);
+  const [commentInputNum, setCommentInputNum] = useState(1);
+  const [sendPost, { data }] = useMutation(CREATE_POST);
+  const [loadingPos, setLoadingPos] = useState(false)
 
-  useEffect(() => {
-      //if one is set to true then remove a hidden class to the file
-      //set the other two to false and add a hidden class to the text area
-      //can I use part of the of the return and not all of it?
-  });
+  const post = async () => {
+      setLoadingPos(true)
+      window.navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          setLoadingPos(false)
+          sendPost({
+            variables: {
+              userId: 10,
+              content: `${input}`,
+              latitude: pos.coords.latitude,
+              longitude: pos.coords.longitude
+            }
+          })
+          .then( () => {
+            console.log('hey that worked?')
+          })
+          .catch( err => console.log('No one likes.' + err))
+        },
+        (err) => {
+          console.log('BAD GEOLOCATOR ' + err)
+        }
+    )
+    setTimeout( () => setLoadingPos(false), 16000)
+  }
 
   return (
     <section className='make-post-section'>
@@ -22,8 +49,11 @@ const Make_Post = () => {
       </h4>
       <div className="tab">
         <button
-          className={"tab-links" + (commentInput === 1 ? "-selected" : "")}
-          onClick={() => setCommentInput(1)}
+          className={"tab-links" + (commentInputNum === 1 ? "-selected" : "")}
+          onClick={() => {
+            setCommentInput(() => () => <Comment setInput={setInput}/>)
+            setCommentInputNum(1)
+          }}
         >
           <img src={commentIcon}
             alt='Leave a comment'
@@ -33,8 +63,11 @@ const Make_Post = () => {
           Add Comment
         </button>
         <button
-          className={"tab-links" + (commentInput === 2 ? "-selected" : "")}
-          onClick={() => setCommentInput(2)}
+          className={"tab-links" + (commentInputNum === 2 ? "-selected" : "")}
+          onClick={() => {
+            setCommentInput(() => () => <Image setInput={setInput}/>)
+            setCommentInputNum(2)
+          }}
         >
           <img
             alt='Link a Video'
@@ -45,8 +78,11 @@ const Make_Post = () => {
           Link Image
         </button>
         <button
-          className={"tab-links" + (commentInput === 3 ? "-selected" : "")}
-          onClick={() => setCommentInput(3)}
+          className={"tab-links" + (commentInputNum === 3 ? "-selected" : "")}
+          onClick={() => {
+            setCommentInput(() => () => <Video setInput={setInput} input={input}/>)
+            setCommentInputNum(3)
+          }}
         >
           <img
             alt='Link a Video'
@@ -57,8 +93,11 @@ const Make_Post = () => {
           Link Video
         </button>
       </div>
-      <MakePostInput commentInput={commentInput}/>
-      <button className='make-post-button'>
+      {commentInput()} 
+      <button
+        onClick={() => post()} 
+        className='make-post-button'
+      >
         Post
       </button>
     </section>
