@@ -45,24 +45,12 @@
   outline: none;
   font-family: 'Open Sans';
   font-size: 1em;
+  transition: border-color 0.3s linear;
   padding: 1em;
-
 }
 
-.input-video-link{
-  @extend %post-input;
-  display: none;
-}
-
-.input-image-link{
-  @extend %post-input;
-  display: none;
-}
-
-.input-image-link-title{
-  grid-row: 3;
-  @extend %post-input;
-  display: none;
+.make-post-input:focus{
+  border-color: darken($color: $application-gray, $amount: 13%);
 }
 
 .tab {

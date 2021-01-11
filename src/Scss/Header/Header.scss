@@ -42,14 +42,21 @@
     @extend %button-nav;
 }
 
+.bottom-images:hover{
+    background-color: darken($color: $application-gray, $amount: 5%);
+}
+
 .selected {
     .bottom-images {
       width: 3.85em;
       background-color: $application-blue;
     }
-    // :hover {
-    //     background-color: darken($application-blue, 5%);
-    //   }
+}
+
+.selected{
+    .bottom-images:hover {
+        background-color: darken($color: $application-blue, $amount: 5%);
+    }
 }
 
 .header-top-buttons {
@@ -67,8 +74,11 @@
     border: 0;
     margin-top: 2.75em;
     display: inline-flex;
-    color: $application-blue;
     grid-row: 1;
+}
+
+.logon:hover{
+    background-color: darken($color: $application-gray, $amount: 5%);
 }
 
 .logon:active {
