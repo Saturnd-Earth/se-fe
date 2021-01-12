@@ -20,7 +20,7 @@ describe('Login', () => {
 
     userNameInput = screen.getByPlaceholderText('username')
     passwordInput = screen.getByPlaceholderText('password')
-    button = screen.getByText('login')
+    button = screen.getByText('Login')
   })
 
   it('should display a login form', () => {
