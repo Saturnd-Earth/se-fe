@@ -44,8 +44,10 @@ export const CREATE_POST = gql`
 export const CREATE_USER = gql`
   mutation createUser($username: String!, $password: String!){
     createUser(input: {
-      username: $username
-      password: $password
+      credentials: {
+        username: $username
+        password: $password
+      }
     })
     {
       user{
@@ -199,6 +201,22 @@ export const GET_FEED = gql`
     }
   }
 `;
+
+export const SIGN_IN = gql`
+  mutation signIn($username: String!, $password: String!) {
+    signInUser(input: {
+      credentials: {
+        username: $username,
+        password: $password
+      }
+    }) {
+      user{
+        id
+        username
+      }
+    }
+  }
+`
 
 export const USER_LOGIN = gql`
   query users($name: name, $password: password) {
