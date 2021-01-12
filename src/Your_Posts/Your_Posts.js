@@ -15,18 +15,19 @@ export default function YourPosts(props) {
             <h1 className='header-title'>{props.headerTitle}</h1>
             {
                 data.postsByUser.map(i => {
-                    let { content, createdAt, id, ringMinMax } = i
+                    let { content, createdAt, id, ringMinMax } = i;
                     console.log(i)
                     return (
                         <Post
                         myPostsPage={true}
-                        content={i.content}
+                        content={i.text}
                         createdAt={i.createdAt}
                         id={i.id}
                         ring={[i.min, i.max]}
                         icon={props.icon}
                         latitude={i.latitude}
                         longitude={i.longitude}
+                        url={i.url}
                         />
                     )
                 })

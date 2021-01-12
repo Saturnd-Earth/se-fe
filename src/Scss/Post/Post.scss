@@ -78,10 +78,19 @@
       }
       .post-right-bottom {
         padding-top: 1vh;
-        display: flex;
+        display: grid;
+        grid-template-rows: 1fr 1fr;
         .post-right-bottom-p {
+          grid-row: 1;
           float: left;
           text-align: left;
+        }
+        .post-img-div {
+          grid-row: 2;
+        }
+        .post-img {
+          max-width: 10em;
+          max-height: auto;
         }
       }
     }
