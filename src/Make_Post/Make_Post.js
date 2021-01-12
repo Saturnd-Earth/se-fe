@@ -48,7 +48,7 @@ const Make_Post = () => {
     )
   }
 
-  
+
 let onClickCallBack = signedIn ? () => {
   return <button
           className={'make-post-button2'}
@@ -125,13 +125,6 @@ let onClickCallBack = signedIn ? () => {
         {commentInput()}
       </div>
       {onClickCallBack()}
-      {/* <button
-        className={!loadingPos ? 'make-post-button' : 'make-post-button2'}
-        disabled={loadingPos}
-        onClick={() => post()}
-      >
-        Post
-      </button> */}
     </section>
   )
 }
