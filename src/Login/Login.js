@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { showMap } from '../mapActions.js'
 import { useHistory } from 'react-router-dom'
-import { USER_LOGIN } from '../requests';
-import { useLazyQuery } from '@apollo/client';
+import { LOG_IN } from '../requests';
+import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
 function Login(props) {
   let [error, setError] = useState(false)
-  let [userLogin, {data, loading}] = useLazyQuery(USER_LOGIN);
-  
+  let [userLogin, {data, loading}] = useMutation(LOG_IN);
+
   let input = {
     password: '',
     username: ''
@@ -19,11 +19,12 @@ function Login(props) {
   }
 
   let login = (e) => {
-    let {name, password} = input;
+    let {username, password} = input;
     e.preventDefault();
+    console.log()
     userLogin({
       variables: {
-        name,
+        username,
         password
       }
     })
