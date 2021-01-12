@@ -16,14 +16,17 @@ export default function YourPosts(props) {
             {
                 data.postsByUser.map(i => {
                     let { content, createdAt, id, ringMinMax } = i
+                    console.log(i)
                     return (
                         <Post
                         myPostsPage={true}
-                        content={content}
-                        createdAt={createdAt}
-                        id={id}
+                        content={i.content}
+                        createdAt={i.createdAt}
+                        id={i.id}
                         ring={[i.min, i.max]}
                         icon={props.icon}
+                        latitude={i.latitude}
+                        longitude={i.longitude}
                         />
                     )
                 })

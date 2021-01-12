@@ -88,9 +88,11 @@ export function Post(props) {
             </section>
             <section className='post-right'>
                 <div className='post-right-top'>
-                        <em><strong><h5 className='post-right-top-h' id='name-header'>{props.userName}</h5></strong></em><br/>
-                        <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring[1]}</h6></em><br/>
-                        <em><h6 className='post-right-top-h' id='prt3'>{gdate.getRelativeDistance(new Date(props.createdAt))} ago</h6></em>
+                  <em><strong><h5 className='post-right-top-h' id='name-header'>{props.userName}</h5></strong></em><br/>
+                  <em><h6 className='post-right-top-h' id='prt2'>Ring: {props.ring[1]}</h6></em><br/>
+                  <em><h6 className='post-right-top-h' id='prt3'>{gdate.getRelativeDistance(new Date(props.createdAt))} ago</h6></em><br/>
+                  <em><h6 className='post-right-top-h' id='prt4'>Latitude: {props.latitude}</h6></em><br/>
+                  <em><h6 className='post-right-top-h' id='prt4'>Longitude: {props.longitude}</h6></em><br/>
                 </div>
                 <div className='post-right-bottom'>
                     <p className='post-right-bottom-p'>{props.content}</p>

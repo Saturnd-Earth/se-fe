@@ -62,28 +62,28 @@
     }
 
     .post-right {
-        display: grid;
-        grid-template-rows: .1fr .7fr;
+      display: grid;
+      grid-template-rows: .1fr .7fr;
+      max-height: 100%;
+      .post-right-top {
+        margin-top: 0.5em;
+        max-height: 1vh;
         max-height: 100%;
-        .post-right-top {
-            margin-top: 0.5em;
-            max-height: 1vh;
-            max-height: 100%;
-            .post-right-top-h {
-                float: left;
-            }
-            h5, h6 {
-                margin: 0;
-            }
+        .post-right-top-h {
+          float: left;
         }
-        .post-right-bottom {
-            padding-top: 1vh;
-            display: flex;
-            .post-right-bottom-p {
-                float: left;
-                text-align: left;
-            }
+        h5, h6 {
+          margin: 0;
         }
+      }
+      .post-right-bottom {
+        padding-top: 1vh;
+        display: flex;
+        .post-right-bottom-p {
+          float: left;
+          text-align: left;
+        }
+      }
     }
 
     .hidden {
