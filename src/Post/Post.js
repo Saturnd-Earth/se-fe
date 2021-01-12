@@ -2,30 +2,27 @@ import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE, DESTROY_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
 import gdate from 'gdate'
+import { increaseRingSize } from '../mapActions.js'
 import loading from '../images/loading.png';
 import { makeCircle } from '../helperFx.js'
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
 export function Post(props) {
-    let [isLiked, setIsLiked] = useState(false)
+    let [isLiked, setIsLiked] = useState( props.likes.some( like => +like.userId === +props.userId ) )
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike] = useMutation(CREATE_LIKE);
     let [destroyLike] = useMutation(DESTROY_LIKE);
+
+    useEffect( () => {
+      setIsLiked( props.likes.some( like => +like.userId === +props.userId ) )
+    })
 
     function like() {
         setLoadingPos(true)
         window.navigator.geolocation.getCurrentPosition(
           (pos) => {
-            console.log({
-                userId: +props.userId,
-                postId: +props.id,
-                latitude: pos.coords.latitude,
-                longitude: pos.coords.longitude
-              })
-            setLoadingPos(false)
-            setIsLiked(!isLiked)
             sendNewLike({
               variables: {
                 userId: +props.userId,
@@ -35,11 +32,9 @@ export function Post(props) {
               }
             })
             .then( response => {
-              let [min, max] = props.ring
-              let points = [ ...Array(30).keys() ];
-              const outerCoords = makeCircle( props.center, (max + 1) * 2, points);
-              const innerCoords = makeCircle( props.center, (min + 1) * 2, points.reverse());
-              window.earthRings[0].setPaths([outerCoords, innerCoords])
+              setLoadingPos(false)
+              setIsLiked(!isLiked)
+              increaseRingSize(props.ring[1], props.center)
             })
             .catch( err => console.log('No one likes.' + err))
           },
@@ -50,30 +45,21 @@ export function Post(props) {
     }
 
     function unlike() {
+      let like = props.likes.find( like => +like.userId === +props.userId )
+      if (like !== undefined) {
         setLoadingPos(true)
-        window.navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            setLoadingPos(false)
-            setIsLiked(!isLiked)
-            destroyLike({
-              variables: {
-                userId: props.userId,
-                postId: props.id,
-                latitude: pos.coords.latitude,
-                longitude: pos.coords.longitude
-              }
-            })
-            .then( () => {
-
-            })
-            .catch( err => console.log('No one likes.' + err))
-          },
-          (err) => {
-            console.log('BAD GEOLOCATOR ' + err)
+        destroyLike({
+          variables: {
+            id: +like.id
           }
-      )
+        })
+        .then( () => {
+          setIsLiked(!isLiked)
+          setLoadingPos(false)
+        })
+        .catch( err => console.log('No one likes.' + err))
+      }
     }
-
     let likeButton = isLiked ? blueLike : defaultLike;
 
     return (
@@ -83,7 +69,7 @@ export function Post(props) {
           </div>
             <section className='post-left'>
                 <div className='post-left-bottom'>
-                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
+                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => isLiked ? unlike() : like()}/>
                 </div>
             </section>
             <section className='post-right'>
