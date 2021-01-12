@@ -5,6 +5,7 @@ import Feed from './Feed/Feed';
 import Header from './Header/Header';
 import Login from './Login/Login.js';
 import MakePost from './Make_Post/Make_Post.js'
+import Splash from './Splash/Splash.js'
 import { SignUp } from './SignUp/SignUp.js'
 import './Scss/base.scss';
 
@@ -40,7 +41,7 @@ class App extends Component {
         />
         <Route exact path='/my_post' render={ () =>
           <section className="view-post">
-            <YourPosts 
+            <YourPosts
             myPostsPage={true}
             icon={ringIcon}
             />
@@ -48,7 +49,7 @@ class App extends Component {
         />
         <Route exact path='/earth' render={ () =>
           <section className="awards">
-            <p>Make an awards page</p>
+            <Splash />
           </section>}
         />
         <Route exact path='/signup' render={ () =>
