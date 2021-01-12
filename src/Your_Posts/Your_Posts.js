@@ -6,7 +6,7 @@ import { Post } from '../Post/Post.js';
 
 export default function YourPosts(props) {
     let {loading, error, data } = useQuery(GET_USER_POSTS, {
-        variables: { userId: 10 },
+        variables: { userId: 19 },
     })
     if (loading) return <h1>LOADING POSTS...</h1>
     if (error) return <h1>Hmm... something went wrong.</h1>

@@ -174,12 +174,13 @@ export const GET_USERS = gql`
 export const GET_USER_POSTS = gql`
   query getUserPosts($userId: Int!) {
     postsByUser(userId: $userId) {
+      createdAt
       id
-      content
       latitude
       longitude
       ringMinMax
-      createdAt
+      text
+      url
       userId
     }
   }
