@@ -20,7 +20,7 @@ describe('Login', () => {
 
     userNameInput = screen.getByPlaceholderText('username')
     passwordInput = screen.getByPlaceholderText('password')
-    button = screen.getByText('login')
+    button = screen.getByText('Login')
   })
 
   it('should display a login form', () => {
@@ -34,6 +34,9 @@ describe('Login', () => {
     userEvent.type(passwordInput, 'password')
     userEvent.click(button)
 
-    expect(history.entries[1].pathname).toEqual('/');
+    setTimeout(() => {
+      expect(history.entries[1].pathname).toEqual('/');
+    }, 5000)
+    
   })
 });

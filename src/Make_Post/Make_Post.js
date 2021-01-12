@@ -105,7 +105,7 @@ const Make_Post = () => {
         {commentInput()}
       </div>
       <button
-        className='make-post-button'
+        className={!loadingPos ? 'make-post-button' : 'make-post-button2'}
         disabled={loadingPos}
         onClick={() => post()}
       >

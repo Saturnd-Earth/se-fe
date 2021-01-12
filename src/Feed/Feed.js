@@ -46,7 +46,8 @@ export default function Feed(props) {
             <Post center={center} content={content} createdAt={createdAt} id={id} userId={19} ring={[min, max]}/>
             <section className="next-previous-section">
               <button
-                className="previous-button"
+                className='buttons'
+                id="previous-button"
                 onClick={ () => {
                   setNeedNewRing(true)
                   setPostIndex( cycleIndex( postIndex, data.posts.length, -1 ))
@@ -62,7 +63,8 @@ export default function Feed(props) {
               </button>
 
               <button
-                className="next-button"
+                className='buttons'
+                id="next-button"
                 onClick={ () => {
                   setNeedNewRing(true)
                   setPostIndex( cycleIndex( postIndex, data.posts.length, 1 ))
