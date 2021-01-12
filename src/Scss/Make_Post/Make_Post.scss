@@ -16,7 +16,9 @@
 }
 
 .make-post-input {
-  @extend %make-post-margin;
+  grid-column: 1 / span 3;
+  margin-left: 0em;
+  margin-right: 0em;
   position: relative;
 
   .post-overlay {
@@ -92,7 +94,14 @@
 
 .make-post-button2{
   @extend %make-post-button;
+  background-color:$application-gray;
+  color: $drop-showdow;
   cursor: not-allowed;
+}
+.make-post-button2:hover{
+  background-color: lighten($color:$application-gray, $amount: 15%);
+  color: lighten($color:$drop-showdow, $amount: 50%);
+  box-shadow: none; 
 }
 
 .make-post-button:hover {
@@ -120,4 +129,12 @@
 
 .tab-links-selected:hover{
   @extend %hover-button-blue
+}
+
+.please-singin-text{
+  @extend %make-post-margin;
+  margin-bottom: 2em;
+  font-family: 'Open Sans';
+  font-size: 1.5em;
+  font-weight: bold;
 }
