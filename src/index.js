@@ -5,9 +5,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+const defaultOptions = {
+  watchQuery: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'ignore',
+  },
+  query: {
+    fetchPolicy: 'no-cache',
+    errorPolicy: 'all',
+  },
+}
+
 const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  defaultOptions,
   uri: 'https://be-saturnd-earth.herokuapp.com/graphql',
-  cache: new InMemoryCache()
 });
 
 ReactDOM.render(
