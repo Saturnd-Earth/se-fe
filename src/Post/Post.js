@@ -18,6 +18,12 @@ export function Post(props) {
         setLoadingPos(true)
         window.navigator.geolocation.getCurrentPosition(
           (pos) => {
+            console.log({
+                userId: +props.userId,
+                postId: +props.id,
+                latitude: pos.coords.latitude,
+                longitude: pos.coords.longitude
+              })
             setLoadingPos(false)
             setIsLiked(!isLiked)
             sendNewLike({
