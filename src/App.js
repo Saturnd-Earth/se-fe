@@ -12,16 +12,11 @@ import './Scss/base.scss';
 import dummyIcon from './images/dummyIcon.png';
 import ringIcon from './images/ring-icon.png';
 
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import YourPosts from './Your_Posts/Your_Posts';
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      page: 'home'
-    }
-  }
+export default function App() {
+  const [userData, setUserData] = useState({id: null, username: null});
 
   render() {
     return (
@@ -67,4 +62,3 @@ class App extends Component {
   }
 }
 
-export default App
