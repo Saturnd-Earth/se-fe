@@ -48,13 +48,15 @@
 }
 
 #next-button:active{
-  @extend %active-button;
-}
-
-#previous-button:active{
-  @extend %active-button;
+  background-color: $application-gray;
+  color: $drop-showdow;
 }
 
 #previous-button:hover{
   background-color: darken($color: $application-blue, $amount: 5%);
+}
+
+#previous-button:active{
+  background-color: $application-gray;
+  color: $drop-showdow;
 }
