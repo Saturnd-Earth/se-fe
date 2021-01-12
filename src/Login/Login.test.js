@@ -34,6 +34,9 @@ describe('Login', () => {
     userEvent.type(passwordInput, 'password')
     userEvent.click(button)
 
-    expect(history.entries[1].pathname).toEqual('/');
+    setTimeout(() => {
+      expect(history.entries[1].pathname).toEqual('/');
+    }, 5000)
+    
   })
 });
