@@ -52,7 +52,6 @@ export const CREATE_USER = gql`
     {
       user{
         id
-        username
       }
     }
   }
@@ -202,8 +201,8 @@ export const GET_FEED = gql`
   }
 `;
 
-export const SIGN_IN = gql`
-  mutation signIn($username: String!, $password: String!) {
+export const LOG_IN = gql`
+  mutation logIn($username: String!, $password: String!) {
     signinUser(input: {
       credentials: {
         username: $username,
@@ -217,26 +216,3 @@ export const SIGN_IN = gql`
     }
   }
 `
-
-export const USER_LOGIN = gql`
-  query users($name: name, $password: password) {
-    user(name: $name, password: $password) {
-      id
-    }
-  }
-`;
-
-export const USER_SIGNUP = gql`
-  mutation userSignup($username: String!, $password: String!){
-    createUser(input: {
-      username: $username
-      password: $password
-    })
-    {
-      user{
-        id
-        username
-      }
-    }
-  }
-`;
