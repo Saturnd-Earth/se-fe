@@ -44,8 +44,10 @@ export const CREATE_POST = gql`
 export const CREATE_USER = gql`
   mutation createUser($username: String!, $password: String!){
     createUser(input: {
-      username: $username
-      password: $password
+      credentials: {
+        username: $username
+        password: $password
+      }
     })
     {
       user{
@@ -57,7 +59,7 @@ export const CREATE_USER = gql`
 `;
 
 export const DESTROY_LIKE = gql`
-  mutation destroyLike($id: Int!){
+  mutation destroyLike($id: ID!){
     destroyLike(input:{
       id: $id,
     })
@@ -174,12 +176,13 @@ export const GET_USERS = gql`
 export const GET_USER_POSTS = gql`
   query getUserPosts($userId: Int!) {
     postsByUser(userId: $userId) {
+      createdAt
       id
-      content
       latitude
       longitude
       ringMinMax
-      createdAt
+      text
+      url
       userId
     }
   }
@@ -198,6 +201,22 @@ export const GET_FEED = gql`
     }
   }
 `;
+
+export const SIGN_IN = gql`
+  mutation signIn($username: String!, $password: String!) {
+    signinUser(input: {
+      credentials: {
+        username: $username,
+        password: $password
+      }
+    }) {
+      user{
+        id
+        username
+      }
+    }
+  }
+`
 
 export const USER_LOGIN = gql`
   query users($name: name, $password: password) {
