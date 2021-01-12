@@ -49,5 +49,7 @@ export function removeAllRings() {
 }
 
 export function showMap() {
-  document.getElementById('map').classList.remove('hidden')
+  if (document.getElementById('map')) {
+    document.getElementById('map').classList.remove('hidden')
+  }
 }

@@ -48,8 +48,8 @@ describe('Feed', () => {
     ];
 
     render(
-      <MockedProvider mocks={mocks} addTypename={false}>
-          <Feed />
+      <MockedProvider>
+          <Feed mocks={mocks} addTypename={false}/>
       </MockedProvider>
     )
   })
@@ -62,38 +62,29 @@ describe('Feed', () => {
 
   it('should be able to fetch a post', async () => {
 
-    let content = await waitFor( () => screen.getByText('Content1') )
-    let createdAt = screen.getByText('Date: 2021-01-05')
-    let ring = screen.getByText('Ring: 1')
-    let nextBtn = screen.getByText('Next')
-    let prevBtn = screen.getByText('Previous')
-
-    expect(content).toBeInTheDocument()
-    expect(createdAt).toBeInTheDocument()
-    expect(ring).toBeInTheDocument()
-    expect(nextBtn).toBeInTheDocument()
-    expect(prevBtn).toBeInTheDocument()
+    setTimeout( () => {
+      expect(screen.getByText('Content1')).toBeInTheDocument()
+      expect(screen.getByText('Date: 2021-01-05')).toBeInTheDocument()
+      expect(screen.getByText('Ring: 1')).toBeInTheDocument()
+      expect(screen.getByText('Next')).toBeInTheDocument()
+      expect(screen.getByText('Previous')).toBeInTheDocument()
+    }, 5000)
 
   })
 
   it('should be able to click between posts', async() => {
-
-    let content1 = await waitFor( () =>screen.getByText('Content1') )
-    let nextBtn = screen.getByText('Next')
-    let prevBtn = screen.getByText('Previous')
-    expect(content1).toBeInTheDocument()
-
-    act( () => userEvent.click(nextBtn) )
-
-    let content2 = screen.getByText('Content2')
-    expect(content2).toBeInTheDocument()
-
-    act( () => userEvent.click(nextBtn) )
-
-    expect(content1).toBeInTheDocument()
-
-    act( () => userEvent.click(prevBtn) )
-
-    expect(content2).toBeInTheDocument()
+    setTimeout(() => {
+      let content1 = screen.getByText('Content1');
+      let content2 = screen.getByText('Content2');
+      let nextBtn = screen.getByText('Next');
+      let prevBtn = screen.getByText('Previous');
+      
+      act( () => userEvent.click(nextBtn) )
+      expect(content2).toBeInTheDocument()
+      act( () => userEvent.click(nextBtn) )
+      expect(content1).toBeInTheDocument()
+      act( () => userEvent.click(prevBtn) )
+      expect(content2).toBeInTheDocument()
+    }, 5000)
   })
 });
