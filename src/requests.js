@@ -204,7 +204,7 @@ export const GET_FEED = gql`
 
 export const SIGN_IN = gql`
   mutation signIn($username: String!, $password: String!) {
-    signInUser(input: {
+    signinUser(input: {
       credentials: {
         username: $username,
         password: $password
