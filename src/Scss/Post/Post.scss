@@ -105,3 +105,15 @@
     transform: rotate(360deg);
   }
 }
+
+.like-call-back{
+    width: 2.7em;
+    margin-top: 0.5em;
+    align-self: center;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.like-call-back:hover{
+    opacity: 0.5;
+}

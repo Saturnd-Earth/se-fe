@@ -14,6 +14,7 @@ export function Post(props) {
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike] = useMutation(CREATE_LIKE);
     let [destroyLike] = useMutation(DESTROY_LIKE);
+    let [signedIn, setSignedIn] = useState(false);
 
     useEffect( () => {
       setIsLiked( props.likes.some( like => +like.userId === +props.userId ) )
@@ -62,6 +63,31 @@ export function Post(props) {
     }
     let likeButton = isLiked ? blueLike : defaultLike;
 
+    let likeCallBack = signedIn ? () => {
+      return( <img 
+            src={likeButton} 
+            alt='Like button'
+            className='like-call-back'  
+          />
+      )} : () => {
+      return( <img 
+          src={likeButton} 
+          alt='Like button' 
+          id='like-button' 
+          onClick={() => like()}
+        />
+      )}; 
+
+    let likeCallBackText = signedIn ? () => {
+      return( <p className='post-right-bottom-p' >
+               Please Sign In To Like a Post And Start Expanding Rings Sizes
+             </p>
+    )} : () => {
+      return( <p className='post-right-bottom-p'>
+                {props.content}
+              </p>
+      )}; 
+
     return (
         <section className='post'>
           <div className={`post-overlay ${loadingPos ? '' : 'hidden'}`}>
@@ -69,7 +95,7 @@ export function Post(props) {
           </div>
             <section className='post-left'>
                 <div className='post-left-bottom'>
-                    <img src={likeButton} alt='Like button' id='like-button' onClick={() => isLiked ? unlike() : like()}/>
+                    {likeCallBack()}
                 </div>
             </section>
             <section className='post-right'>
@@ -79,7 +105,7 @@ export function Post(props) {
                         <em><h6 className='post-right-top-h' id='prt3'>{gdate.getRelativeDistance(new Date(props.createdAt))} ago</h6></em>
                 </div>
                 <div className='post-right-bottom'>
-                    <p className='post-right-bottom-p'>{props.content}</p>
+                    {likeCallBackText()}
                 </div>
             </section>
         </section>
