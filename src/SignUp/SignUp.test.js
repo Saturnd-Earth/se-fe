@@ -6,7 +6,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { SignUp } from './SignUp.js'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
-import { USER_SIGNUP } from '../requests.js'
+import { CREATE_USER } from '../requests.js'
 
 describe('SignUp', () => {
 
@@ -37,7 +37,7 @@ describe('SignUp', () => {
       const mocks = [
         {
           request: {
-            query: USER_SIGNUP
+            query: CREATE_USER
           },
           result: {
           },
@@ -71,7 +71,7 @@ describe('SignUp', () => {
       const mocks = [
         {
           request: {
-            query: USER_SIGNUP,
+            query: CREATE_USER,
           },
           error: {
           },

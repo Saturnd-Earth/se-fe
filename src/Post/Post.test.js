@@ -18,7 +18,7 @@ describe('Post', () => {
     it('should display a userIcon and like button', () => {
       render(
         <MockedProvider mocks={[]} addTypename={false}>
-            <Post
+          <Post
             center={{lat:0,lng:0}}
             content={'Hi'}
             createdAt={'2020-01-01'}
@@ -32,7 +32,7 @@ describe('Post', () => {
             url={'test.com'}
             userData={{id:1, username: 'User'}}
             userId={1}
-            />
+          />
         </MockedProvider>
       )
 
@@ -41,18 +41,34 @@ describe('Post', () => {
       expect(like).toHaveAttribute('src', defaultLike)
 
     })
-  });
+  })
 
-  // it('should turn blue when clicked', () => {
-  //
-  //   render(
-  //     <MockedProvider mocks={[]} addTypename={false}>
-  //         <Post />
-  //     </MockedProvider>
-  //   )
-  //
-  //   let like = screen.getByAltText('Like button')
-  //   userEvent.click(like)
-  //   expect(like).toHaveAttribute('src', blueLike)
-  // })
-});
+  describe('Functionality', () => {
+
+    it('the like button should turn blue when a user has liked the post', () => {
+
+      render(
+        <MockedProvider mocks={[]} addTypename={false}>
+        <Post
+          center={{lat:0,lng:0}}
+          content={'Hi'}
+          createdAt={'2020-01-01'}
+          id={1}
+          likes={[{userId: 1}]}
+          ring={[1, 1]}
+          latitude={1}
+          longitude={1}
+          position={{lat:1, lng:1}}
+          postType={'Comment'}
+          url={'test.com'}
+          userData={{id:1, username: 'User'}}
+          userId={1}
+        />
+        </MockedProvider>
+      )
+
+      let like = screen.getByAltText('Like button')
+      expect(like).toHaveAttribute('src', blueLike)
+    })
+  })
+})
