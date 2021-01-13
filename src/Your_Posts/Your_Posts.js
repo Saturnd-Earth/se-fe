@@ -6,9 +6,12 @@ import { useQuery } from '@apollo/client';
 import { Post } from '../Post/Post.js';
 
 export default function YourPosts(props) {
+  console.log(props)
     let {loading, error, data } = useQuery(GET_USER_POSTS, {
         variables: { userId: +props.userData.id },
     })
+
+    if (props.userData.id === null) return <h1>Please sign in to access this feature!</h1>
     if (loading) {
       return (
         <>
@@ -17,7 +20,6 @@ export default function YourPosts(props) {
         </>
       )
     }
-
     if (error) return <h1>Hmm... something went wrong.</h1>
     return (
         <section>
