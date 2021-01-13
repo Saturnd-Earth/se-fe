@@ -13,9 +13,11 @@
   border-radius: 1em;
   background-color: $application-gray;
   @extend %drop-shodow;
-  // height: fit-content;
-  height: auto;
-  padding-bottom: .5em;
+  max-height: 20vh;
+  width: 60vw;
+  overflow-y: scroll;
+
+  padding-bottom: .75em;
   p {
     margin-top: 0;
     padding-top: 0;

@@ -17,7 +17,7 @@ export default function Feed(props) {
     if (loading) return <h1>LOADING POSTS...</h1>
     if (error) return <h1>Hmm... something went wrong.</h1>
 
-    let { content, createdAt, id, likes, latitude, longitude, ringMinMax } = data.posts[postIndex]
+    let { content, createdAt, id, likes, latitude, longitude, ringMinMax, text } = data.posts[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}
 
@@ -43,7 +43,17 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post center={center} content={content} createdAt={createdAt} id={id} likes={likes} userId={19} ring={[min, max]}/>
+            <Post 
+            center={center} 
+            content={text} 
+            createdAt={createdAt} 
+            id={id} 
+            likes={likes} 
+            userId={19} 
+            ring={[min, max]}
+            latitude={latitude}
+            longitude={longitude}
+            />
             <section className="next-previous-section">
               <button
                 className='buttons'

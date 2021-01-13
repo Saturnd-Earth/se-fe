@@ -20,7 +20,7 @@ const Make_Post = () => {
   const history = useHistory();
   const [sendPost] = useMutation(CREATE_POST);
   const [loadingPos, setLoadingPos] = useState(false)
-  const [signedIn, setSignedIn] = useState(true);
+  const [signedIn, setSignedIn] = useState(false);
 
   const post = async () => {
       setLoadingPos(true)
