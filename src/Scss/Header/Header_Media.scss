@@ -1,7 +1,7 @@
 @media screen and (min-width: 999px) {
   .header-text {
     font-size: 4.5em;
-    color:rgb(255, 185, 185);
+    color:$title-red;
   }
   
   #se-logo {
@@ -23,7 +23,7 @@
   }
 
   .header-top-buttons{
-    margin-top: 2em;
+    margin-top: 3em;
   }
 
   .logon-button-text {
@@ -47,7 +47,7 @@
 
   .header-text {
       font-size: 3.8em;
-      color:black;
+      color:$title-red;
   }
 
 }
@@ -56,7 +56,7 @@
 
   .header-text {
       font-size: 3.5em;
-      color:red;
+      color:$title-red;
   }
 
   .logon {
@@ -67,6 +67,7 @@
 
   .header-top-buttons {
     display: grid;
+    margin-top: .8em;
   }
 
   .sign-up{
@@ -85,18 +86,23 @@
 @media screen and (min-width: 575px) and (max-width: 680px){
   .header-text {
     font-size: 3em;
-    color:blue;
+    color:$title-red;
   }
 }
 
 @media screen and (min-width: 505px) and (max-width: 575px){
   .header-text {
     font-size: 2.6em;
-    color:green;
+    color:$title-red;
   }
 
   #se-logo {
     width: 7em;
+  }
+  
+  .header-top-buttons {
+    display: grid;
+    margin-top: .5em;
   }
 
   .header-bottom{
@@ -107,7 +113,7 @@
 @media screen and (min-width: 455px) and (max-width: 505px){
   .header-text {
     font-size: 2.3em;
-    color:rgb(255, 51, 194);
+    color:$title-red;
   }
 
   #se-logo {
@@ -126,7 +132,7 @@
 @media screen and (min-width: 400px) and (max-width: 455px){
   .header-text {
     font-size: 2em;
-    color:rgb(255, 230, 0);
+    color:$title-red;
   }
 
   .logon{
@@ -140,6 +146,10 @@
   #se-logo {
     width: 6em;
   }
+  
+  .header-top-buttons{
+    margin-top: 0.4em;
+  }
 
   .header-bottom{
     margin-top: -0.5em;
@@ -149,7 +159,8 @@
 @media screen and (max-width: 400px){
   .header-text {
     font-size: 1.8em;
-    color:rgb(162, 0, 255);
+    text-align: center;
+    color:$title-red;
   }
 
   .logon{
@@ -162,7 +173,7 @@
 
   #se-logo {
     width: 5.5em;
-    margin-top: -1.5em;
+    margin-top: 0em;
   }
 
   .header-bottom{
@@ -178,5 +189,10 @@
 
   .logout {
     margin-top: 3.5em;
+  }
+
+  .header-top-buttons {
+    display: grid;
+    margin-top: 0em;
   }
 }

@@ -45,7 +45,7 @@ export default function App() {
           userData= {userData}
         />
         <Loading />
-        <h1 style={{"textAlign": "center"}}>Loading your position</h1>
+        <h1 className="loading-map" style={{"textAlign": "center"}}>Loading your position</h1>
       </>
     )
   }

@@ -3,3 +3,13 @@
   justify-content: center;
   min-height: 100vh;
 }
+
+.view-post{
+  text-align: -webkit-center;
+}
+
+.loading-map{
+  text-align: center;
+  background-color: $application-gray;
+  border-radius: 1em;
+}
