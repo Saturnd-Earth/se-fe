@@ -23,7 +23,7 @@
   }
 
   .header-top-buttons{
-    margin-top: 2em;
+    margin-top: 3em;
   }
 
   .logon-button-text {
@@ -67,6 +67,7 @@
 
   .header-top-buttons {
     display: grid;
+    margin-top: .8em;
   }
 
   .sign-up{
@@ -97,6 +98,11 @@
 
   #se-logo {
     width: 7em;
+  }
+  
+  .header-top-buttons {
+    display: grid;
+    margin-top: .5em;
   }
 
   .header-bottom{
@@ -140,6 +146,10 @@
   #se-logo {
     width: 6em;
   }
+  
+  .header-top-buttons{
+    margin-top: 0.4em;
+  }
 
   .header-bottom{
     margin-top: -0.5em;
@@ -149,6 +159,7 @@
 @media screen and (max-width: 400px){
   .header-text {
     font-size: 1.8em;
+    text-align: center;
     color:rgb(162, 0, 255);
   }
 
@@ -162,7 +173,7 @@
 
   #se-logo {
     width: 5.5em;
-    margin-top: -1.5em;
+    margin-top: 0em;
   }
 
   .header-bottom{
@@ -178,5 +189,10 @@
 
   .logout {
     margin-top: 3.5em;
+  }
+
+  .header-top-buttons {
+    display: grid;
+    margin-top: 0em;
   }
 }
