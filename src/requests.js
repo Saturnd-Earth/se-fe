@@ -188,15 +188,23 @@ export const GET_USER_POSTS = gql`
 `;
 
 export const GET_FEED = gql`
-  query getFeed($userId: Int!) {
-    postsByUser(userId: $userId) {
+  query getFeed($latitude: Float!, $longitude: Float!) {
+    postsUserCanIncrease(latitude: $latitude, longitude: $longitude) {
       id
-      content
       latitude
       longitude
       ringMinMax
       createdAt
+      text
+      url
       userId
+      likes {
+        id
+        latitude
+        longitude
+        createdAt
+        userId
+      }
     }
   }
 `;
