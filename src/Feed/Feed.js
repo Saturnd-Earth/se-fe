@@ -1,23 +1,29 @@
 import { addLike, addRing, removeAllLikes, removeAllRings } from '../mapActions.js';
 import { cycleIndex } from '../helperFx.js'
-import { GET_ALL_POSTS } from '../requests.js';
-import { useQuery } from '@apollo/client';
+import { GET_FEED } from '../requests.js';
+import Loading from '../Loading/Loading.js'
 import { Post } from '../Post/Post.js';
 import React, { useState } from 'react';
-import '../Scss/base.scss';
+import { useQuery } from '@apollo/client';
+
 import prev from '../images/prev-mixed.png'
 import next from '../images/next-mixed.png'
 
 export default function Feed(props) {
-    let {loading, error, data } = useQuery(GET_ALL_POSTS);
+    let {loading, error, data } = useQuery(GET_FEED, {
+      variables: {
+        latitude: props.position.lat || 0,
+        longitude: props.position.lng || 0
+      }
+    });
     let [earthMapIsLoaded, setEarthMapIsLoaded] = useState(window.earthMap !== undefined)
     let [needNewRing, setNeedNewRing] = useState(true)
     let [postIndex, setPostIndex] = useState(0)
 
-    if (loading) return <h1>LOADING POSTS...</h1>
+    if (loading) return <Loading/>
     if (error) return <h1>Hmm... something went wrong.</h1>
 
-    let { content, createdAt, id, likes, latitude, longitude, ringMinMax } = data.posts[postIndex]
+    let { content, createdAt, id, likes, latitude, longitude, ringMinMax } = data.postsUserCanIncrease[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}
 
@@ -30,11 +36,7 @@ export default function Feed(props) {
       setNeedNewRing(false)
 
       removeAllLikes()
-      likes.forEach( like => {
-        console.log(like)
-        let center = {lat: latitude, lng: longitude}
-        addLike( center )
-      })
+      likes.forEach( like => addLike( {lat: latitude, lng: longitude} ))
 
     } else if (!earthMapIsLoaded) {
       window.setTimeout( () => setEarthMapIsLoaded(window.earthMap !== undefined), 100)
@@ -43,14 +45,23 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post center={center} content={content} createdAt={createdAt} id={id} likes={likes} userId={19} ring={[min, max]}/>
+            <Post
+              center={center}
+              content={content}
+              createdAt={createdAt}
+              id={id}
+              likes={likes}
+              position={props.position}
+              ring={[min, max]}
+              userId={19}
+              />
             <section className="next-previous-section">
               <button
                 className='buttons'
                 id="previous-button"
                 onClick={ () => {
                   setNeedNewRing(true)
-                  setPostIndex( cycleIndex( postIndex, data.posts.length, -1 ))
+                  setPostIndex( cycleIndex( postIndex, data.postsUserCanIncrease.length, -1 ))
                 }}
               >
                 <img
@@ -67,7 +78,7 @@ export default function Feed(props) {
                 id="next-button"
                 onClick={ () => {
                   setNeedNewRing(true)
-                  setPostIndex( cycleIndex( postIndex, data.posts.length, 1 ))
+                  setPostIndex( cycleIndex( postIndex, data.postsUserCanIncrease.length, 1 ))
                 }}
               >
                 Next

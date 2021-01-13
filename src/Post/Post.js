@@ -4,7 +4,6 @@ import defaultLike from '../images/like-white.png';
 import gdate from 'gdate'
 import { increaseRingSize } from '../mapActions.js'
 import loading from '../images/loading.png';
-import { makeCircle } from '../helperFx.js'
 import React, { useState, useEffect }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
@@ -18,31 +17,25 @@ export function Post(props) {
 
     useEffect( () => {
       setIsLiked( props.likes.some( like => +like.userId === +props.userId ) )
-    })
+    }, [props.likes, props.userId])
 
     function like() {
-        setLoadingPos(true)
-        window.navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            sendNewLike({
-              variables: {
-                userId: +props.userId,
-                postId: +props.id,
-                latitude: pos.coords.latitude,
-                longitude: pos.coords.longitude
-              }
-            })
-            .then( response => {
-              setLoadingPos(false)
-              setIsLiked(!isLiked)
-              increaseRingSize(props.ring[1], props.center)
-            })
-            .catch( err => console.log('No one likes.' + err))
-          },
-          (err) => {
-            console.log('BAD GEOLOCATOR ' + err)
-          }
-      )
+      console.log(props.position)
+      setLoadingPos(true)
+      sendNewLike({
+        variables: {
+          userId: +props.userId,
+          postId: +props.id,
+          latitude: props.position.lat,
+          longitude: props.position.lng
+        }
+      })
+      .then( response => {
+        setLoadingPos(false)
+        setIsLiked(!isLiked)
+        increaseRingSize(props.ring[1], props.center)
+      })
+      .catch( err => console.log('No one likes.' + err))
     }
 
     function unlike() {
@@ -64,19 +57,19 @@ export function Post(props) {
     let likeButton = isLiked ? blueLike : defaultLike;
 
     let likeCallBack = signedIn ? () => {
-      return( <img 
-            src={likeButton} 
+      return( <img
+            src={likeButton}
             alt='Like button'
-            className='like-call-back'  
+            className='like-call-back'
           />
       )} : () => {
-      return( <img 
-          src={likeButton} 
-          alt='Like button' 
-          id='like-button' 
-          onClick={() => like()}
+      return( <img
+          src={likeButton}
+          alt='Like button'
+          id='like-button'
+          onClick={() => isLiked? unlike() : like()}
         />
-      )}; 
+      )};
 
     let likeCallBackText = signedIn ? () => {
       return( <p className='post-right-bottom-p' >
@@ -86,7 +79,7 @@ export function Post(props) {
       return( <p className='post-right-bottom-p'>
                 {props.content}
               </p>
-      )}; 
+      )};
 
     return (
         <section className='post'>
