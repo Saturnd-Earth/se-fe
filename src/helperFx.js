@@ -9,8 +9,8 @@ export function cycleIndex(current, max, cycleBy) {
 }
 
 export function makeCircle(center, radius, points) {
-  let radiusInLat = (180 / PI) * (radius / EARTH_RADIUS);
-  let radiusInLng = radiusInLat / cos(center.lat() * (PI / 180));
+  let radiusInLat = rad_to_deg(radius) / EARTH_RADIUS;
+  let radiusInLng = radiusInLat / cos( deg_to_rad( center.lat() ) );
   let anglePerCircleRegion = 2 * PI / points.length;
 
   return points.map( i => {
@@ -25,6 +25,14 @@ export function makeCircle(center, radius, points) {
 export function colorStream(numRings) {
   let increment = Math.floor(numColors / numRings)
   return [ ...Array(numRings).keys() ].map( ringNum => bigToHex(ringNum * increment))
+}
+
+export function deg_to_rad(num) {
+  return (PI / 180) * num
+}
+
+export function rad_to_deg (num) {
+  return (180 / PI) * num
 }
 
 function bigToHex(num) {
