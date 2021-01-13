@@ -10,7 +10,11 @@ export default function Splash(props) {
   let history = useHistory();
 
   useEffect( () => {
-    return shrinkToHalf
+    document.getElementsByClassName('header-text')[0].style.textShadow = '4px 4px 4px black';
+    return () => {
+      shrinkToHalf()
+      document.getElementsByClassName('header-text')[0].style.textShadow = '';
+    }
   })
 
   if (loading || !window.earthMap) {
