@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom'
 import { useMutation } from '@apollo/client';
 
 function Login(props) {
-  let [userLogin, {data, loading}] = useMutation(LOG_IN);
+  let [userLogin, {data, loading, error}] = useMutation(LOG_IN);
 
   let input = {
     password: '',
@@ -18,19 +18,21 @@ function Login(props) {
   }
 
   let login = (e) => {
-    let {username, password} = input;
     e.preventDefault();
+    let {username, password} = input;
+    console.log(username, password)
     userLogin({
       variables: {
         username,
         password
       }
     })
+    .catch( console.log )
   }
 
   if(loading) return <Loading />
 
-  if(data){
+  if(data && !error){
     showMap()
     props.setUserData(data.signinUser.user)
     history.push('/se-fe')
@@ -60,6 +62,7 @@ function Login(props) {
           onClick={login}
           value="Login"
         />
+        {error ? 'Invalid username and/or password' : <></>}
       </form>
     </section>
   )

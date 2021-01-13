@@ -204,11 +204,12 @@ export const GET_FEED = gql`
   }
 `;
 
+
 export const LOG_IN = gql`
-  mutation logIn($username: String!, $password: String!) {
+  mutation logIn($username: String!, $password: String!){
     signinUser(input: {
       credentials: {
-        username: $username,
+        username: $username
         password: $password
       }
     }) {
