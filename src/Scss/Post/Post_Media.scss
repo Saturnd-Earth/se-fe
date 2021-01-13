@@ -32,9 +32,14 @@
   .post {
     // height: fit-content;
     height: auto;
-    max-width: 66em;
+    // max-width: 66em;
+    max-width: 75%;
     margin-left: 20%;
     margin-right: 20%;
+  }
+
+  .post-img {
+    margin-top: 1em;
   }
 }
 

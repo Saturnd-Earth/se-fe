@@ -95,10 +95,27 @@ export function Post(props) {
                 <em><h6 className='post-right-top-h' id='prt4'>Longitude: {props.longitude}</h6></em><br/>
               </div>
               <div className='post-right-bottom'>
-                  <p className='post-right-bottom-p'>{props.content}</p><br/>
-                  <div className='post-img-div'>
-                    <img className='post-img' src={props.url} alt={props.text}/>
-                  </div>
+                <p className='post-right-bottom-p'>{props.content}</p><br/>
+                <div className={props.url ? 'post-img-div' : 'post-img-div hidden'}>
+                  {
+                    props.postType == 'Image' ? (
+                      <img 
+                      className='post-img'
+                      src={props.url} 
+                      alt={props.content}
+                      id={props.content}
+                      />
+                    ) : (
+                      <iframe 
+                      className="Video"
+                      max-width='75%' 
+                      height='auto' 
+                      src={props.url}
+                      >
+                      </iframe>
+                    )
+                  }
+                </div>
               </div>
           </section>
       </section>

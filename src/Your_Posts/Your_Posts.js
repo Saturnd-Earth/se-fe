@@ -28,6 +28,7 @@ export default function YourPosts(props) {
                         latitude={i.latitude}
                         longitude={i.longitude}
                         url={i.url}
+                        postType={i.postType}
                         />
                     )
                 })
