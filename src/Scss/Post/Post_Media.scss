@@ -30,10 +30,17 @@
   }
 
   .post {
-    height: fit-content;
-    max-width: 66em;
+    // height: fit-content;
+    // height: auto;
+    max-height: 187px;
+    // max-width: 66em;
+    max-width: 75%;
     margin-left: 20%;
     margin-right: 20%;
+  }
+
+  .post-img {
+    margin-top: 1em;
   }
 }
 

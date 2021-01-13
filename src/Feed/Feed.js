@@ -23,7 +23,7 @@ export default function Feed(props) {
     if (loading) return <Loading/>
     if (error) return <h1>Hmm... something went wrong.</h1>
 
-    let { content, createdAt, id, likes, latitude, longitude, ringMinMax } = data.postsUserCanIncrease[postIndex]
+    let { content, createdAt, id, likes, latitude, longitude, postType, ringMinMax, url, text } = data.postsUserCanIncrease[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}
 
@@ -47,14 +47,17 @@ export default function Feed(props) {
             <h1 className='header-title'>{props.headerTitle}</h1>
             <Post
               center={center}
-              content={content}
+              content={text}
               createdAt={createdAt}
               id={id}
               likes={likes}
-              position={props.position}
               ring={[min, max]}
+              latitude={latitude}
+              longitude={longitude}
+              postType={postType}
+              url={url}
+              userData={props.userData}
               userId={19}
-              userData= {props.userData} 
             />
             <section className="next-previous-section">
               <button

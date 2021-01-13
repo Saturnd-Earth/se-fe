@@ -7,7 +7,7 @@ import { Post } from '../Post/Post.js';
 
 export default function YourPosts(props) {
     let {loading, error, data } = useQuery(GET_USER_POSTS, {
-        variables: { userId: 10 },
+        variables: { userId: 19 },
     })
     if (loading) {
       return (
@@ -24,15 +24,20 @@ export default function YourPosts(props) {
             <h1 className='header-title'>{props.headerTitle}</h1>
             {
                 data.postsByUser.map(i => {
-                    let { content, createdAt, id, ringMinMax } = i
+                    let { content, createdAt, id, ringMinMax } = i;
+                    console.log(i)
                     return (
                         <Post
                         myPostsPage={true}
-                        content={content}
-                        createdAt={createdAt}
-                        id={id}
+                        content={i.text}
+                        createdAt={i.createdAt}
+                        id={i.id}
                         ring={[i.min, i.max]}
                         icon={props.icon}
+                        latitude={i.latitude}
+                        longitude={i.longitude}
+                        url={i.url}
+                        postType={i.postType}
                         />
                     )
                 })

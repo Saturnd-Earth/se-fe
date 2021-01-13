@@ -183,6 +183,7 @@ export const GET_USER_POSTS = gql`
       text
       url
       userId
+      postType
     }
   }
 `;
