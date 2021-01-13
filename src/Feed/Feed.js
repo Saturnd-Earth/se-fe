@@ -46,7 +46,7 @@ export default function Feed(props) {
             <Post 
               userData= {props.userData} 
               center={center} 
-              content={content} 
+              content={text} 
               createdAt={createdAt} 
               id={id} 
               likes={likes} 

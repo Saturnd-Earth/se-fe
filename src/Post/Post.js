@@ -15,11 +15,6 @@ export function Post(props) {
     let [sendNewLike] = useMutation(CREATE_LIKE);
     let [destroyLike] = useMutation(DESTROY_LIKE);
 
-  let [isLiked, setIsLiked] = useState(false)
-  let [loadingPos, setLoadingPos] = useState(false)
-  let [sendNewLike] = useMutation(CREATE_LIKE);
-  let [destroyLike] = useMutation(DESTROY_LIKE);
-
   function like() {
       setLoadingPos(true)
       window.navigator.geolocation.getCurrentPosition(
