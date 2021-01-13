@@ -121,21 +121,9 @@ export const EDIT_USER = gql`
 export const GET_ALL_POSTS = gql`
   query getAllPosts {
     posts {
-      id
       latitude
       longitude
       ringMinMax
-      createdAt
-      text
-      url
-      userId
-      likes {
-        id
-        latitude
-        longitude
-        createdAt
-        userId
-      }
     }
   }
 `;

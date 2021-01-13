@@ -22,7 +22,7 @@ export function Post(props) {
       setLoadingPos(true)
       sendNewLike({
         variables: {
-          userId: +props.userId,
+          userId: +props.userData.id,
           postId: +props.id,
           latitude: props.position.lat,
           longitude: props.position.lng
@@ -52,31 +52,7 @@ export function Post(props) {
       }
     }
 
-    let likeButton = isLiked ? blueLike : defaultLike;
-      let likeCallBack = props.userData.id === null ? () => {
-        return( <img
-            src={likeButton}
-            alt='Like button'
-            className='like-call-back'
-          />
-      )} : () => {
-      return( <img
-          src={likeButton}
-          alt='Like button'
-          id='like-button'
-          onClick={() => isLiked? unlike() : like()}
-        />
-      )};
-
-    let likeCallBackText = props.userData.id === null ? () => {
-      return( <p className='post-right-bottom-p' >
-               Please Sign In To Like a Post And Start Expanding Rings Sizes
-             </p>
-    )} : () => {
-      return( <p className='post-right-bottom-p'>
-                {props.content}
-              </p>
-      )};
+  let likeButton = isLiked ? blueLike : defaultLike;
 
   return (
       <section className='post'>
@@ -85,7 +61,20 @@ export function Post(props) {
         </div>
           <section className='post-left'>
               <div className='post-left-bottom'>
-                  <img src={likeButton} alt='Like button' id='like-button' onClick={() => like()}/>
+              {props.hideLike ?
+                <></> :
+                <img
+                  src={likeButton}
+                  alt='Like button'
+                  id='like-button'
+                  onClick={() => {
+                    if (props.userData.id) {
+                      if (isLiked) unlike()
+                      else like()
+                    }
+                  }}/>
+
+                }
               </div>
           </section>
           <section className='post-right'>
@@ -102,10 +91,10 @@ export function Post(props) {
                   {
                     props.postType == 'Image' ? (
                       <img
-                      className='post-img'
-                      src={props.url}
-                      alt={props.content}
-                      id={props.content}
+                        className='post-img'
+                        src={props.url}
+                        alt={props.content}
+                        id={props.content}
                       />
                     ) : (
                       <iframe
