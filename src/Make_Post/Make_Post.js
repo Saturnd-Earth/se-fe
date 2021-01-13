@@ -20,7 +20,6 @@ const Make_Post = (props) => {
   const history = useHistory();
   const [sendPost] = useMutation(CREATE_POST);
   const [loadingPos, setLoadingPos] = useState(false)
-  const [signedIn, setSignedIn] = useState(true);
 
   const post = () => {
     setLoadingPos(true)
@@ -45,7 +44,7 @@ const Make_Post = (props) => {
   }
 
 
-let onClickCallBack = signedIn ? () => {
+let onClickCallBack = props.userData.id === null ? () => {
   return <button
           className={'make-post-button2'}
           disabled={loadingPos}

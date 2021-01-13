@@ -30,9 +30,9 @@ function Login(props) {
 
   if(loading) return <Loading />
 
-  if(data && data.user){
+  if(data){
     showMap()
-    props.setUserData = data
+    props.setUserData(data)
     history.push('/')
   }
 

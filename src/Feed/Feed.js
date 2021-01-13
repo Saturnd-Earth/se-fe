@@ -54,7 +54,8 @@ export default function Feed(props) {
               position={props.position}
               ring={[min, max]}
               userId={19}
-              />
+              userData= {props.userData} 
+            />
             <section className="next-previous-section">
               <button
                 className='buttons'
@@ -72,7 +73,6 @@ export default function Feed(props) {
                 />
                 Previous
               </button>
-
               <button
                 className='buttons'
                 id="next-button"

@@ -30,22 +30,32 @@ export default function App() {
 
   return (
     <section className='all-pages'>
-      <Header/>
+      <Header
+        setUserData= {setUserData}
+        userData= {userData}
+      />
       <Route exact path='/' render={ () =>
         <section className="home">
-          <Feed position={position}/>
+          <Feed
+            icon={dummyIcon}
+            position={position}
+            userData= {userData}
+          />
         </section>
       }/>
       <Route exact path='/make_post' render={ () =>
         <section className="make-post">
-          <MakePost position={position}/>
+          <MakePost
+            position={position}
+            userData= {userData}
+          />
         </section>}
       />
       <Route exact path='/my_post' render={ () =>
         <section className="view-post">
           <YourPosts
-          myPostsPage={true}
-          icon={ringIcon}
+            myPostsPage={true}
+            icon={ringIcon}
           />
         </section>}
       />
@@ -61,7 +71,7 @@ export default function App() {
       />
       <Route exact path='/login' render={ () =>
         <section className="login">
-          <Login/>
+          <Login setUserData= {setUserData}/>
         </section>}
       />
     </section>
