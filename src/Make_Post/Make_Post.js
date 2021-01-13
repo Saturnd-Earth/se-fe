@@ -13,7 +13,7 @@ import imageIcon from '../images/add-img-white.png'
 import loading from '../images/loading.png';
 import videoIcon from '../images/add-vid-white.png'
 
-const Make_Post = () => {
+const Make_Post = (props) => {
   const [input, setInput] = useState({});
   const [commentInput, setCommentInput] = useState(() => () => <Comment setInput={setInput}/>);
   const [commentInputNum, setCommentInputNum] = useState(1);
@@ -49,7 +49,7 @@ const Make_Post = () => {
   }
 
 
-let onClickCallBack = signedIn ? () => {
+let onClickCallBack = props.userData.id === null ? () => {
   return <button
           className={'make-post-button2'}
           disabled={loadingPos}

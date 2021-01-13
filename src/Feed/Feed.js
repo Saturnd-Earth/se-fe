@@ -44,15 +44,16 @@ export default function Feed(props) {
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
             <Post 
-            center={center} 
-            content={text} 
-            createdAt={createdAt} 
-            id={id} 
-            likes={likes} 
-            userId={19} 
-            ring={[min, max]}
-            latitude={latitude}
-            longitude={longitude}
+              userData= {props.userData} 
+              center={center} 
+              content={content} 
+              createdAt={createdAt} 
+              id={id} 
+              likes={likes} 
+              userId={19} 
+              ring={[min, max]}
+              latitude={latitude}
+              longitude={longitude}
             />
             <section className="next-previous-section">
               <button
@@ -71,7 +72,6 @@ export default function Feed(props) {
                 />
                 Previous
               </button>
-
               <button
                 className='buttons'
                 id="next-button"

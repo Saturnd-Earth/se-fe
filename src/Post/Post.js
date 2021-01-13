@@ -10,6 +10,10 @@ import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
 export function Post(props) {
+    let [isLiked, setIsLiked] = useState( props.likes.some( like => +like.userId === +props.userId ) )
+    let [loadingPos, setLoadingPos] = useState(false)
+    let [sendNewLike] = useMutation(CREATE_LIKE);
+    let [destroyLike] = useMutation(DESTROY_LIKE);
 
   let [isLiked, setIsLiked] = useState(false)
   let [loadingPos, setLoadingPos] = useState(false)
@@ -77,6 +81,30 @@ export function Post(props) {
   }
 
   let likeButton = isLiked ? blueLike : defaultLike;
+    let likeCallBack = props.userData.id === null ? () => {
+      return( <img 
+            src={likeButton} 
+            alt='Like button'
+            className='like-call-back'  
+          />
+      )} : () => {
+      return( <img 
+          src={likeButton} 
+          alt='Like button' 
+          id='like-button' 
+          onClick={() => like()}
+        />
+      )}; 
+
+    let likeCallBackText = props.userData.id === null ? () => {
+      return( <p className='post-right-bottom-p' >
+               Please Sign In To Like a Post And Start Expanding Rings Sizes
+             </p>
+    )} : () => {
+      return( <p className='post-right-bottom-p'>
+                {props.content}
+              </p>
+    )}; 
 
   return (
       <section className='post'>
