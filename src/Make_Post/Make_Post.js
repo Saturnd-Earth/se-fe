@@ -1,6 +1,7 @@
 import Comment from './Post_Forms/Comment.js';
 import Image from './Post_Forms/Image.js';
 import Video from './Post_Forms/Video.js';
+import Loading from '../Loading/Loading.js'
 import React, { useState } from 'react';
 import '../Scss/base.scss';
 import { showMap } from '../mapActions.js'
@@ -10,10 +11,9 @@ import { CREATE_POST } from '../requests.js';
 
 import commentIcon from '../images/add-comment-white.png'
 import imageIcon from '../images/add-img-white.png'
-import loading from '../images/loading.png';
 import videoIcon from '../images/add-vid-white.png'
 
-const Make_Post = () => {
+const Make_Post = (props) => {
   const [input, setInput] = useState({});
   const [commentInput, setCommentInput] = useState(() => () => <Comment setInput={setInput}/>);
   const [commentInputNum, setCommentInputNum] = useState(1);
@@ -22,30 +22,26 @@ const Make_Post = () => {
   const [loadingPos, setLoadingPos] = useState(false)
   const [signedIn, setSignedIn] = useState(true);
 
-  const post = async () => {
-      setLoadingPos(true)
-      window.navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          setLoadingPos(false)
-          sendPost({
-            variables: {
-              userId: 19,
-              text: input.text,
-              latitude: pos.coords.latitude,
-              longitude: pos.coords.longitude,
-              url: input.url || null,
-              postType: input.postType
-            }
-          })
-          .then( () => {
-            showMap()
-            history.push('/')
-          })
-        },
-        (err) => {
-          console.log('BAD GEOLOCATOR ' + err)
-        }
-    )
+  const post = () => {
+    setLoadingPos(true)
+    sendPost({
+      variables: {
+        userId: 19,
+        text: input.text,
+        latitude: props.position.latitude,
+        longitude: props.position.longitude,
+        url: input.url || null,
+        postType: input.postType
+      }
+    })
+    .then( () => {
+      setLoadingPos(false)
+      showMap()
+      history.push('/')
+    })
+    .catch( err => {
+      console.log(err);
+    })
   }
 
 
@@ -53,7 +49,6 @@ let onClickCallBack = signedIn ? () => {
   return <button
           className={'make-post-button2'}
           disabled={loadingPos}
-          disabled= {true}
         >
           Please Sign In To Make A Post
         </button>
@@ -65,7 +60,7 @@ let onClickCallBack = signedIn ? () => {
         >
           Post
         </button>
-}; 
+};
 
   return (
     <section className='make-post-section'>
@@ -119,9 +114,7 @@ let onClickCallBack = signedIn ? () => {
         </button>
       </div>
       <div className='make-post-input'>
-        <div className={`post-overlay ${loadingPos ? '' : 'hidden'}`}>
-          <img className='spin loading' alt='Submitting your post' src={loading}></img>
-        </div>
+        {loadingPos ? <Loading /> : <></>}
         {commentInput()}
       </div>
       {onClickCallBack()}

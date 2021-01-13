@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import Loading from '../Loading/Loading.js'
+import { LOG_IN } from '../requests';
+import React from 'react';
 import { showMap } from '../mapActions.js'
 import { useHistory } from 'react-router-dom'
-import { LOG_IN } from '../requests';
 import { useMutation } from '@apollo/client';
-import '../Scss/base.scss';
 
 function Login(props) {
-  let [error, setError] = useState(false)
   let [userLogin, {data, loading}] = useMutation(LOG_IN);
 
   let input = {
@@ -21,7 +20,6 @@ function Login(props) {
   let login = (e) => {
     let {username, password} = input;
     e.preventDefault();
-    console.log()
     userLogin({
       variables: {
         username,
@@ -30,13 +28,7 @@ function Login(props) {
     })
   }
 
-  if(loading){
-    return(
-      <p>Loading...</p>
-    )
-  } else {
-    console.log("data", data)
-  }
+  if(loading) return <Loading />
 
   if(data && data.user){
     showMap()

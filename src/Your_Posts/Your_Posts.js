@@ -1,4 +1,5 @@
 import { GET_USER_POSTS } from '../requests.js'
+import Loading from '../Loading/Loading.js'
 import React, { useState } from 'react';
 import '../Scss/base.scss';
 import { useQuery } from '@apollo/client';
@@ -8,7 +9,15 @@ export default function YourPosts(props) {
     let {loading, error, data } = useQuery(GET_USER_POSTS, {
         variables: { userId: 10 },
     })
-    if (loading) return <h1>LOADING POSTS...</h1>
+    if (loading) {
+      return (
+        <>
+          <h1>LOADING POSTS...</h1>
+          <Loading />
+        </>
+      )
+    }
+
     if (error) return <h1>Hmm... something went wrong.</h1>
     return (
         <section>
