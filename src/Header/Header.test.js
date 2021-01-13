@@ -67,41 +67,23 @@ describe('Header', () => {
   it('should navigate when a navButton is clicked', async () => {
 
     setTimeout(() => {
-      let postNav = screen.getByAltText('Add a post')
-    userEvent.click(postNav)
-    // await waitFor( () =>
-    expect(history.entries[1].pathname).toEqual('/make_post')
-    // )
+      userEvent.click(screen.getByAltText('Add a post'))
+      expect(history.entries[1].pathname).toEqual('/make_post')
 
-    let feedNav = screen.getByAltText('Your feed')
-    userEvent.click(feedNav)
-    // await waitFor( () =>
-    expect(history.entries[2].pathname).toEqual('/my_post')
-    // )
+      userEvent.click(screen.getByAltText('Your feed'))
+      expect(history.entries[2].pathname).toEqual('/my_post')
 
-    let awardsNav = screen.getByAltText('Your awards')
-    userEvent.click(awardsNav)
-    // await waitFor( () =>
-    expect(history.entries[3].pathname).toEqual('/awards')
-    // )
+      userEvent.click(screen.getByAltText('Your awards'))
+      expect(history.entries[3].pathname).toEqual('/awards')
 
-    let signUpNav = screen.getByAltText('Sign up')
-    userEvent.click(signUpNav)
-    // await waitFor( () =>
-    expect(history.entries[4].pathname).toEqual('/signup')
-    // )
+      userEvent.click(screen.getByAltText('Sign up'))
+      expect(history.entries[4].pathname).toEqual('/signup')
 
-    let loginNav = screen.getByAltText('Log in')
-    userEvent.click(loginNav)
-    // await waitFor( () =>
-    expect(history.entries[5].pathname).toEqual('/login')
-    // )
+      userEvent.click(screen.getByAltText('Log in'))
+      expect(history.entries[5].pathname).toEqual('/login')
 
-    let homeNav = screen.getByAltText('Home')
-    userEvent.click(homeNav)
-    // await waitFor( () =>
-    expect(history.entries[6].pathname).toEqual('/')
-    // )
+      userEvent.click(screen.getByAltText('Home'))
+      expect(history.entries[6].pathname).toEqual('/')
     }, 2000)
   })
 });
