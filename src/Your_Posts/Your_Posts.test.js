@@ -15,13 +15,25 @@ describe('Your Posts', () => {
     beforeEach(() => {
       history = createMemoryHistory()
       render(
+        <MockedProvider >
         <Router history={history}>
           <YourPosts 
             myPostsPage={true}
             icon={ringIcon}
-            userData={userData}
+            userData={{id: 1, username: 'Chris'}}
           />
         </Router>
+        </MockedProvider>
       )
+    })
+
+    it('should give a status update initially', () => {
+        expect(screen.getByText('LOADING POSTS...')).toBeInTheDocument()
+    })
+    
+    it('should not display posts without a user being signed in', () => {
+        setTimeout(() => {
+            expect(screen.getByText('Please sign in to access this feature!')).toBeInTheDocument()
+        }, 10000)
     })
 })
