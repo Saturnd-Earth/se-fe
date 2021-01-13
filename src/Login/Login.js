@@ -21,7 +21,6 @@ function Login(props) {
   let login = (e) => {
     let {username, password} = input;
     e.preventDefault();
-    console.log()
     userLogin({
       variables: {
         username,
@@ -36,11 +35,12 @@ function Login(props) {
     )
   } else {
     console.log("data", data)
+    console.log("user data", data)
   }
 
-  if(data && data.user){
+  if(data){
     showMap()
-    props.setUserData = data
+    props.setUserData(data)
     history.push('/')
   }
 

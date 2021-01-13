@@ -6,10 +6,9 @@ import login from '../images/login-white.png';
 import logout from '../images/logout-white.png';
 import signup from '../images/sign-up-blue.png';
 
-export default function Header_Top_Button() {
-  const [logOn, setlogOn] = useState(false);
+export default function Header_Top_Button(props) {
 
-  if (logOn === false) {
+  if (props.userData === null) {
     return (
       <section className='header-top-buttons'>
       <NavLink to='/signup' className='header-top-buttons'>
@@ -42,8 +41,11 @@ export default function Header_Top_Button() {
     )
   } else {
     return (
-      <section className='header-top-buttons logout-section' onClick={() => setlogOn(false)}>
-        <button className='logon logout'>
+      <section className='header-top-buttons logout-section'>
+        <button 
+          className='logon logout'
+          onClick={() => props.setUserData({id: null, username: null})}
+        >
           <img
             src={logout}
             alt='Log out'

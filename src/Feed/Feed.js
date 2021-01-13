@@ -43,7 +43,16 @@ export default function Feed(props) {
     return (
         <section className='feed'>
             <h1 className='header-title'>{props.headerTitle}</h1>
-            <Post center={center} content={content} createdAt={createdAt} id={id} likes={likes} userId={19} ring={[min, max]}/>
+            <Post 
+              userData= {props.userData} 
+              center={center} 
+              content={content} 
+              createdAt={createdAt} 
+              id={id} 
+              likes={likes} 
+              userId={19} 
+              ring={[min, max]}
+            />
             <section className="next-previous-section">
               <button
                 className='buttons'
@@ -61,7 +70,6 @@ export default function Feed(props) {
                 />
                 Previous
               </button>
-
               <button
                 className='buttons'
                 id="next-button"

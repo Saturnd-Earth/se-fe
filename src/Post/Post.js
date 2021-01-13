@@ -14,7 +14,6 @@ export function Post(props) {
     let [loadingPos, setLoadingPos] = useState(false)
     let [sendNewLike] = useMutation(CREATE_LIKE);
     let [destroyLike] = useMutation(DESTROY_LIKE);
-    let [signedIn, setSignedIn] = useState(false);
 
     useEffect( () => {
       setIsLiked( props.likes.some( like => +like.userId === +props.userId ) )
@@ -63,7 +62,7 @@ export function Post(props) {
     }
     let likeButton = isLiked ? blueLike : defaultLike;
 
-    let likeCallBack = signedIn ? () => {
+    let likeCallBack = props.userData.id === null ? () => {
       return( <img 
             src={likeButton} 
             alt='Like button'
@@ -78,7 +77,7 @@ export function Post(props) {
         />
       )}; 
 
-    let likeCallBackText = signedIn ? () => {
+    let likeCallBackText = props.userData.id === null ? () => {
       return( <p className='post-right-bottom-p' >
                Please Sign In To Like a Post And Start Expanding Rings Sizes
              </p>
@@ -86,7 +85,7 @@ export function Post(props) {
       return( <p className='post-right-bottom-p'>
                 {props.content}
               </p>
-      )}; 
+    )}; 
 
     return (
         <section className='post'>
