@@ -26,10 +26,10 @@ const Make_Post = (props) => {
     setLoadingPos(true)
     sendPost({
       variables: {
-        userId: 19,
+        userId: +props.userData.id,
         text: input.text,
-        latitude: props.position.latitude,
-        longitude: props.position.longitude,
+        latitude: props.position.lat,
+        longitude: props.position.lng,
         url: input.url || null,
         postType: input.postType
       }

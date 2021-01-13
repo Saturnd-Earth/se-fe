@@ -32,7 +32,7 @@ function Login(props) {
 
   if(data){
     showMap()
-    props.setUserData(data)
+    props.setUserData(data.signinUser.user)
     history.push('/')
   }
 

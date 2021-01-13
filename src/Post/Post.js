@@ -19,7 +19,6 @@ export function Post(props) {
     }, [props.likes, props.userId])
 
     function like() {
-      console.log(props.position)
       setLoadingPos(true)
       sendNewLike({
         variables: {

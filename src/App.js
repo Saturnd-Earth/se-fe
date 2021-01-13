@@ -37,7 +37,6 @@ export default function App() {
       <Route exact path='/' render={ () =>
         <section className="home">
           <Feed
-            icon={dummyIcon}
             position={position}
             userData= {userData}
           />
@@ -56,6 +55,7 @@ export default function App() {
           <YourPosts
             myPostsPage={true}
             icon={ringIcon}
+            userData={userData}
           />
         </section>}
       />
