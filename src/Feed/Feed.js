@@ -1,4 +1,4 @@
-import { addLike, addRing, removeAllLikes, removeAllRings } from '../mapActions.js';
+import { addLike, addRing, removeAllLikes, removeAllRings, setZoomToFitCenter } from '../mapActions.js';
 import { cycleIndex } from '../helperFx.js'
 import { GET_FEED } from '../requests.js';
 import Loading from '../Loading/Loading.js'
@@ -34,8 +34,7 @@ export default function Feed(props) {
 
     if (needNewRing && window.earthMapIsInitialized) {
       removeAllRings()
-      window.earthMap.setZoom(10)
-      window.earthMap.setCenter({lat: latitude, lng: longitude})
+      setZoomToFitCenter(props.position, center)
       addRing( center, min, max )
       setNeedNewRing(false)
 

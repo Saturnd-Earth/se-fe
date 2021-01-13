@@ -95,6 +95,27 @@ export function setZoomToMaxDisplay() {
   window.earthMap.setZoom(smallestRatio)
 }
 
+export function setZoomToFitCenter(userCenter, ringCenter) {
+  let s = Math.min(userCenter.lat, ringCenter.lat())
+  let n = Math.max(userCenter.lat, ringCenter.lat())
+  let e = Math.max(userCenter.lng, ringCenter.lng())
+  let w = Math.min(userCenter.lng, ringCenter.lng())
+  var allowedBounds = new window.google.maps.LatLngBounds(
+  	new window.google.maps.LatLng(n, w),	// top left corner of map
+  	new window.google.maps.LatLng(s, e)	// bottom right corner
+  );
+
+  let k = 5.0;
+  n = allowedBounds .getNorthEast().lat() - k;
+  e = allowedBounds .getNorthEast().lng() - k;
+  s = allowedBounds .getSouthWest().lat() + k;
+  w = allowedBounds .getSouthWest().lng() + k;
+  let neNew = new window.google.maps.LatLng( n, e );
+  let swNew = new window.google.maps.LatLng( s, w );
+  let boundsNew = new window.google.maps.LatLngBounds( swNew, neNew );
+  window.earthMap .fitBounds(boundsNew);
+}
+
 export function shrinkToHalf() {
   let mapDiv = document.getElementById('map');
   mapDiv.style.position = 'relative'
