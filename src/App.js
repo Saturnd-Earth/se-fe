@@ -17,28 +17,33 @@ import YourPosts from './Your_Posts/Your_Posts';
 
 export default function App() {
   const [userData, setUserData] = useState({id: null, username: null});
-
-  render() {
+    console.log("APP Props", userData)
     return (
       <section className='all-pages'>
-        <Header/>
+        <Header 
+          setUserData= {setUserData}
+          userData= {userData}
+        />
         <Route exact path='/' render={ () =>
           <section className="home">
             <Feed
               icon={dummyIcon}
+              userData= {userData}
             />
           </section>
         }/>
         <Route exact path='/make_post' render={ () =>
           <section className="make-post">
-            <MakePost/>
+            <MakePost               
+              userData= {userData}
+            />
           </section>}
         />
         <Route exact path='/my_post' render={ () =>
           <section className="view-post">
             <YourPosts
-            myPostsPage={true}
-            icon={ringIcon}
+              myPostsPage={true}
+              icon={ringIcon}
             />
           </section>}
         />
@@ -54,11 +59,10 @@ export default function App() {
         />
         <Route exact path='/login' render={ () =>
           <section className="login">
-            <Login/>
+            <Login setUserData= {setUserData}/>
           </section>}
         />
       </section>
     )
   }
-}
 
