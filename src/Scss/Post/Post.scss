@@ -1,94 +1,128 @@
 .post {
-    font-family: 'Roboto', sans-serif;
-    margin-top: 1em;
-    margin-right: auto;
-    margin-left: auto;
-    margin-bottom: 1em;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 1em;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 1em;
+  display: grid;
+  grid-template-columns: .25fr 1fr;
+
+  position: relative;
+  margin-left: 10%;
+  margin-right: 10%;
+  border-radius: 1em;
+  background-color: $application-gray;
+  @extend %drop-shodow;
+  max-height: 20vh;
+  width: 60vw;
+  overflow-y: scroll;
+
+  padding-bottom: .75em;
+  p {
+    margin-top: 0;
+    padding-top: 0;
+    margin-right: 0.5em;
+  }
+
+  .post-overlay {
+    width: 100%;
+    // height: 100%;
+    height: auto;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    background-color: rgba(255,255,255,.6);
+
+    img {
+      height: 80%;
+      width: auto;
+      margin: auto;
+      // opacity: 1;
+    }
+  }
+
+  .post-left {
     display: grid;
-    grid-template-columns: .25fr 1fr;
-
-    position: relative;
-    margin-left: 10%;
-    margin-right: 10%;
-    border-radius: 1em;
-    background-color: $application-gray;
-    @extend %drop-shodow;
-    height: fit-content;
-    p {
-        margin-top: 0;
-        padding-top: 0;
-        margin-right: 0.5em;
+    grid-template-rows: .5fr .5fr;
+    .post-left-top {
+      display: flex;
+      justify-content: center;
+      #user-icon {
+        @extend %profile-picture;
+        margin-top: 0.5em;
+      }
     }
+    .post-left-bottom {
+      display: flex;
+      justify-content: center;
+      #like-button {
+        width: 2.7em;
+        margin-top: 0.5em;
+        align-self: center;
+        cursor: pointer;
+      }
+    }
+  }
 
-    .post-overlay {
-        width: 100%;
-        height: 100%;
-        position: absolute;
+  .post-right {
+    display: grid;
+    grid-template-rows: .1fr .7fr;
+    height: auto;
+    .post-right-top {
+      grid-row: 1;
+      max-height: 1vh;
+      max-height: 100%;
+      .post-right-top-h {
+        float: left;
+      }
+      h5, h6 {
+        margin: 0;
+      }
+    }
+    .post-right-bottom {
+      display: grid;
+      grid-template-rows: auto auto;
+      margin-top: 1em;
+      max-height: auto;
+      .post-right-bottom-p {
+        grid-row: 1;
+        float: left;
+        text-align: left;
+        margin: 0;
+        max-height: 20%;
+        color: $application-blue;
+      }
+      .post-img-div {
+        grid-row: 2;
+      }
+      .post-img {
+        grid-row: 2;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-        background-color: rgba(255,255,255,.6);
-
-        img {
-          height: 80%;
-          width: auto;
-          margin: auto;
-          // opacity: 1;
-        }
+        float: left;
+        max-width: 75%;
+        height: auto;
+        margin-top: 1em;
+        border-radius: 7%;
+        @extend %drop-shodow;
+      }
+      .post-vid {
+        grid-row: 2;
+        display: flex;
+        float: left;
+        max-width: 75%;
+        height: auto;
+        margin-top: 1em;
+        border-radius: 7%;
+        @extend %drop-shodow;
+      }
     }
+  }
 
-    .post-left {
-        display: grid;
-        grid-template-rows: .5fr .5fr;
-        .post-left-top {
-            display: flex;
-            justify-content: center;
-            #user-icon {
-              @extend %profile-picture;
-              margin-top: 0.5em;
-            }
-        }
-        .post-left-bottom {
-            display: flex;
-            justify-content: center;
-            #like-button {
-                width: 2.7em;
-                margin-top: 0.5em;
-                align-self: center;
-                cursor: pointer;
-            }
-        }
-    }
-
-    .post-right {
-        display: grid;
-        grid-template-rows: .1fr .7fr;
-        max-height: 100%;
-        .post-right-top {
-            margin-top: 0.5em;
-            max-height: 1vh;
-            max-height: 100%;
-            .post-right-top-h {
-                float: left;
-            }
-            h5, h6 {
-                margin: 0;
-            }
-        }
-        .post-right-bottom {
-            padding-top: 1vh;
-            display: flex;
-            .post-right-bottom-p {
-                float: left;
-                text-align: left;
-            }
-        }
-    }
-
-    .hidden {
-      display: none;
-    }
+  .hidden {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

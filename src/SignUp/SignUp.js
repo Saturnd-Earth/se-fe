@@ -29,7 +29,6 @@ export function SignUp() {
     }).then( response => {
       history.push('/')
       showMap()
-      console.log(response)
     })
     .catch( err => {
       console.log(err)

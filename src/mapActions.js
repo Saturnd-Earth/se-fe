@@ -1,12 +1,12 @@
 import { makeCircle } from './helperFx.js'
 
 const RING_SIZES = [
-    [0, 1], [1, 2], [2, 4], [4,8],
-    [8, 16], [16, 32], [32, 64], [64, 128],
-    [128, 256], [256, 512], [512, 1024],
-    [1024, 2000], [2000, 4000], [4000, 6000],
-    [6000, 8000], [8000, 10000], [10000, 12500]
-  ];
+  [0, 1], [1, 2], [2, 4], [4,8],
+  [8, 16], [16, 32], [32, 64], [64, 128],
+  [128, 256], [256, 512], [512, 1024],
+  [1024, 2000], [2000, 4000], [4000, 6000],
+  [6000, 8000], [8000, 10000], [10000, 12500]
+];
 
 export function addLike (center = window.earthMap.center, radius = 200, color = "#fa66ba") {
   const like = new window.google.maps.Circle({
@@ -36,6 +36,27 @@ export function addRing (center = window.earthMap.center, innerRadius = 100, out
   });
   ring.setMap(window.earthMap);
   window.earthRings.push(ring)
+}
+
+export function addShowPosition (center) {
+  if (window.thisPosition) window.thisPosition.setMap(null)
+  let icon = 'https://www.google.com/mapfiles/marker_white.png';
+  let position = new window.google.maps.Marker({
+    position: center,
+    map: window.earthMap,
+    icon: icon
+  })
+  window.thisPosition = position;
+
+  window.google.maps.event.addListener(window.earthMap, 'zoom_changed', () => {
+    if (window.thisPosition) window.thisPosition.setMap(null)
+    let position = new window.google.maps.Marker({
+      position: center,
+      map: window.earthMap,
+      icon: icon
+    })
+    window.thisPosition = position;
+  })
 }
 
 export function hideMap() {
@@ -70,12 +91,11 @@ export function setZoomToMaxDisplay() {
   let height = mapDiv.offsetHeight
   let width = mapDiv.offsetWidth
   let minDim = Math.min(width, height)
-  let biggestRatio = minDim / 256
-  window.earthMap.setZoom(biggestRatio)
+  let smallestRatio = (minDim / 256) + 2.5
+  window.earthMap.setZoom(smallestRatio)
 }
 
 export function shrinkToHalf() {
-  console.log('SHRINK');
   let mapDiv = document.getElementById('map');
   mapDiv.style.position = 'relative'
 }
@@ -87,7 +107,6 @@ export function showMap() {
 }
 
 export function spreadToFull() {
-  console.log('SPREAD');
   let mapDiv = document.getElementById('map');
   mapDiv.style.position = 'static'
 }
