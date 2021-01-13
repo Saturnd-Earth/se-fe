@@ -1,5 +1,7 @@
 import { createMemoryHistory } from 'history'
 import Login from './Login.js'
+import { LOG_IN } from '../requests.js'
+import { MockedProvider } from '@apollo/client/testing';
 import { Router } from "react-router-dom"
 import React from 'react'
 import { render, screen } from '@testing-library/react'
@@ -8,14 +10,36 @@ import userEvent from '@testing-library/user-event'
 
 describe('Login', () => {
 
+
   let button, history, passwordInput, userNameInput;
   beforeEach(() => {
 
+    const mocks = [
+      {
+        request: {
+          query: LOG_IN,
+          variables: {username: 'User', password: 'pw'}
+        },
+        result: {
+          "data":{
+            "user":[
+              {
+                "id":"14",
+              },
+            ]
+          }
+        }
+      }
+    ];
+
     history = createMemoryHistory()
+
     render(
-      <Router history={history}>
-        <Login />
-      </Router>
+      <MockedProvider mocks={mocks} addTypename={false}>
+        <Router history={history}>
+          <Login />
+        </Router>
+      </MockedProvider>
     )
 
     userNameInput = screen.getByPlaceholderText('username')
@@ -30,13 +54,13 @@ describe('Login', () => {
   })
 
   it('should submit user credentials when `login` button is clicked', () => {
-    userEvent.type(userNameInput, 'admin')
-    userEvent.type(passwordInput, 'password')
+    userEvent.type(userNameInput, 'User')
+    userEvent.type(passwordInput, 'pw')
     userEvent.click(button)
 
     setTimeout(() => {
       expect(history.entries[1].pathname).toEqual('/');
     }, 5000)
-    
+
   })
 });

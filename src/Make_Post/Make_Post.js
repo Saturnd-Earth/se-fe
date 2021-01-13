@@ -37,7 +37,7 @@ const Make_Post = (props) => {
     .then( () => {
       setLoadingPos(false)
       showMap()
-      history.push('/')
+      history.push('/se-fe')
     })
     .catch( err => {
       console.log(err);

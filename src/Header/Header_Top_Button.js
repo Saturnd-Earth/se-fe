@@ -11,7 +11,7 @@ export default function Header_Top_Button(props) {
   if (props.userData === null) {
     return (
       <section className='header-top-buttons'>
-      <NavLink to='/signup' className='header-top-buttons'>
+      <NavLink to='/se-fe/signup' className='header-top-buttons'>
       <button className='logon sign-up'>
           <img
             src={signup}
@@ -24,7 +24,7 @@ export default function Header_Top_Button(props) {
           </div>
         </button>
       </NavLink>
-      <NavLink to='/login' className='header-top-buttons'>
+      <NavLink to='/se-fe/login' className='header-top-buttons'>
         <button className='logon login'>
           <img
             src={login}
@@ -42,7 +42,7 @@ export default function Header_Top_Button(props) {
   } else {
     return (
       <section className='header-top-buttons logout-section'>
-        <button 
+        <button
           className='logon logout'
           onClick={() => props.setUserData({id: null, username: null})}
         >

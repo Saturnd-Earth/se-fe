@@ -12,7 +12,7 @@ import post from '../images/post-white.png'
 export default function Header_Bottom_Button() {
   return(
     <section className='header-bottom'>
-      <NavLink to='/' label="home" exact activeClassName="selected" onClick={ showMap }>
+      <NavLink to='/se-fe' label="home" exact activeClassName="selected" onClick={ showMap }>
         <img
           src={home}
           alt='Home'
@@ -20,7 +20,7 @@ export default function Header_Bottom_Button() {
           id='home-icon'
         />
       </NavLink>
-      <NavLink to="/make_post" label="my post" activeClassName="selected" onClick={ hideMap }>
+      <NavLink to='/se-fe/make_post' label="my post" activeClassName="selected" onClick={ hideMap }>
         <img
           src={post}
           alt='Add a post'
@@ -29,7 +29,7 @@ export default function Header_Bottom_Button() {
           onClick={ showMap }
         />
       </NavLink>
-      <NavLink to="/my_post" label="my post" activeClassName="selected" onClick={ showMap }>
+      <NavLink to='/se-fe/my_post' label="my post" activeClassName="selected" onClick={ showMap }>
           <img
             src={feed}
             alt='Your feed'
@@ -38,7 +38,7 @@ export default function Header_Bottom_Button() {
             onClick={ showMap }
           />
       </NavLink>
-      <NavLink to="/earth" label="show all rings" activeClassName="selected" onClick={ hideMap }>
+      <NavLink to='/se-fe/earth' label="show all rings" activeClassName="selected" onClick={ hideMap }>
           <img
             src={earth}
             alt='Your awards'

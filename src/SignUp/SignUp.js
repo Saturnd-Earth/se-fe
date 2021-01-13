@@ -27,7 +27,7 @@ export function SignUp() {
         password
       }
     }).then( response => {
-      history.push('/')
+      history.push('/se-fe')
       showMap()
     })
     .catch( err => {

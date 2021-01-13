@@ -1,13 +1,13 @@
 import { act } from 'react-dom/test-utils';
 import { createMemoryHistory } from 'history'
-import { MockedProvider } from '@apollo/client/testing';
 import Feed from './Feed.js'
-import { Router } from "react-router-dom"
+import { GET_FEED } from '../requests.js'
+import { MockedProvider } from '@apollo/client/testing';
 import React from 'react'
+import { Router } from "react-router-dom"
 import { render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import userEvent from '@testing-library/user-event'
-import { GET_ALL_POSTS } from '../requests.js'
 
 describe('Feed', () => {
 
@@ -15,7 +15,7 @@ describe('Feed', () => {
     const mocks = [
       {
         request: {
-          query: GET_ALL_POSTS,
+          query: GET_FEED,
           variables: {}
         },
         result: {
@@ -48,16 +48,16 @@ describe('Feed', () => {
     ];
 
     render(
-      <MockedProvider>
-          <Feed mocks={mocks} addTypename={false}/>
+      <MockedProvider mocks={mocks} addTypename={false}>
+          <Feed position={{lat: 1, lng: 2}}/>
       </MockedProvider>
     )
   })
 
   it('should display a loading message by default', () => {
 
-    let loadingText = screen.getByText('LOADING POSTS...')
-    expect(loadingText).toBeInTheDocument()
+    let loading = screen.getByTestId('loading component')
+    expect(loading).toBeInTheDocument()
   })
 
   it('should be able to fetch a post', async () => {
@@ -78,7 +78,7 @@ describe('Feed', () => {
       let content2 = screen.getByText('Content2');
       let nextBtn = screen.getByText('Next');
       let prevBtn = screen.getByText('Previous');
-      
+
       act( () => userEvent.click(nextBtn) )
       expect(content2).toBeInTheDocument()
       act( () => userEvent.click(nextBtn) )

@@ -33,7 +33,7 @@ function Login(props) {
   if(data){
     showMap()
     props.setUserData(data.signinUser.user)
-    history.push('/')
+    history.push('/se-fe')
   }
 
   return (

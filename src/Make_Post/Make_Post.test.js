@@ -1,7 +1,9 @@
 import { createMemoryHistory } from 'history'
 import { MockedProvider } from '@apollo/client/testing';
 import Make_Post from './Make_Post.js'
-import Make_Post_Input from './Make_Post_Input.js'
+import Comment from './Post_Forms/Comment.js'
+import Image from './Post_Forms/Image.js'
+import Video from './Post_Forms/Video.js'
 import { Router } from "react-router-dom"
 import React from 'react'
 import { render, screen, waitFor } from '@testing-library/react'
@@ -11,23 +13,26 @@ import { USER_SIGNUP } from '../requests.js'
 
 describe('Make_Post', () => {
 
-  describe('Make_Post_Input', () => {
+  describe('Comment', () => {
 
     it('should display a comment form by default', () => {
       render(
         <MockedProvider mocks={[]} addTypename={false}>
-            <Make_Post_Input />
+            <Comment />
         </MockedProvider>
       )
 
       let textBox = screen.getByPlaceholderText('Type your post here!')
       expect(textBox).toBeInTheDocument()
     })
+  })
 
-    it('should be able to display a url form', () => {
+  describe('Image', () => {
+
+    it('should be able to display an Image form', () => {
       render(
         <MockedProvider mocks={[]} addTypename={false}>
-            <Make_Post_Input commentInput={2}/>
+            <Image />
         </MockedProvider>
       )
 
@@ -39,12 +44,29 @@ describe('Make_Post', () => {
     })
   });
 
+  describe('Video', () => {
+
+    it('should be able to display an Video form', () => {
+      render(
+        <MockedProvider mocks={[]} addTypename={false}>
+            <Video />
+        </MockedProvider>
+      )
+
+      let textBox = screen.getByPlaceholderText('Add A Title To Your Video')
+      expect(textBox).toBeInTheDocument()
+
+      let urlBox = screen.getByPlaceholderText('input your video link!')
+      expect(urlBox).toBeInTheDocument()
+    })
+  });
+
   describe('Make_Post', () => {
 
     it('should display render correctly', () => {
       render(
         <MockedProvider mocks={[]} addTypename={false}>
-            <Make_Post/>
+            <Make_Post userData={{id: 1, username: 'User'}}/>
         </MockedProvider>
       )
 
@@ -70,7 +92,7 @@ describe('Make_Post', () => {
     it('should switch forms when clicking buttons', async ()=> {
       render(
         <MockedProvider mocks={[]} addTypename={false}>
-            <Make_Post/>
+            <Make_Post userData={{id: 1, username: 'User'}}/>
         </MockedProvider>
       )
 

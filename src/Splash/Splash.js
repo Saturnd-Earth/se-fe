@@ -27,7 +27,7 @@ export default function Splash(props) {
 
   data.posts.forEach( (post, i) => {
     window.setTimeout( () => {
-      if (history.location.pathname === '/earth') {
+      if (history.location.pathname === '/se-fe/earth') {
         spreadToFull()
         let { latitude, longitude, ringMinMax } = post
         let [min, max] = ringMinMax.slice(1, -1).split(', ')

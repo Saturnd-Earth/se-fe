@@ -10,7 +10,6 @@ import prev from '../images/prev-mixed.png'
 import next from '../images/next-mixed.png'
 
 export default function Feed(props) {
-  console.log(props)
     let {loading, error, data } = useQuery(GET_FEED, {
       variables: {
         latitude: props.position.lat || 0,
@@ -27,7 +26,7 @@ export default function Feed(props) {
         <h1>There are no posts for your area. Be the first!</h1>
       )
     }
-    console.log(data)
+
     let { createdAt, id, likes, latitude, longitude, postType, ringMinMax, url, text } = data.postsUserCanIncrease[postIndex]
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}

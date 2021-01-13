@@ -23,7 +23,7 @@ describe('Header', () => {
     history = createMemoryHistory()
     render(
       <Router history={history}>
-        <Header />
+        <Header userData={{id:1, username: 'Debug'}}/>
       </Router>
     )
   })
@@ -69,38 +69,38 @@ describe('Header', () => {
     setTimeout(() => {
       let postNav = screen.getByAltText('Add a post')
     userEvent.click(postNav)
-    // await waitFor( () => 
-    expect(history.entries[1].pathname).toEqual('/make_post') 
+    // await waitFor( () =>
+    expect(history.entries[1].pathname).toEqual('/make_post')
     // )
 
     let feedNav = screen.getByAltText('Your feed')
     userEvent.click(feedNav)
-    // await waitFor( () => 
-    expect(history.entries[2].pathname).toEqual('/my_post') 
+    // await waitFor( () =>
+    expect(history.entries[2].pathname).toEqual('/my_post')
     // )
 
     let awardsNav = screen.getByAltText('Your awards')
     userEvent.click(awardsNav)
-    // await waitFor( () => 
-    expect(history.entries[3].pathname).toEqual('/awards') 
+    // await waitFor( () =>
+    expect(history.entries[3].pathname).toEqual('/awards')
     // )
 
     let signUpNav = screen.getByAltText('Sign up')
     userEvent.click(signUpNav)
-    // await waitFor( () => 
-    expect(history.entries[4].pathname).toEqual('/signup') 
+    // await waitFor( () =>
+    expect(history.entries[4].pathname).toEqual('/signup')
     // )
 
     let loginNav = screen.getByAltText('Log in')
     userEvent.click(loginNav)
-    // await waitFor( () => 
-    expect(history.entries[5].pathname).toEqual('/login') 
+    // await waitFor( () =>
+    expect(history.entries[5].pathname).toEqual('/login')
     // )
 
     let homeNav = screen.getByAltText('Home')
     userEvent.click(homeNav)
-    // await waitFor( () => 
-    expect(history.entries[6].pathname).toEqual('/') 
+    // await waitFor( () =>
+    expect(history.entries[6].pathname).toEqual('/')
     // )
     }, 2000)
   })

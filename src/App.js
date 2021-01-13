@@ -56,7 +56,7 @@ export default function App() {
         setUserData= {setUserData}
         userData= {userData}
       />
-      <Route exact path='/' render={ () =>
+      <Route exact path='/se-fe' render={ () =>
         <section className="home">
           <Feed
             position={position}
@@ -64,7 +64,7 @@ export default function App() {
           />
         </section>
       }/>
-      <Route exact path='/make_post' render={ () =>
+      <Route exact path='/se-fe/make_post' render={ () =>
         <section className="make-post">
           <MakePost
             position={position}
@@ -72,7 +72,7 @@ export default function App() {
           />
         </section>}
       />
-      <Route exact path='/my_post' render={ () =>
+      <Route exact path='/se-fe/my_post' render={ () =>
         <section className="view-post">
           <YourPosts
             myPostsPage={true}
@@ -81,17 +81,17 @@ export default function App() {
           />
         </section>}
       />
-      <Route exact path='/earth' render={ () =>
+      <Route exact path='/se-fe/earth' render={ () =>
         <section className="awards">
           <Splash center={position}/>
         </section>}
       />
-      <Route exact path='/signup' render={ () =>
+      <Route exact path='/se-fe/signup' render={ () =>
         <section className="signup">
           <SignUp/>
         </section>}
       />
-      <Route exact path='/login' render={ () =>
+      <Route exact path='/se-fe/login' render={ () =>
         <section className="login">
           <Login setUserData= {setUserData}/>
         </section>}
