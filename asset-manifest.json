@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/se-fe/static/css/main.541dd926.chunk.css",
-    "main.js": "/se-fe/static/js/main.3f1a8e65.chunk.js",
-    "main.js.map": "/se-fe/static/js/main.3f1a8e65.chunk.js.map",
-    "runtime-main.js": "/se-fe/static/js/runtime-main.ea0232ed.js",
-    "runtime-main.js.map": "/se-fe/static/js/runtime-main.ea0232ed.js.map",
-    "static/js/2.ca8f6679.chunk.js": "/se-fe/static/js/2.ca8f6679.chunk.js",
-    "static/js/2.ca8f6679.chunk.js.map": "/se-fe/static/js/2.ca8f6679.chunk.js.map",
-    "index.html": "/se-fe/index.html",
-    "static/css/main.541dd926.chunk.css.map": "/se-fe/static/css/main.541dd926.chunk.css.map",
-    "static/js/2.ca8f6679.chunk.js.LICENSE.txt": "/se-fe/static/js/2.ca8f6679.chunk.js.LICENSE.txt",
-    "static/media/loading.62f2095c.png": "/se-fe/static/media/loading.62f2095c.png",
-    "static/media/ring-icon.3428ce93.png": "/se-fe/static/media/ring-icon.3428ce93.png",
-    "static/media/se-logo.764623de.png": "/se-fe/static/media/se-logo.764623de.png"
+    "main.css": "/Saturnd-Earth/se-fe/static/css/main.541dd926.chunk.css",
+    "main.js": "/Saturnd-Earth/se-fe/static/js/main.3f1a8e65.chunk.js",
+    "main.js.map": "/Saturnd-Earth/se-fe/static/js/main.3f1a8e65.chunk.js.map",
+    "runtime-main.js": "/Saturnd-Earth/se-fe/static/js/runtime-main.579402d1.js",
+    "runtime-main.js.map": "/Saturnd-Earth/se-fe/static/js/runtime-main.579402d1.js.map",
+    "static/js/2.ca8f6679.chunk.js": "/Saturnd-Earth/se-fe/static/js/2.ca8f6679.chunk.js",
+    "static/js/2.ca8f6679.chunk.js.map": "/Saturnd-Earth/se-fe/static/js/2.ca8f6679.chunk.js.map",
+    "index.html": "/Saturnd-Earth/se-fe/index.html",
+    "static/css/main.541dd926.chunk.css.map": "/Saturnd-Earth/se-fe/static/css/main.541dd926.chunk.css.map",
+    "static/js/2.ca8f6679.chunk.js.LICENSE.txt": "/Saturnd-Earth/se-fe/static/js/2.ca8f6679.chunk.js.LICENSE.txt",
+    "static/media/loading.62f2095c.png": "/Saturnd-Earth/se-fe/static/media/loading.62f2095c.png",
+    "static/media/ring-icon.3428ce93.png": "/Saturnd-Earth/se-fe/static/media/ring-icon.3428ce93.png",
+    "static/media/se-logo.764623de.png": "/Saturnd-Earth/se-fe/static/media/se-logo.764623de.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ea0232ed.js",
+    "static/js/runtime-main.579402d1.js",
     "static/js/2.ca8f6679.chunk.js",
     "static/css/main.541dd926.chunk.css",
     "static/js/main.3f1a8e65.chunk.js"
