@@ -20,6 +20,7 @@ const Make_Post = () => {
   const history = useHistory();
   const [sendPost] = useMutation(CREATE_POST);
   const [loadingPos, setLoadingPos] = useState(false)
+  const [signedIn, setSignedIn] = useState(true);
 
   const post = async () => {
       setLoadingPos(true)
@@ -46,6 +47,25 @@ const Make_Post = () => {
         }
     )
   }
+
+
+let onClickCallBack = signedIn ? () => {
+  return <button
+          className={'make-post-button2'}
+          disabled={loadingPos}
+          disabled= {true}
+        >
+          Please Sign In To Make A Post
+        </button>
+} : () => {
+  return <button
+          className={!loadingPos ? 'make-post-button' : 'make-post-button2'}
+          disabled={loadingPos}
+          onClick={() => post()}
+        >
+          Post
+        </button>
+}; 
 
   return (
     <section className='make-post-section'>
@@ -104,13 +124,7 @@ const Make_Post = () => {
         </div>
         {commentInput()}
       </div>
-      <button
-        className={!loadingPos ? 'make-post-button' : 'make-post-button2'}
-        disabled={loadingPos}
-        onClick={() => post()}
-      >
-        Post
-      </button>
+      {onClickCallBack()}
     </section>
   )
 }

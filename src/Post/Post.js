@@ -2,13 +2,15 @@ import blueLike from '../images/like-blue.png';
 import { CREATE_LIKE, DESTROY_LIKE } from '../requests';
 import defaultLike from '../images/like-white.png';
 import gdate from 'gdate'
+import { increaseRingSize } from '../mapActions.js'
 import loading from '../images/loading.png';
 import { makeCircle } from '../helperFx.js'
-import React, { useState }  from 'react';
+import React, { useState, useEffect }  from 'react';
 import { useMutation } from '@apollo/client';
 import '../Scss/base.scss';
 
 export function Post(props) {
+
   let [isLiked, setIsLiked] = useState(false)
   let [loadingPos, setLoadingPos] = useState(false)
   let [sendNewLike] = useMutation(CREATE_LIKE);
@@ -107,7 +109,7 @@ export function Post(props) {
                       />
                     ) : (
                       <iframe 
-                      className="Video"
+                      className="post-vid"
                       max-width='75%' 
                       height='auto' 
                       src={props.url}
