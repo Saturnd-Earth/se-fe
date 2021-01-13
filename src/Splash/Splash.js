@@ -10,9 +10,6 @@ export default function Splash(props) {
   let history = useHistory();
 
   useEffect( () => {
-    if(window.earthMap) {
-      window.earthMap.setMapTypeId('satellite');
-    }
     return shrinkToHalf
   })
 

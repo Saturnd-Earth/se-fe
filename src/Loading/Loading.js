@@ -3,7 +3,7 @@ import loadingImg from '../images/loading.png';
 
 export default function Loading() {
   return (
-    <div className='post-overlay'>
+    <div className='post-overlay' style={{"display": "flex"}}>
       <img
         className='spin'
         alt='Updating the Post'
