@@ -12,7 +12,6 @@
 
 <a name="about"></a>
 
-[Back to Main](#mainContents)
 <ul>
     <li>Saturn'd Earth is a social media application that captures the user's latitude and longitude and displays a ring on the map where the post was made. If anyone near the post "likes" the post the ring will grow larger. Saturn'd Earth tracks each post, and crosses the globe one like at a time, where only the rarified few encircle the globe.</li>
 </ul>
