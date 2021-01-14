@@ -25,7 +25,8 @@
 
 <a name="successes"></a>
 
-[Back to Main](#mainContents)<br>
+[Back to Main](#mainContents)
+
 The site is able to do the following:
 <ul>
     <li>Log the user in.</li>
