@@ -25,18 +25,16 @@
 
 <a name="successes"></a>
 
-[Back to Main](#mainContents)
+[Back to Main](#mainContents)<br/>
+The site is able to do the following:
 <ul>
-    <li>The site is able to do the following:
-    <ul>
-        <li>Log the user in.</li>
-        <li>Let the user make a post that consists of text or a link to a video or photo</li>
-        <li>Display: 
-            <ul>
-                <li>The user's feed</li>
-                <li>The user's posts</li>
-            </ul>
-    </ul>
+    <li>Log the user in.</li>
+    <li>Let the user make a post that consists of text or a link to a video or photo</li>
+    <li>Display: 
+        <ul>
+            <li>The user's feed</li>
+            <li>The user's posts</li>
+        </ul>
 </ul>
 
 ### Links to the Authors
