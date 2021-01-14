@@ -1,7 +1,6 @@
 <a name="mainContents"></a>
 
 # [Saturn'd Earth](https://saturnd-earth.github.io/se-fe/)
-[Back end](https://github.com/Saturnd-Earth/se-be)
 > A js project by [Michael Walker](https://github.com/MichaelEWalker87), [Matthew Lane](https://github.com/GreyMatteOr), and [Christopher Castanuela](https://github.com/Chriscastanuela?tab=repositories)
 
 # Contents 
@@ -45,4 +44,5 @@ The site is able to do the following:
         </ul>
 </ul>
 
+[Link to the back end](https://github.com/Saturnd-Earth/se-be)
 [Back to Main](#mainContents)
