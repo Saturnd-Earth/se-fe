@@ -31,8 +31,6 @@ Deployed site linked [here](https://saturnd-earth.github.io/se-fe/)!
 
 <a name="successes"></a>
 
-[Back to Main](#mainContents)
-
 The site is able to do the following:
 <ul>
     <li>Log the user in.</li>
@@ -44,5 +42,5 @@ The site is able to do the following:
         </ul>
 </ul>
 
-[Link to the back end](https://github.com/Saturnd-Earth/se-be)
+[Link to the back end](https://github.com/Saturnd-Earth/se-be) <br>
 [Back to Main](#mainContents)
