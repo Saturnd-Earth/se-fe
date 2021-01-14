@@ -20,6 +20,8 @@
 
 Deployed site linked [here](https://saturnd-earth.github.io/se-fe/)!
 
+![gif](https://user-images.githubusercontent.com/62910433/104645633-87384280-566c-11eb-9f53-2fc1f5820174.gif)
+
 <img width="1427" alt="Screen Shot 2021-01-13 at 6 26 15 PM" src="https://user-images.githubusercontent.com/65369751/104536362-d464d780-55cc-11eb-96d4-a8fcf82fd88c.png">
 
 <img width="1427" alt="Screen Shot 2021-01-13 at 6 28 04 PM" src="https://user-images.githubusercontent.com/65369751/104536525-155cec00-55cd-11eb-9d92-3d07d5bafb61.png">
