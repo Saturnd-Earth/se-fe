@@ -22,7 +22,6 @@ const client = new ApolloClient({
   uri: 'https://be-saturnd-earth.herokuapp.com/graphql',
 });
 client.cache.config.resultCaching = false;
-console.log(client.cache)
 
 ReactDOM.render(
   <ApolloProvider client={client}>

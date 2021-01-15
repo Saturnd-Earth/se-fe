@@ -21,7 +21,6 @@ export default function Feed(props) {
 
     useEffect( () => {
       if (reload) {
-        console.log('didFetch')
         getFeed({
           variables: {
             latitude: props.position.lat,
@@ -30,13 +29,12 @@ export default function Feed(props) {
         })
         setReload(false)
         return () => {
-          console.log(history)
           if (history.location.pathname !== '/se-fe')
           setReload(true)
         }
       }
     }, [reload])
-    console.log(data)
+
     if (loading) return <Loading/>
     if (error) return <Error message='Hmm... Something went wrong while fetching posts for you.'/>
     if (!data || !data.postsUserCanIncrease || data.postsUserCanIncrease.length === 0) {
