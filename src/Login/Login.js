@@ -32,10 +32,12 @@ function Login(props) {
   if(loading) return <Loading />
 
   if(data && !error){
-    showMap()
-    props.setUserData(data.signinUser.user)
+    let userData = data.signinUser.user
+    window.localStorage.setItem('user', JSON.stringify( userData ))
+    props.setUserData(userData)
     window.setTimeout( () => {
       history.push('/se-fe')
+      showMap()
     }, 0)
     return <></>
   }

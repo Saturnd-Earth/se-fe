@@ -16,7 +16,9 @@ import React, { useState, useEffect } from 'react';
 import YourPosts from './Your_Posts/Your_Posts';
 
 export default function App() {
-  const [userData, setUserData] = useState({id: null, username: null});
+  let blank = {id: null, username: null};
+  let previousSessionData = JSON.parse(window.localStorage.getItem('user'))
+  const [userData, setUserData] = useState( previousSessionData || blank );
   const [position, setPosition] = useState(null)
 
   window.navigator.geolocation.getCurrentPosition(

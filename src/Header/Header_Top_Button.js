@@ -44,7 +44,10 @@ export default function Header_Top_Button(props) {
       <section className='header-top-buttons logout-section'>
         <button
           className='logon logout'
-          onClick={() => props.setUserData({id: null, username: null})}
+          onClick={() => {
+            props.setUserData({id: null, username: null})
+            window.localStorage.removeItem('user')
+          }}
         >
           <img
             src={logout}

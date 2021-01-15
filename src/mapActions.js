@@ -101,22 +101,19 @@ export function setZoomToFitCenter(userCenter, ringCenter) {
   let n = Math.max(userCenter.lat, ringCenter.lat())
   let e = Math.max(userCenter.lng, ringCenter.lng())
   let w = Math.min(userCenter.lng, ringCenter.lng())
-  console.log(n, e, s, w)
   var allowedBounds = new window.google.maps.LatLngBounds(
   	new window.google.maps.LatLng(n, w),	// top left corner of map
   	new window.google.maps.LatLng(s, e)	// bottom right corner
   );
 
-  let k = 1.0;
-  n = allowedBounds .getNorthEast().lat() - k;
-  e = allowedBounds .getNorthEast().lng() - k;
-  s = allowedBounds .getSouthWest().lat() + k;
-  w = allowedBounds .getSouthWest().lng() + k;
-  console.log(n, e, s, w)
+  let k = Math.min( Math.max((e - w), .014), 1 );
 
+  n = allowedBounds .getNorthEast().lat() + k;
+  e = allowedBounds .getNorthEast().lng() + k;
+  s = allowedBounds .getSouthWest().lat() - k;
+  w = allowedBounds .getSouthWest().lng() - k;
   let neNew = new window.google.maps.LatLng( n, e );
   let swNew = new window.google.maps.LatLng( s, w );
-  console.log(ne, sw)
   let boundsNew = new window.google.maps.LatLngBounds( swNew, neNew );
   window.earthMap .fitBounds(boundsNew);
 }

@@ -7,33 +7,22 @@ import Loading from '../Loading/Loading.js';
 import { Post } from '../Post/Post.js';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useLazyQuery } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
 import prev from '../images/prev-mixed.png'
 import next from '../images/next-mixed.png'
 
 export default function Feed(props) {
-    let [getFeed, {loading, error, data}] = useLazyQuery(GET_FEED);
+    let {loading, error, data} = useQuery(GET_FEED, {
+      variables: {
+        latitude: props.position.lat,
+        longitude: props.position.lng
+      }
+    });
     let [needNewRing, setNeedNewRing] = useState(true)
     let [postIndex, setPostIndex] = useState(0)
     let [reload, setReload] = useState(true)
     let history = useHistory();
-
-    useEffect( () => {
-      if (reload) {
-        getFeed({
-          variables: {
-            latitude: props.position.lat,
-            longitude: props.position.lng
-          }
-        })
-        setReload(false)
-        return () => {
-          if (history.location.pathname !== '/se-fe')
-          setReload(true)
-        }
-      }
-    }, [reload])
 
     if (loading) return <Loading/>
     if (error) return <Error message='Hmm... Something went wrong while fetching posts for you.'/>
@@ -77,7 +66,6 @@ export default function Feed(props) {
       setZoomToFitCenter(props.position, center)
       addRing( center, min, max )
       setNeedNewRing(false)
-
       removeAllLikes()
       likes.forEach( like => addLike( {lat: latitude, lng: longitude} ))
     }
