@@ -33,7 +33,10 @@ export function Post(props) {
         setIsLiked(!isLiked)
         increaseRingSize(props.ring[1], props.center)
       })
-      .catch( err => console.log('No one likes.' + err))
+      .catch( err => {
+        setLoadingPos(false)
+        console.log('No one likes.' + err)
+      })
     }
 
     function unlike() {
@@ -46,9 +49,13 @@ export function Post(props) {
           }
         })
         .then( () => {
+          setLoadingPos(false)
           setIsLiked(!isLiked)
         })
-        .catch( err => console.log('No one likes.' + err))
+        .catch( err => {
+          setLoadingPos(false)
+          console.log('No one likes.' + err)
+        })
       }
     }
 

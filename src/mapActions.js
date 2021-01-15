@@ -96,6 +96,7 @@ export function setZoomToMaxDisplay() {
 }
 
 export function setZoomToFitCenter(userCenter, ringCenter) {
+  if (document.querySelector('.gm-err-title')) return
   let s = Math.min(userCenter.lat, ringCenter.lat())
   let n = Math.max(userCenter.lat, ringCenter.lat())
   let e = Math.max(userCenter.lng, ringCenter.lng())
@@ -105,7 +106,7 @@ export function setZoomToFitCenter(userCenter, ringCenter) {
   	new window.google.maps.LatLng(s, e)	// bottom right corner
   );
 
-  let k = 5.0;
+  let k = 1.0;
   n = allowedBounds .getNorthEast().lat() - k;
   e = allowedBounds .getNorthEast().lng() - k;
   s = allowedBounds .getSouthWest().lat() + k;

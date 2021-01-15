@@ -1,7 +1,7 @@
-import { addRing, removeAllRings } from '../mapActions.js'
+import { addRing, hideMap, removeAllRings, showMap } from '../mapActions.js'
 import { GET_USER_POSTS } from '../requests.js'
 import Loading from '../Loading/Loading.js'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../Scss/base.scss';
 import { useQuery } from '@apollo/client';
 import { Post } from '../Post/Post.js';
@@ -9,6 +9,11 @@ import { Post } from '../Post/Post.js';
 export default function YourPosts(props) {
     let {loading, error, data } = useQuery(GET_USER_POSTS, {
         variables: { userId: +props.userData.id },
+    })
+
+    useEffect( () => {
+      hideMap()
+      return showMap
     })
 
     if (props.userData.id === null) return <h1>Please sign in to access this feature!</h1>

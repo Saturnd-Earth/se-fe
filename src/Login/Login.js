@@ -20,7 +20,6 @@ function Login(props) {
   let login = (e) => {
     e.preventDefault();
     let {username, password} = input;
-    console.log(username, password)
     userLogin({
       variables: {
         username,
@@ -35,7 +34,10 @@ function Login(props) {
   if(data && !error){
     showMap()
     props.setUserData(data.signinUser.user)
-    history.push('/se-fe')
+    window.setTimeout( () => {
+      history.push('/se-fe')
+    }, 0)
+    return <></>
   }
 
   return (

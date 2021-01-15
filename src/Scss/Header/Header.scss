@@ -19,7 +19,6 @@
 .header-text {
     font-family: 'Damion', cursive;
     grid-column: 2;
-    justify-self: left;
     align-self: center;
     font-size: 4em;
     padding: 0;
@@ -28,6 +27,8 @@
     color: lighten($color:$application-blue, $amount: 15%);
     grid-row-start: 1;
     justify-self: center;
+    transition-property: text-shadow;
+    transition-duration: 2s;
 }
 
 .header-bottom {

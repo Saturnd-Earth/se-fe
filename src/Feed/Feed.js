@@ -1,33 +1,76 @@
-import { addLike, addRing, removeAllLikes, removeAllRings, setZoomToFitCenter } from '../mapActions.js';
-import { cycleIndex } from '../helperFx.js'
+import { addLike, addRing, hideMap, removeAllLikes, removeAllRings, setZoomToFitCenter } from '../mapActions.js';
+import { cycleIndex } from '../helperFx.js';
+import Error from '../Error/Error.js';
 import { GET_FEED } from '../requests.js';
-import Loading from '../Loading/Loading.js'
+import { Link } from 'react-router-dom';
+import Loading from '../Loading/Loading.js';
 import { Post } from '../Post/Post.js';
-import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useLazyQuery } from '@apollo/client';
 
 import prev from '../images/prev-mixed.png'
 import next from '../images/next-mixed.png'
 
 export default function Feed(props) {
-    let {loading, error, data } = useQuery(GET_FEED, {
-      variables: {
-        latitude: props.position.lat || 0,
-        longitude: props.position.lng || 0
-      }
-    });
+    let [getFeed, {loading, error, data}] = useLazyQuery(GET_FEED);
     let [needNewRing, setNeedNewRing] = useState(true)
     let [postIndex, setPostIndex] = useState(0)
+    let [reload, setReload] = useState(true)
+    let history = useHistory();
 
+    useEffect( () => {
+      if (reload) {
+        console.log('didFetch')
+        getFeed({
+          variables: {
+            latitude: props.position.lat,
+            longitude: props.position.lng
+          }
+        })
+        setReload(false)
+        return () => {
+          console.log(history)
+          if (history.location.pathname !== '/se-fe')
+          setReload(true)
+        }
+      }
+    }, [reload])
+    console.log(data)
     if (loading) return <Loading/>
-    if (error) return <h1>Hmm... something went wrong.</h1>
+    if (error) return <Error message='Hmm... Something went wrong while fetching posts for you.'/>
     if (!data || !data.postsUserCanIncrease || data.postsUserCanIncrease.length === 0) {
       return (
-        <h1>There are no posts for your area. Be the first!</h1>
+        <>
+          <h1>There are no posts for your area. Be the first!</h1>
+            <Link to="/se-fe/make_post">
+              <button
+                onClick={ hideMap }
+                style={{
+                  "backgroundColor": "#C4C4C4b3",
+                  "borderRadius": "1em",
+                  "color": "#006c92",
+                  "cursor": "pointer",
+                  "fontSize": "1em",
+                  "justifySelf": "center"
+              }}>Click here to make a post!</button>
+            </Link>
+          </>
       )
     }
 
-    let { createdAt, id, likes, latitude, longitude, postType, ringMinMax, url, text } = data.postsUserCanIncrease[postIndex]
+    let {
+      createdAt,
+      id,
+      likes,
+      latitude,
+      longitude,
+      postType,
+      ringMinMax,
+      url,
+      text
+    } = data.postsUserCanIncrease[postIndex]
+
     let [min, max] = ringMinMax.slice(1, -1).split(', ').map( char => +char )
     let center = {lat: () => latitude, lng: () => longitude}
 
