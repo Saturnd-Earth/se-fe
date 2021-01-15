@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+<a name="mainContents"></a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# [Saturn'd Earth](https://saturnd-earth.github.io/se-fe/)
+> A js project by [Michael Walker](https://github.com/MichaelEWalker87), [Matthew Lane](https://github.com/GreyMatteOr), and [Christopher Castanuela](https://github.com/Chriscastanuela?tab=repositories)
 
-## Available Scripts
+# Contents 
 
-In the project directory, you can run:
+* [About](#about)
+* [Successes](#successes)
 
-### `npm start`
+# About 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<a name="about"></a>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<ul>
+    <li>Saturn'd Earth is a social media application that captures the user's latitude and longitude and displays a ring on the map where the post was made. If anyone near the post "likes" the post the ring will grow larger. Saturn'd Earth tracks each post, and crosses the globe one like at a time, where only the rarified few encircle the globe.</li>
+</ul>
 
-### `npm test`
+## Final Version
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Deployed site linked [here](https://saturnd-earth.github.io/se-fe/)!
 
-### `npm run build`
+![gif](https://user-images.githubusercontent.com/62910433/104645633-87384280-566c-11eb-9f53-2fc1f5820174.gif)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<img width="1427" alt="Screen Shot 2021-01-13 at 6 26 15 PM" src="https://user-images.githubusercontent.com/65369751/104536362-d464d780-55cc-11eb-96d4-a8fcf82fd88c.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="1427" alt="Screen Shot 2021-01-13 at 6 28 04 PM" src="https://user-images.githubusercontent.com/65369751/104536525-155cec00-55cd-11eb-9d92-3d07d5bafb61.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1427" alt="Screen Shot 2021-01-13 at 6 23 25 PM" src="https://user-images.githubusercontent.com/65369751/104536178-6fa97d00-55cc-11eb-8b1d-5a2d15fa0653.png">
 
-### `npm run eject`
+## Successes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<a name="successes"></a>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The site is able to do the following:
+<ul>
+    <li>Log the user in.</li>
+    <li>Let the user make a post that consists of text or a link to a video or photo</li>
+    <li>Display: 
+        <ul>
+            <li>The user's feed</li>
+            <li>The user's posts</li>
+        </ul>
+</ul>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Link to the back end](https://github.com/Saturnd-Earth/se-be) <br>
+[Back to Main](#mainContents)
